@@ -1,0 +1,38 @@
+.bar {
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #d7e8f8;
+    background-color: #eff7ff;
+}
+
+.content{
+    margin: 0 auto;
+    width: 90%;
+}
+
+table {
+    width: 100%;
+}
+
+table th {
+    font-weight: bold;
+    text-align: left;
+}
+
+table td, table th {
+    line-height: 30px;
+    padding: 0px 4px;
+    font-size: 10pt;
+    color: #000000;
+}
+
+.separated th, .separated td {
+    border:1px solid #000000;
+}
+
+.print-title{
+    margin: 10px 0;
+    text-align: center;
+    font-size: 30px;;
+    font-weight: bolder;
+}

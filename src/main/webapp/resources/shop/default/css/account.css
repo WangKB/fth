@@ -1,0 +1,250 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+.center{
+	width: 100%;
+}
+.centers{
+	margin: 0 auto;
+	width: 1190px;	
+}
+
+.cenLeft ul li {
+    margin: 5px 0;
+    color: #333333;
+    font-size: 13px;
+}
+
+.cenLeft ul li.white{
+    margin-bottom: 15px;
+    padding: 3px 5px;
+    font-size: 14px;
+}
+
+.orderCenter a{
+	text-align: center;
+	line-height: 20px;
+	color: #ffffff;
+}
+.orderCenter{
+	background-color: #fbc400;
+	width:91px;
+	height: 20px;
+}
+.font a{
+	font-weight:normal;
+	font-size: 12px;
+	color: #333333;
+}
+/**主体**/
+
+.accountRight{
+	margin-top:20px;
+	width: 1070px;
+	float: left;
+}
+
+.accountRightTop{
+	height: 25px;
+}
+.accountRightTop   label  {
+	margin-left:15px;
+	font-family: '雅黑';
+	color:#FBC400;
+	font-weight:bold;
+	font-size: 16px;
+	margin-right: 16px;
+}
+.accountRight li{
+	float: left;
+	list-style: none;
+}
+
+.accountRightTopLower{
+	height: 30px;
+	line-height: 30px;
+}
+.accountRightTopLower  a{
+	margin-left:14px;
+	color:#9A9A9A;
+	font-weight:bold;
+	font-size: 13px;
+	margin-right: 8px;
+	background-color:#ffffff;
+	border: #fbc400 0px solid;
+}
+.accountRightTopLower .checked{
+	color:#e60012;
+}
+.accountRightCenter{
+	top:15px;
+	width: 1070px;
+	height:90px;
+	float: left;
+	background-color:#FCE3A1;
+	display: inline-block;
+	border-radius: 10px;
+	position:relative;
+}
+.accountNumber{
+	margin-top:30px;
+	margin-left:75px;
+	width: 200px;
+	height:30px;
+	float: left;
+	background-color:#ffffff;
+	display: inline-block;
+	border:#e60012 1px solid;
+	border-radius: 2px;
+}
+.ftx04{
+	color:#e60012;
+}
+.accountBalance{
+	margin-top:3px;
+	margin-left:20px;
+	width: 65px;
+	height:24px;
+	float: left;
+	font-family: '雅黑;
+	font-size: 13px;
+	background-color:#ffffff;
+	border: #fbc400 0px solid;
+}
+.accountNum{
+	width: 85px;
+	height:28px;
+	float: left;
+	margin-left:15px;
+	color:#e60012 ;
+	font-weight:bold;
+	font-size: 18px;
+	background-color:#ffffff;
+	border: #fbc400 0px solid;
+}
+.accountRightCenter li{
+	margin-left:20px;
+	font-weight:bold;
+	color:#76746D;
+	font-size: 14px;
+	margin-top:40px;
+}
+.accountRightCenter li.viewGift{
+	margin-left:150px;
+	
+}
+
+.exchangeButton{
+	margin-top:27px;
+	width: 100px;
+	height:35px;
+	font-size: 14px;
+	color:#ffffff;
+	background-color:#E20615;
+	border: #fbc400 1px solid;	
+	border-radius: 6px;
+	overflow: hidden; 
+}
+#godMoneyButton{
+	margin-left:325px;
+}
+#pointButton{
+	margin-left:40px;
+}
+.record{
+	position:relative;
+	top:30px;
+	height:30px;
+	width: 1070px;
+	float: left;
+}
+.record li{
+	margin-left:14px;
+	color:#9A9A9A;
+	font-weight:bold;
+	font-size: 13px;
+	background-color:#ffffff;
+	border: #fbc400 0px solid;
+}
+.accountList{
+	position:relative;
+	top:30px;
+	height:539px;
+	width: 1070px;
+	float: left;
+}
+.accountTest{
+	top:5px;
+	height:440px;
+	width: 1070px;
+	float: left;
+}
+.accountTest table{
+	color:#9A9A9A;
+	font-size: 14px;
+	border: #dddddd 1px solid;
+	width: 1070px;
+	text-align:center;
+}
+.accountTest  .accountListFist td{
+	padding-top:10px;
+}
+.accountListFist{
+	background-color:#F8F6E6;
+	height:35px;
+	color:#666666;
+	border-bottom:1px solid #dddddd ;
+}
+.accountListContent {
+	height:50px;
+	
+}
+.accountTest  .accountListContent td{
+	padding-top:20px;
+	font-size: 14px;
+}
+.contentOut{
+	width: 70px;
+}
+.contentIn{
+	width:230px;
+	border-bottom: #dddddd 1px solid;
+}
+.bold{
+	font-weight:bold;
+}
+.remark{
+	font-size: 15px;
+	font-weight:bold;
+	color:#E5A75F;
+}
+.pageChange{
+	position:relative;
+	margin-top:23px;
+	top:1px;
+	width: 1070px;
+	float: left;
+}
+.pageChange li{
+	padding-top:5px;
+	text-align: center;
+	font-size: 14px;
+	border: #E1E1E1 1px solid;	
+	border-radius: 2px;
+}
+
+.pageChange .checked{
+	color:#FBC503;
+}
+
+#viewTheGift{
+	color:#2B90BC;
+	font-size: 14px;
+}
+
+.no-data{
+    margin-top: 20px;
+    text-align: center;
+}

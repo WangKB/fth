@@ -1,0 +1,79 @@
+.orderReview{
+	margin: 0 auto;
+	width:500px;
+}
+
+.centerTop{
+	margin-top:20px;"
+}
+
+.centerTop textarea{
+	resize: none;
+	width:100%;
+}
+
+.imgTips{
+	padding : 10px 0;
+	font-size:13px;
+}
+
+#addImg{
+	cursor:pointer;
+}
+
+.reviewSubmitWrap{
+	float: right;
+	margin-right: 20px;
+}
+
+.reviewSubmit{
+	display:inline-block;
+    padding: 7px 21px;
+	background-color: #fbc503;
+	border: 1px solid #e4a45a;
+	color:#ffffff;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.reviewSubmit:hover{
+	cursor:pointer;
+}
+
+#reviewForm{
+	float: left;
+}
+
+#contractForm{
+	float:left;
+	width:46px;
+	height:46px;
+}
+
+.centerCen li{
+	position:relative;
+	margin-right:5px;
+	display:inline-block;
+	width:46px;
+	height:46px;
+}
+
+.centerCen li bb{
+	position: absolute;
+	top:0;
+	right: 0;
+	background: url("../img/icon/XX.png");
+	display: none;
+    width: 26px;
+    height: 26px;
+}
+
+.centerCen li:hover bb{
+	display: inline-block;
+	cursor:pointer;
+}
+
+.centerCen li img{
+	width:100%;
+	height:100%;
+}

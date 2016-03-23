@@ -1,0 +1,220 @@
+html,body{
+    height : 100%;
+}
+body{
+	width:100%;
+	min-width:1190px;
+}
+
+header{
+    height: 60px;
+    padding: 25px 0;
+    text-align: center;
+    background-color: #fbc400;
+    min-width:1190px;
+}
+
+header div{
+    width: 1190px;
+    height: 110px;
+    margin: auto auto;
+}
+
+header ul{
+    margin: auto auto;
+    width: 600px;
+}
+
+header ul li{
+    display: block;
+    float: left;
+}
+
+.input-bg{
+    margin-left: 30px;
+    padding: 5px 0 5px 5px;
+    background-image: url("../img/input-background.png");
+    background-repeat: repeat;
+    text-align: left;
+}
+
+.input-bg input{
+    width: 211px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 8px;
+}
+
+.input-bg .search-bt{
+	display:block;
+	margin: 0 10px ;
+	float:right;
+    width: 80px;
+    height: 28px;
+    border-radius: 0;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.input-bg .search-bt a{
+	display:inline-block;
+	margin-top: 4px;
+	background-image: url("../img/icon/search_icon.png");
+	background-repeat: no-repeat;
+	width:22px;
+	height:22px;
+}
+
+.input-bg .search-bt:hover  a{
+    background-position: -22px 0;
+}
+
+.toindex{
+    text-align: center;
+}
+
+.downicon{
+    display: inline-block;
+    margin:  0 auto;
+    width: 61px;
+    height: 16px;
+    background-image: url("../img/downicon.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/** 分页样式 **/
+
+.pagination {
+	height: 20px;
+	float: right;
+	padding: 10px 0px;
+}
+
+.pagination a, .pagination span {
+	height: 18px;
+	line-height: 18px;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+	margin-right: 2px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+	outline: none;
+	blr: expression(this.hideFocus = true);
+}
+
+.pagination a {
+	padding: 0px 5px;
+	border: 1px solid #cccccc;
+}
+
+.pagination a:hover {
+	border: 1px solid #fd6d01;
+}
+
+.pagination a.previousPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/icon/list.gif)0px -180px no-repeat;
+}
+
+.pagination span.previousPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/icon/list.gif)-30px -180px no-repeat;
+}
+
+.pagination a.nextPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/icon/list.gif)0px -210px no-repeat;
+}
+
+.pagination span.nextPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/icon/list.gif)-30px -210px no-repeat;
+}
+
+.pagination a.firstPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/icon/list.gif)-60px -180px no-repeat;
+}
+
+.pagination span.firstPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/icon/list.gif) -90px -180px no-repeat;
+}
+
+.pagination a.lastPage {
+	width: 18px;
+	padding: 0px;
+	background: url(../img/icon/list.gif)-60px -210px no-repeat;
+}
+
+.pagination span.lastPage {
+	width: 18px;
+	cursor: default;
+	border: 1px solid #cccccc;
+	background: url(../img/icon/list.gif)-90px -210px no-repeat;
+}
+
+.pagination span.currentPage {
+	padding: 0px 5px;
+	color: #fd6d01;
+	font-weight: bold;
+	cursor: default;
+	border: 1px solid #fd6d01;
+	background-color: #ffede1;
+}
+
+.pagination .pageBreak {
+	padding: 0px 5px;
+	color: #3366cc;
+	cursor: default;
+}
+
+.pagination .pageSkip {
+	padding: 0px 3px;
+	color: #666666;
+}
+
+.pagination .pageSkip input {
+	width: 20px;
+	height: 18px;
+	line-height: 18px;
+	padding: 0px;
+	margin: 0px 2px;
+	text-align: center;
+	vertical-align: top;
+	*vertical-align: middle;
+	ime-mode: disabled;
+	border: 1px solid #cccccc;
+}
+
+.pagination .pageSkip button {
+	width: 20px;
+	height: 20px;
+	vertical-align: top;
+	*vertical-align: middle;
+	cursor: pointer;
+	outline: none;
+	blr: expression(this.hideFocus = true);
+	border: 0px;
+	background: url(../img/icon/list.gif)-120px -210px no-repeat;
+}

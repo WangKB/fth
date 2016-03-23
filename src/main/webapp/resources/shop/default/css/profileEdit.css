@@ -1,0 +1,559 @@
+#heardImg{
+	position:relative;
+	height: 120px;
+	margin-top:65px;
+	margin-left:35px;
+	background-repeat: no-repeat;
+}
+
+#heardImg img{
+	height:112px;
+	width:112px;
+	border-radius: 80px;
+	border: 4px solid #dddddd;
+}
+
+#updateHeard{
+	position:absolute;
+	bottom:0;
+	right:0;
+	padding:8px 30px;
+	background-color: #fbc400;
+	border: 2px solid  #e4a45a;
+	border-radius: 5px;
+	color: #ffffff;
+	font-weight:bold;
+}
+
+#updateHeard:hover{
+    cursor: pointer;
+    background-color: #e6b403;
+}
+
+.ftx04{
+    color: #F00;
+}
+
+.fonts{
+	font-size: 15px;
+	color: #666666;
+	display:-moz-inline-box;
+	display:inline-block;
+	width:80px;
+	text-align: right;
+}
+
+#birthBody{
+	color:#D1D1D1;
+}
+
+#hobbyTypebody{
+	margin-left: 10px;
+	font-size: 14px;
+	color:#7A7A7A;
+}
+
+#hobbyType{
+	height: initial;
+}
+
+#hobbyType ul{
+    padding-left: 99px;
+}
+
+#checkType{
+	font-size: 14px;
+}
+
+
+#birthdayYear{
+	margin-left: 10px;
+}
+
+#birth select{
+	padding: 0 5px;
+	height:24px;
+	width: 70px;
+}
+
+.hobby-items{
+	margin-top: 10px;
+	float: left;
+	width: 106px;
+	overflow: hidden; 
+}
+
+.hobby-items input , #sex input{
+	vertical-align: sub;
+}
+
+.fontInput{
+	border:#dddddd 1px solid;
+	margin-left:10px;
+	width: 250px;
+	height: 25px;
+}
+
+.fontInputAddress{
+	border:#dddddd 1px solid;
+	margin-left:10px;
+	width: 250px;
+	height: 25px;
+}
+
+#pwd{
+	margin-top: 15px;	
+}
+
+.userinfo-update{
+	margin-left:30px;
+	ont-size: 12px;
+	color: #50A5CC;
+	line-height: 26px;
+	background-color:#ffffff;
+}
+
+.userinfo-update:hover{	 
+	cursor: pointer;
+  	 color:#fbc400 ;
+} 
+
+#updateMember-submit{
+	width: 80px;
+	margin-top:25px;
+    background-color: #fbc400;
+    border: 1px solid #e4a45a;
+    margin-left: 20px;
+    display: inline-block;
+    height: 30px;
+    font-size: 16px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#updateMember-submit:hover{
+	cursor: pointer;
+}
+
+#profileEdit{
+    margin: 0 auto;
+    width: 500px;
+}
+
+#profileEdit .highlight1{
+    border: 1px solid #7ABD54;
+}
+
+#dyMobileCode_error , #dyEmailButton_error{
+    position: absolute;
+    top:33px;
+    left: 80px;
+}
+
+#profileEdit .highlight2{
+    border: 1px solid #FF0000;
+}
+
+.hide{
+    display: none;
+}
+#submit{
+	height:73px;
+}
+
+.item-ifo  .error{
+	position: absolute;
+    line-height: 25px;
+    height: 25px;
+    top: 0px;
+    margin-left:0px;
+    width: 250px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.item-ifo .focus{
+	position: absolute;
+    line-height: 25px;
+    height: 25px;
+    top: 0px;
+    margin-left:0px;
+    width: 250px;
+    background: #F7F7F7;
+    border: 1px solid #dddddd;
+}
+
+.item-ifo  .null{
+	position: absolute;
+    line-height: 25px;
+    height: 25px;
+    top: 0px;
+   	margin-left:0px;
+    width: 250px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.item-ifo{
+	top: 10px;
+	height:28px;
+	position:relative;
+    margin: 10px 0;
+}
+
+.item-ifo input[type=text]{
+    padding: 0px 5px;
+}
+
+/*changeArea*/
+.font{
+    color:#666666;
+}
+
+.layui-layer-title {
+	 background-color: #DDDDDD;
+}
+
+.fontsInput{
+	padding:0 5px;
+	font-size: 14px;
+    height:24px;
+    width:180px;
+    color:#000000;
+    border:1px solid #dddddd;
+}
+
+.changeEmailArea_item{
+	position:relative;
+	margin:25px 0;
+	border: none;
+	width: 385px;
+	height: 30px;
+}
+.changeEmailArea_item #label:hover {
+	cursor: pointer;
+}
+
+.changeEmailArea_item  .error{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 120px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.changeEmailArea_item  .focus{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 120px;
+    background: #F7F7F7;
+    border: 1px solid #dddddd;
+}
+
+.changeEmailArea_item .null{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 120px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+#emailBody,#phoneBody,#pawBody,#addressBody{
+	border: none;
+}
+
+
+.changeEmailArea .highlight1{
+    border: 1px solid #7ABD54;
+}
+
+.changeEmailArea .highlight2{
+    border: 1px solid #FF0000;
+}
+
+#newEmailDiv{
+	margin-left:32px;
+}
+#emailCodeDiv  .focus{
+	 line-height: 24px;
+    height: 24px;
+   	width: 70px;
+    background: #F7F7F7;
+    border: 1px solid #dddddd;
+    
+}
+#emailCodeDiv  .error{
+	 line-height: 24px;
+    height: 24px;
+    width: 70px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+} 
+    
+#emailCodeDiv  .null{
+	line-height: 24px;
+    height: 24px;
+    width: 70px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+#emailCodeDiv{
+	margin-left:10px;
+}
+
+.fontsInputEmailCode{
+	height:22px;
+    width:55px;
+    font-size: 15px;
+    border:1px solid #dddddd;
+}
+
+.changePhoneArea_item{
+	position:relative;
+    margin:29px 0;
+    border: none;
+    width: 385px;
+}
+
+.changePhoneArea_item #label:hover {
+	cursor: pointer;
+}
+
+.changePhoneArea_item  .error{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 120px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.changePhoneArea_item  .focus{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 120px;
+    background: #F7F7F7;
+    border: 1px solid #dddddd;
+}
+.changePhoneArea_item .null{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 120px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.changePhoneArea .highlight1{ 
+    border: 1px solid #7ABD54;
+}
+
+.changePhoneArea .highlight2{
+    border: 1px solid #FF0000;
+}
+
+.changePhoneArea .select-opt-btn {
+	position: static;
+}
+
+#newPhoneDiv{
+	margin-left:32px;
+}
+#mobileCodeDiv{
+	margin-left:10px;
+}
+
+.fontsInputMobileCode{
+	height:22px;
+    width:55px;
+    font-size: 15px;
+    border:1px solid #dddddd;
+}
+
+#mobileCodeDiv  .focus{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+   	width: 70px;
+    background: #F7F7F7;
+    border: 1px solid #dddddd;
+}
+#mobileCodeDiv  .error{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 70px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+} 
+    
+#mobileCodeDiv  .null{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 70px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+#dyMobileButton , #dyEmailButton{
+    position: absolute;
+    display: inline-block;
+    margin-left:80px;
+	text-align: center;
+	height:28px;
+    line-height:24px;
+	width: 110px;
+    font-size: 14px;
+    color: #666666;
+    background-color: #f4f4f4;
+    border: 1px solid #a9a9a9;
+}
+
+#dyMobileButton:hover , #dyEmailButton:hover{
+    cursor: pointer;
+}
+
+#dymobileCode_error{
+	position: absolute;
+    font-size: 13px;
+    margin-top:10px;
+	margin-left:80px;
+}
+.changePwdArea_item{
+	position:relative;
+	margin:22px 0;
+	border: none;
+	width: 385px;
+	height: 30px;
+}
+.changePwdArea_item #label:hover {
+	cursor: pointer;
+}
+.changePwdArea_item .changePwd-save,.changePhone-save,.changeEmail-save,.changeAddress-save  {
+	width: 80px;
+    background-color: #fbc400;
+    border: 1px solid #e4a45a;
+    margin-left: 20px;
+    display: inline-block;
+    height: 30px;
+    line-height:30px;
+    font-size: 16px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    text-align: center;
+}
+.changePwdArea_item  .changePwd-cancel,.changePhone-cancel,.changeEmail-cancel ,.changeAddress-cancel {
+	margin-left: 20px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    text-align: center;
+   	width: 80px;
+    background-color: #cccccc;
+    border: 1px solid #cccccc;
+}
+.changePwdArea_item .changePwd-cancel:hover,.changePwd-save:hover,
+.changePhone-cancel:hover,.changePhone-save:hover,.changeEmail-cancel:HOVER,
+.changeEmail-save:HOVER ,.changeAddress-cancel:HOVER,.changeAddress-save:HOVER {
+	background-color: #fbc400;
+	border: 1px solid #e4a45a;
+	cursor: pointer;
+}
+
+.changePwdArea_item  .error{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+     width: 125px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.changePwdArea_item  .focus{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+   	width: 125px;
+    background: #F7F7F7;
+    border: 1px solid #dddddd;
+}
+
+.changePwdArea_item .null{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 120px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.changePwdArea .highlight1{
+    border: 1px solid #7ABD54;
+}
+
+.changePwdArea .highlight2{
+    border: 1px solid #FF0000;
+}
+#lastPwdDiv{
+	margin-left:30px;
+}
+#newPwdDiv{
+	margin-left:30px;
+}
+#enNewPwdDiv{
+	margin-left:17px;
+}
+.changePwdArea .select-opt-btn {
+	position: static;
+}
+
+.changeAddressArea_item{
+	position:relative;
+	margin: 22px 0 20px 20px;
+	border: none;
+	width: 385px;
+}
+.changeAddressArea_item  .error{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+     width: 145px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+
+.changeAddressArea_item  .focus{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+   	width: 145px;
+    background: #F7F7F7;
+    border: 1px solid #dddddd;
+}
+
+.changeAddressArea_item .null{
+	position: absolute;
+    line-height: 24px;
+    height: 24px;
+    width: 145px;
+    background: #FFEBEB;
+    border: 1px solid #ffbdbe;
+}
+#areaDiv{
+	margin-top:10px;
+	margin-left:20px;
+}
+
+#areaDiv select{
+	height:24px;
+}
+

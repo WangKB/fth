@@ -1,0 +1,19 @@
+.cenLeft{
+	width:120px;
+	padding-top:35px;
+	font-size: 14px; 
+	float: left;
+}
+.caidan{
+	width:100px;
+}
+.font a{
+	font-weight:normal;
+	font-size: 12px;
+	color: #FBC400;
+}
+
+.navigation_checked .white{
+	color: #fbc400;
+    font-weight: bold;
+}

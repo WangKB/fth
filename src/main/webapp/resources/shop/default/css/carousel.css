@@ -1,0 +1,128 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body { 
+    font: 11px Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+    width: 800px;
+    margin: 25px auto;
+}
+
+#intro {
+    padding-bottom: 10px;
+}
+
+#slider {
+    width: 1042px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.scroll {
+	overflow: hidden;
+	width: 1042px;
+    margin: 0 auto;
+    position: relative;
+	height:250px;
+}
+
+.scrollContainer {
+	position: relative;
+}
+
+.scrollContainer div.panel {
+	position:relative;
+    padding: 16px;
+    width: 176px;
+	height: 206px;
+}
+
+
+.inside {
+	padding: 10px 0;
+	float:left;
+}
+.insides {
+	position:absolute;
+	bottom:-14px;
+	left:5px;
+	right:5px;
+ 	background-image:url("../img/icon/titieGackground_bj.png");
+	height:60px;
+	display:none;
+}
+
+.insides h2{
+	text-align:center;
+	line-height:60px;
+	color:#ffffff;
+	font-size:12px;
+	font-weight: bold;	
+}
+
+.inside img {
+	display: block;
+	width: 180px;
+	height:206px;
+}
+
+
+a {
+	color: #999;
+	text-decoration: none;
+	/* border-bottom: 1px dotted #ccc; */
+}
+
+/* a:hover {
+	border-bottom: 1px solid #999;
+} */
+
+.scrollButtons {
+    position: absolute;
+    top: 127px;
+    cursor: pointer;
+}
+
+
+.scrollButtons.left {
+	height:100px;
+	width:40px;
+	/* background-image:url("../img/icon/toggleBackgroung.png"); */
+	background-color: #cfcfcf;
+    opacity: 0.4;
+    left: 0px;
+    top:63px;
+}
+
+.scrollButtons.right:HOVER{
+	opacity: 1;
+}
+.scrollButtons.left:HOVER{
+	opacity: 1;
+}
+.scrollButtons.right {
+	height:100px;
+	width:40px;
+	/* background-image:url("../img/icon/toggleBackgroung.png"); */
+	background-color: #cfcfcf;
+    opacity: 0.4;
+    right: 0px;
+    top:63px;
+}
+
+
+.hide {
+    display: none;
+}
+
+.panel:hover{
+	cursor:pointer;
+}
+
+.panel:hover .insides{
+	display:block;
+}

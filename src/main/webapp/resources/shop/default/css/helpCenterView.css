@@ -1,0 +1,172 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+/** 主体 */
+.w {
+    width: 1190px;
+    margin: 0 auto;
+}
+.main {
+    overflow: hidden;
+}
+.top{
+	width: 100%;
+	height: 153px;
+    min-width: 1190px;
+    background-color: #10a3ad;
+}
+.subside-box {
+    float: left;
+    width: 200px;
+    margin-right: 10px;
+}
+
+ol, ul {
+    list-style: none;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+.subside-list .list-item {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 25px;
+    border-bottom: 1px solid #faf8f9;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.subside-list .list-item a {
+    color: #333;
+}
+.top-warp{
+    margin: 0 auto;
+    width: 659px;
+    overflow: hidden;
+    height: 153px;
+    line-height: 153px;
+}
+.h3-title {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 49px;
+    margin-top: 20px;
+    width: 200px;
+    height: 49px;
+    background-color: #23d5e1;
+    font-family: "microsoft yahei";
+    font-weight: normal;
+}
+.on .icon02 {
+    border-width: 0 5px 5px;
+}
+.on .subside-cnt {
+    display: block;
+}
+.subside-cnt {
+    display: none;
+    background-color: #fff;
+}
+.subside-mod .title {
+	width: 185px;
+    height: 40px;
+    color: #666666;
+    line-height: 40px;
+    padding-left: 15px;
+    background-color: #eaeaea;
+    border-bottom: 1px solid #fff;
+    font-size: 14px;
+    font-family: "microsoft yahei";
+    font-weight: normal;
+    position: relative;
+    cursor: pointer;
+}
+
+.icon02 {
+    border-style: solid dashed solid dashed;
+    border-color: #999 transparent #999 transparent;
+    border-width: 5px 5px 0;
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+    overflow: hidden;
+}
+.content {
+    width: 980px;
+    float: left;
+    background-color: #fff;
+    height: 554px;
+    overflow-x: hidden
+}
+.content-ul{
+	margin-top: 20px;
+}
+.tab-list {
+    background-color: #eaeaea;
+    height: 35px;
+}
+.tab-list .list-item {
+	text-align: center;
+	color: #666666;
+	float: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 5px;
+    height: 35px;
+    line-height: 35px;
+}
+.title-content {
+	width: 965px;
+    height: 40px;
+    color: #666666;
+    line-height: 40px;
+    padding-left: 15px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #fff;
+    font-size: 14px;
+    font-family: "microsoft yahei";
+    font-weight: normal;
+    position: relative;
+}
+.title-content span{
+	color: #c00;
+}
+.subside-cnt p{
+	color: #666666;
+	padding-left:40px;
+	/* height: 25px; */
+    line-height: 25px;
+    font-size: 12px;
+    font-family: "microsoft yahei";
+    font-weight: normal;
+}
+.tab-list .list-itema {
+	text-align: center;
+	float: left;
+    font-size: 14px;
+    font-weight: normal;
+    height: 35px;
+    line-height: 35px;
+    width: 10px;
+}
+.center .footer{
+	margin-top:250px;
+	margin-right: 400px;
+}
+.title-content:HOVER{
+	cursor: pointer;
+}

@@ -1,0 +1,211 @@
+hr {
+	color:#dddddd;
+}
+
+.main{
+	width:1070px;
+	margin:0 auto;
+}
+.title{
+	color: #fbc400;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.titlebg{
+	height: 40px;
+	width:100%;
+	background-image: url("../img/demo/fankui_bj.png");
+	margin:0 auto;
+}
+.form{
+	width:100%;
+	margin:0 auto;
+	background-color: #f9f7e7;
+	font-size:12px;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+.form li {
+    margin-top: 3px;
+	height:30px;
+    line-height: 30px;
+}
+
+.form .info-lable {
+    height:20px;
+    line-height: 20px;
+}
+
+.left{
+    float: left;
+	width:170px;
+	text-align:right;
+	padding:20px 0px;
+}
+.right{
+    float: left;
+	width:900px;
+	padding:20px 0px;
+}
+
+.form li select{
+    height: 25px;
+    padding: 0 4px;
+    color: #666666;
+    border-radius: 3px;
+}
+
+input.text {
+    width: 210px;
+    height: 18px;
+    line-height: 18px;
+    padding: 2px 4px;
+    color: #666666;
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: #999999 #e1e1e1 #e1e1e1 #999999;
+}
+input, textarea, select, button {
+    font-size: 100%;
+    vertical-align: middle;
+    outline: none;
+}
+input, textarea, select, button {
+    font: 12px tahoma, Arial, Verdana, sans-serif;
+}
+input.text:hover {
+	border-color: #89c1ee;
+}
+
+input.text:focus {
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+	border-color: #66afe9;
+}
+
+input.text:disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	cursor: not-allowed;
+	background-color: #f8f8f8;
+}
+
+input.text:disabled:hover {
+	border: 1px solid;
+	border-color: #999999 #e1e1e1 #e1e1e1 #999999;
+}
+
+textarea.text {
+	width: 350px;
+	height: 120px;
+	padding: 4px;
+	color: #666666;
+	resize: none;
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	-moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid;
+	border-color: #999999 #e1e1e1 #e1e1e1 #999999;
+}
+
+textarea.text:hover {
+	border-color: #89c1ee;
+}
+
+textarea.text:focus {
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+	box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+	border-color: #66afe9;
+}
+
+textarea.text:disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	cursor: not-allowed;
+	background-color: #f8f8f8;
+}
+
+textarea.text:disabled:hover {
+	border: 1px solid;
+	border-color: #999999 #e1e1e1 #e1e1e1 #999999;
+}
+
+span.requiredField {
+    line-height: 28px;
+    margin-right: 2px;
+    color: #ff6d6d;
+    font-size: 10px;
+}
+.btn {
+    height: 33px;
+    width: 76px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fbc400;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+.btn:hover{
+	cursor:pointer;
+}
+
+.footer{
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+}
+
+.centerCen li{
+	position:relative;
+	margin-right:5px;
+	display:inline-block;
+	width:46px;
+	height:46px;
+}
+.centerCen{
+	float: left;
+}
+
+.centerCen li img {
+    width: 100%;
+    height: 100%;
+}
+
+.centerCen li bb{
+	position: absolute;
+	top:0;
+	right: 0;
+	background: url("../img/icon/XX.png");
+	display: none;
+    width: 26px;
+    height: 26px;
+}
+
+.centerCen li:hover bb{
+	display: inline-block;
+	cursor:pointer;
+}
+#addImg{
+	cursor:pointer;
+}

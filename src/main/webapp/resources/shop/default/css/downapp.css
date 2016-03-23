@@ -1,0 +1,59 @@
+.contentwarp{
+    width: 100%;
+    min-width: 1190px;
+    padding-top:100px;
+    background-color:#8cd0dc;
+}
+
+.content{
+    margin: 0 auto;
+    width: 1190px;
+    background-image: url("../img/appdownbg.png");
+    background-repeat: no-repeat;
+    height: 680px;
+    text-align: center;
+}
+
+.phoneimg{
+    float: left;
+    margin-top: 60px;
+    width: 48%;
+}
+
+.downcontent{
+    margin-top: 197px;
+    float: left;
+    width: 50%;
+    height: 300px;
+    text-align: left;
+}
+
+.down-opt{
+    margin-top: 50px;
+}
+
+.down-icon , .erwei-cion{
+    display: inline-block;
+    width: 40%;
+}
+
+.erwei-cion img{
+    width: 145px;
+    height: 145px;
+}
+
+.down-icon i{
+    display: block;
+    width: 210px;
+    height: 57px;
+    background-image: url("../img/icon/appdown-btn-icon.png");
+}
+
+.down-icon .android{
+    background-position: 0 0;
+}
+
+.down-icon .ios{
+    margin-top: 30px;
+    background-position: 0 -58px;
+}

@@ -1,0 +1,36 @@
+.main{
+	width:1100px;
+	height:500px;
+	background-color:#f8f6e6;
+	margin:50px auto 0;
+}
+.biglogo{
+	width:400px;
+	height:500px;
+	float: left;
+}
+.biglogo img{
+	margin: 120px 0 0 120px;
+}
+.line1{
+	font-weight:bold;
+	font-size:40px;
+	font-family: 'songti';
+	color:#333333;
+	margin:120px 0 0;
+	position:absolute;
+}
+.line2{
+	font-size:18px;
+	font-family: "Microsoft YaHei";
+	color:#666666;
+	margin:200px 0 0;
+	position:absolute;
+}
+.line3{
+	font-size:18px;
+	font-family: "Microsoft YaHei";
+	color:#e20415;
+	margin:260px 0 0;
+	position:absolute;
+}

@@ -1,0 +1,208 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.layui-layer-title{
+	display: none;
+}
+.center{
+	width: 100%;
+}
+
+.centers{
+	margin: 0 auto;
+	width: 1190px;	
+}
+
+.cenLeft ul li {
+    margin: 5px 0;
+    color: #333333;
+    font-size: 13px;
+}
+
+.cenLeft ul li.white{
+    margin-bottom: 15px;
+    padding: 3px 5px;
+    font-size: 14px;
+}
+
+.orderCenter a{
+	text-align: center;
+	line-height: 20px;
+	color: #ffffff;
+}
+.orderCenter{
+	background-color: #fbc400;
+	width:91px;
+	height: 20px;
+}
+.font a{
+	font-weight:normal;
+	font-size: 12px;
+	color: #333333;
+}
+.cenRight{
+	margin-top:0px;
+	width: 1050px;
+	float: left;
+}
+
+.state a{
+	color: #333;
+	font-family: 'yahei';
+}
+
+.orderdetail{
+	width: 96px;
+    height: 30px;
+    background-color: #FBC400;
+    border: 1px solid #fbc400;
+    line-height: 30px;
+    font-family: '雅黑';
+    font-size: 12px;
+}
+
+.state .checked{
+	color: #ec6942;
+	font-weight: bold;
+}
+
+.orderdetail a{
+	color:#fff;
+}
+.cenRights{
+	margin-top:30px;
+	width: 1042px;
+	float: left;
+}
+.cenRightTop{
+	width: 1070px;
+	float: left;
+	background-color: #f9f7e7;
+}
+
+.state{
+	margin-left:20px;
+	margin-top:30px;
+	width: 1050px;
+	height: 20px;
+}
+
+.cenRightCenter{
+	
+	margin-left:10px;
+	margin-top:18px;
+	width: 1050px;
+	height: 32px;
+	border-radius: 8px;
+	background-color: #fff;
+}
+.cenRightCenter td{
+	line-height: 32px;
+}
+.cenRightBottom{
+	margin-left:20px;
+	width: 1050px;
+    height: 560px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.cenRightBottom tr{
+	border-bottom: 1px solid #dddddd;	
+}
+.cenRightBottom td{
+	vertical-align: middle;
+}
+.btn{
+	width: 96px;
+	height: 30px;
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #FBC400;
+	border: 1px solid #fbc400;
+}
+
+.btn:HOVER{
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.orderdetail:HOVER{
+	font-size: 16px;
+	cursor: pointer;
+}
+.delete{
+	width: 96px;
+	height: 30px;
+	font-size: 14px;
+	color: #666666;
+	background-color: #F8F6E6;
+	border: 1px solid #fbc400;
+}
+
+
+.cenRightTop ul li{
+	cursor:pointer;
+	font-size:12px;
+	float: left;	
+	margin: 0px 8px;
+}
+.cenRightTop ul{
+	margin-top:30px;
+	margin-left: 15px;
+}
+.cur{
+	color: red;
+	font-weight: bold;
+}
+
+.taDa{
+	font-size: 14px;
+	color:#333333;
+}
+.mingcheng{
+	font-size: 14px;
+	font-weight:bold;
+	color:#333333;
+	max-width: 250px;
+	height: 60px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 60px;
+    cursor: pointer;
+}
+
+.jiage{
+	font-size: 14px;
+	font-weight:bold;
+	color:#333333;
+    line-height: 90px;
+}
+
+.mingcheng a{
+	color: #333333;
+}
+
+.zhuangtai{
+	font-size: 12px;
+	color:#fbc400;
+}
+.miaoshu{
+	font-size: 13px;
+	height:30px;
+	color:#666666;
+	max-width: 250px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	line-height: 30px;
+}
+.dindan{
+	font-size: 12px;
+	color:#333333;
+}
+
+.mingcheng-type{
+	color: #666666;
+}

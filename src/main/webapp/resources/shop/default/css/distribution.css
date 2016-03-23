@@ -1,0 +1,155 @@
+.content{
+	margin:10px auto;
+	width:1190px
+}
+
+.content-left{
+	float:left;
+	width:393px;	
+}
+
+.content-right{
+	float:right;
+	width:765px;	
+}
+
+.org-info{
+	padding:10px;
+	height: 180px;
+	overflow:hidden;
+	background-color:#f8f6e6; 
+}
+
+.org-info li{
+	clear:both;	
+}
+
+.desc-label{
+	float:left;
+	width: 62px;
+	color: #666666;	
+	line-height: 20px;
+}
+
+.desc-value{
+	float:left;
+	width: 305px;
+	color: #222222;
+	line-height: 20px;
+}
+
+.org-img img{
+	width:100%;
+	height:100%;
+}
+
+.org-name{
+	position: relative;
+	padding:10px 0;
+}
+
+.bg-name-img{
+	width:100%;;
+	height:103px;
+	background-image: url("../img/icon/organization-icon.png");
+	background-repeat: no-repeat;
+}
+
+.org-name-name{
+	position: absolute;
+	top: 60px;
+	left: 80px;
+    right: 52px;
+    text-align: center;
+    font-size:20px;
+}
+
+.content-right .title{
+	padding:10px;
+	border-bottom : 2px solid #fbc400;
+}
+
+.content-right .title span{
+	float:left;
+}
+
+.title-name{
+	line-height: 24px;
+	font-size: 15px;
+}
+
+.content-right .title .map{
+	float:right;
+	padding: 8px 10px ;
+	background-color: #fbc400;
+	color:#ffffff;
+	border: 1px solid #e4a45a;
+	border-radius: 5px;
+}
+
+.content-right .title .map:hover{
+	cursor:pointer;
+}
+
+.admin-item{
+	display: inline-block;
+	width:160px;
+}
+
+.admin-item .img-wrap{
+	display:inline-block;
+	margin-right: 5px;
+	width:72px;
+	height:72px;
+	vertical-align: middle;
+}
+
+.admin-item .img-wrap img{
+	width:100%;
+	height:100%;
+	border-radius: 72px;
+}
+
+.admin-item .userinfo{
+	display:inline-block;
+	line-height: 19px;
+	vertical-align: middle;
+}
+
+.org-user{
+	padding: 18px 0;
+	text-align: center;
+}
+
+.active-item{
+	padding: 4px 0;
+	border-bottom: 1px solid #dddddd;
+}
+
+.active-item span{
+	display:inline-block;
+	vertical-align: middle;
+}
+
+.active-item span img{
+	padding-right: 10px;
+	width:120px;
+	height:80px;
+}
+
+.act-label{
+	padding:3px;
+	font-size: 13px;
+    font-weight: bold;
+}
+
+.act-intr{
+	padding:3px;
+	color: #222222;
+	line-height: 15px;
+}
+
+.org-active{
+	height: 510px;
+	overflow:auto;
+}

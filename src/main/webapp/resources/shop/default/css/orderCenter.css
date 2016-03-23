@@ -1,0 +1,224 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+.center{
+	width: 100%;
+	height: 707px;
+}
+.centers{
+	margin: 0 auto;
+	width: 1190px;	
+}
+
+.cenLeft ul li {
+    margin: 5px 0;
+    color: #333333;
+    font-size: 13px;
+}
+
+.cenLeft ul li.white{
+    margin-bottom: 15px;
+    padding: 3px 5px;
+    font-size: 14px;
+}
+
+.orderCenter a{
+	text-align: center;
+	line-height: 20px;
+	color: #ffffff;
+}
+.orderCenter{
+	background-color: #fbc400;
+	width:91px;
+	height: 20px;
+}
+.font a{
+	font-weight:normal;
+	font-size: 12px;
+	color: #333333;
+}
+.cenRight{
+	margin-top:0px;
+	width: 1050px;
+	float: left;
+}
+
+.state a{
+	color: #999999;
+}
+
+.orderdetail{
+	width: 64px;
+    height: 20px;
+    background-color: #FBC400;
+    border: 1px solid #fbc400;
+    line-height: 20px;
+    text-align: center;
+}
+
+.state .checked{
+	color: #e60012;
+}
+
+.orderdetail a{
+	color:#fff;
+}
+.cenRights{
+	margin-top:30px;
+	width: 1042px;
+	float: left;
+}
+.cenRightTop{
+	width: 1070px;
+	height:691px;
+	background-color: #F8F6E6;
+}
+
+.state{
+	margin-left:20px;
+    width: 1050px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.cenRightCenter{
+	padding-left:20px;
+    position: relative;
+    top: 8px;	
+    height: 32px;
+	border-radius: 8px;
+	background-color: #fff;
+}
+.cenRightCenter td{
+	line-height: 32px;
+}
+.cenRightBottom{
+	margin-left:20px;
+}
+.cenRightBottom tr{
+	border-bottom: 1px solid #dddddd;	
+}
+.cenRightBottom td{
+    padding: 5px 0;
+	vertical-align: middle;
+}
+.btn{
+	width: 66px;
+	height: 22px;
+	line-height: 18px;
+	font-size: 12px;
+	color: #FFFFFF;
+	background-color: #FBC400;
+	border: 1px solid #fbc400;
+}
+
+.btn:HOVER{
+	cursor: pointer;
+}
+
+.orderdetail:HOVER{
+	cursor: pointer;
+}
+.delete{
+	width: 96px;
+	height: 30px;
+	font-size: 14px;
+	color: #666666;
+	background-color: #F8F6E6;
+	border: 1px solid #fbc400;
+}
+
+
+.cenRightTop ul li{
+	cursor:pointer;
+	font-size:12px;
+	float: left;	
+	margin: 0px 8px;
+}
+.cenRightTop ul{
+	margin-top:30px;
+	margin-left: 15px;
+}
+.productInfo{
+	padding:30px 20px;
+	float:left;	
+}
+.cur{
+	color: red;
+	font-weight: bold;
+}
+
+.taDa{
+	font-size: 14px;
+	color:#333333;
+}
+.mingcheng{
+    padding-top: 20px;
+	max-width: 250px;
+	font-size: 14px;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+    height: 70px;
+}
+
+.jiage{
+	font-size: 14px;
+	font-weight:bold;
+	color:#333333;
+    line-height: 90px;
+}
+
+.img{
+	margin-top: 2px;
+}
+
+.mingcheng a{
+	color: #333333;
+}
+
+.zhuangtai{
+	line-height: 90px;
+	font-size: 12px;
+	color:#fbc400;
+}
+
+.miaoshu{
+	padding: 3px 0;
+	font-size: 13px;
+	color:#666666;
+}
+
+.dindan{
+	margin-top: 4px;
+	font-size: 12px;
+	color:#333333;
+}
+.cenRightTopa li{
+	float: left;
+	list-style: none;
+}
+.cenRightTopa{
+    height: 30px;
+    line-height: 40px;
+}
+
+.cenRightTopa .checked{
+	color:#e60012;
+}
+
+.cenRightTopa a{
+	margin-left:25px;
+	font-family: '雅黑';
+	color:#666666;
+	font-size: 12px;
+	margin-right: 16px;
+}
+.returnlayer{
+	text-align: center;
+}
+.returnlayer th{
+	width:150px;
+}

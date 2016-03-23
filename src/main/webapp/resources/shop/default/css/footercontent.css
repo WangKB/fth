@@ -1,0 +1,39 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.contentwarp{
+    width: 100%;
+}
+
+.content{
+    margin: 0 auto;
+    width: 1190px;
+    margin-bottom: 100px;
+    padding: 30px 18px;
+    min-height: 358px;
+    _height: 358px;
+    color: #333;
+    line-height: 18px;
+}
+
+.content .tit {
+    margin-bottom: 30px;
+    font-size: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-family: "Microsoft Yahei";
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.content h3 {
+    margin: 20px 0 5px 0;
+}
+
+.content p {
+    text-indent: 2em;
+}

@@ -1,0 +1,300 @@
+.center{
+	width: 1190px;
+	margin:0 auto;
+	margin-top: 10px;
+	position:relative;
+	height:710px;
+}
+
+.clear{
+	margin:0 auto;
+	width: 1000px;
+	position:relative;
+	height:80px;
+}
+/** 浮动 **/
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.buy_nav{
+    position: relative;
+    margin-top:10px;
+    display: block;
+    float: left;
+    width: 140px;
+    color: #999999;
+    font-size: 15px;
+    text-align: center;
+}
+
+.buy_nav p{
+    margin: 20px 0;
+    height: 2px;
+    background-color: #c5d9e9;
+    border: #bed2e1 2px solid;
+}
+
+.buy_nav span{
+    position: absolute;
+    left: 55px;
+    top: 22px;
+    display: block;
+    border: #bed2e1 2px solid;
+    border-radius: 60px;
+    height: 26px;
+    line-height: 26px;
+    width: 26px;
+    background-color: #c5d9e9;
+    color: #ffffff;
+}
+
+.doned.buy_nav p{
+    background-color: #FDDC68;
+    border: #FDDC68 2px solid;
+}
+.doned.buy_nav span{
+    border: #FDDC68 2px solid;
+    background-color: #FDDC68;
+}
+.done.buy_nav p{
+    background-color: #fbc503;
+    border: #fbc503 2px solid;
+}
+
+
+.done.buy_nav span{
+    border: #fbc503 2px solid;
+    background-color: #fbc503;
+}
+
+/**主体**/
+.cashierList{
+    position: relative;
+    margin-top: 20px;
+    width: 1190px;
+    height:125px;
+    border: #fbc400 1px solid;
+    border-radius: 5px;
+    background-color: #f8f6e6;
+}
+
+.imgYes{
+    vertical-align: middle;
+}
+
+.cashier-content{
+    margin: 0 auto;
+    margin-top: 35px;
+    width: 600px;
+}
+
+.cashier-desc{
+    margin-left: 7px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 28px;
+}
+
+.cashierRemind {
+    font-size: 26px;
+    font-weight: bold;
+    color: #666666;
+}
+
+.cashierFinish {
+    position: relative;
+    font-size: 12px;
+    color: #666666;
+}
+.red{
+	color:#e60012;
+}
+
+.order-info{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 300px;
+    color: #666666;
+}
+
+.orderSn{
+    font-weight:bold;
+    font-size: 16px;
+   	color: #666666;
+}
+
+.orderAmount{
+    font-weight:bold;
+    font-size: 16px;
+   	color: #666666;
+}
+.cashierList input{
+	height:22px;
+	width:145px;
+	border:0px solid #000000;
+	background-color: #f8f6e6;
+    font-size: 16px;
+}
+
+.cashierOrderAmount{
+   color:#e60012;
+}
+
+.orderCenter{
+	height:24px;
+	width:100px;
+    color:#147ab6;
+    font-size:12px
+}
+.cashierType{
+	margin-top:35px;
+}
+.cashierTypeTop{
+	position:relative;
+	width: 1190px;
+	height:50px;
+}
+.cashierTypeTopBody{
+	  display: inline-block;
+	  margin-top:10px;
+	  margin-left:30px;
+	  font-size:20px;
+	  font-weight:bold;
+	  color:#333333;
+}
+.cashierTypeTopPrompt{
+	 display: inline-block;
+	 margin-left:5px;
+	  font-size:12px;
+	  color:#999999;
+}
+.cashierTypeHas{
+	margin:0 auto;
+	position:relative;
+	width: 1000px;
+	height:200px;
+}
+
+.cashierTypeLast{
+    margin: 0 auto;
+	width: 1190px;
+	height:70px;
+    text-align: center;
+}
+.paymentPlugin{
+    display: inline-block;
+	width: 450px;
+}
+
+.paymentPluginLabel {
+    display: inline-block;
+    height: 60px;
+    width: 153px;
+    vertical-align: middle;
+}
+
+.paymentPluginImg {
+    width: 153px;
+    height: 100px;
+}
+
+.paymentPluginImg img{
+    width: 100%;
+    height: 100%;
+}
+
+.cashierTypeLast .cashierTypeCanel {
+    height: 44px;
+    line-height: 40px;
+    display: inline-block;
+    border-radius: 4px;
+    text-align: center;
+    width: 140px;
+    color: #ffffff;
+    font-size: 16px;
+    background-color: #E20718;
+    border: 1px solid #E20718;
+}
+
+.cashierTypeLast .cashierTypeCanel:hover {
+    cursor: pointer;
+}
+
+/**弹出框**/
+.layui-layer-title {
+	 background-color: #F8F6E6;
+}
+.cashierConfirmFirst{
+	top:20px;
+	position:relative;
+	width: 440px;
+	height:80px;
+}
+.cashierConfirmCenter{
+	top:37px;
+	position:relative;
+	width: 440px;
+	height:72px;
+}
+.cashierConfirmBottom{
+	top:35px;
+	position:relative;
+	width: 440px;
+	height:15px;
+}
+.cashierConfirmFirstOn{
+	display: inline-block;
+    margin-top:20px;
+	margin-left: 100px;
+   	font-weight:bold;
+   	font-size:20px;
+    color:#666666;
+}
+.cashierConfirmFirstDown{
+	display: inline-block;
+    margin-top:18px;
+	margin-left: 37px;
+   	font-size:13px;
+}
+.confirmFinish{
+	height: 40px;
+    line-height: 30px;
+	margin-left: 83px;
+    display: inline-block;
+ 	border-radius: 4px;
+    text-align: center;
+   	width: 120px;
+   	color:#ffffff; 	
+   	font-size:15px;
+    background-color: #1F8CBE;
+    border: 1px solid #1F8CBE;
+}
+
+.confirmFinish:hover,.confirmProblem:hover{
+	cursor: pointer;
+}
+
+.confirmProblem{
+	height: 40px;
+    line-height: 30px;
+	margin-left: 50px;
+    display: inline-block;
+ 	border-radius: 4px;
+    text-align: center;
+   	width: 120px;
+   	color:#ffffff;	
+   	font-size:15px;
+    background-color: #1F8CBE;
+    border: 1px solid #1F8CBE;
+}
+
+.turn{
+	margin-left: 180px;
+    display: inline-block;
+    color:#1F8CBE;
+    font-size:13px;
+}

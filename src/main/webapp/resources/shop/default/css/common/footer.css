@@ -1,0 +1,33 @@
+.footer{
+    margin-top:20px;
+    min-width: 1190px;
+	background-image: url("../../img/cart-head_bg.png");
+    background-repeat: repeat;
+	clear: both;
+}
+
+.footer .bottom{
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 1190px;
+    text-align: center;
+    color: #999999;
+}
+
+.footer a{
+	color: #666666;
+}
+
+.footer  ul{
+	padding : 5px 0;
+}
+
+.footer  ul li {
+    display: inline-block;
+}
+
+.footer ul li a {
+    margin: 0px 10px;
+    color:#666666;
+}
+

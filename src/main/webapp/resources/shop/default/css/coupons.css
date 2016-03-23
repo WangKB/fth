@@ -1,0 +1,308 @@
+.center{
+	width: 100%;
+}
+.centers{
+	margin: 0 auto;
+	width: 1190px;	
+}
+
+.cenLeft ul li {
+    margin: 5px 0;
+    color: #333333;
+    font-size: 13px;
+}
+
+.cenLeft ul li.white{
+    margin-bottom: 15px;
+    padding: 3px 5px;
+    font-size: 14px;
+}
+
+.orderCenter a{
+	text-align: center;
+	line-height: 20px;
+	color: #ffffff;
+}
+.orderCenter{
+	background-color: #fbc400;
+	width:91px;
+	height: 20px;
+}
+.font a{
+	font-weight:normal;
+	font-size: 12px;
+	color: #333333;
+}
+
+
+/**主体*/
+.cenRightTop li{
+	float: left;
+	list-style: none;
+}
+.cenRightTop{
+	height: 25px;
+	line-height:25px;
+}
+.cenRightCenter{
+	height: 30px;
+	line-height: 30px;
+}
+.cenRightCenterTab{
+	margin-left:5px;
+	height: 38px;
+	line-height: 38px;
+	background-color: #f8f6e6;
+	border-top:1px solid #dddddd;
+	border-bottom:1px solid #dddddd;
+}
+
+.cenRight{
+	margin-top:30px;
+	width: 1070px;
+	float: left;
+}
+.cenRightTop a{
+	margin-left:25px;
+	font-family: '雅黑';
+	color:#666666;
+	font-weight:bold;
+	font-size: 12px;
+	margin-right: 16px;
+}
+.cenRightCenter a{
+	margin-left:25px;
+	font-family: '雅黑';
+	font-size: 12px;
+	color:#666666;
+	margin-right: 75px;
+}
+.cenRightCenterTab a{
+	font-family: '雅黑';
+	font-size: 12px;
+	color: #333333;
+}
+.cenRightCenterTab-a{
+	margin-left: 70px;
+}
+.cenRightCenterTab-b{
+	margin-left: 172px;
+}
+.cenRightCenterTab-c{
+	margin-left: 212px;
+}
+.cenRightCenterTab-d{
+	margin-left: 185px;
+}
+.cenRightCenterTab-e{
+	margin-left: 140px;
+}
+.fengexian{
+	margin-left: 25px;
+}
+
+.cenRightBottom tr{
+	border-bottom: 1px solid #dddddd;	
+}
+.cenRightBottom td{
+	height:120px;
+	vertical-align: middle;
+}
+.btn{
+	width: 70px;
+	height: 30px;
+	font-family: '微软雅黑';
+	font-size: 14px;
+	color: #FFFFFF;
+	background-color: #FBC400;
+	border: 1px solid #fbc400;
+}
+.shiyongfanwei,.youxiaoqi{
+	font-family: '微软雅黑';
+	font-size: 12px;
+	color: #666666;
+}
+.shiyongzhuangtai{
+	font-size: 12px;
+	color: #e4a45a;
+}
+
+.btn:HOVER{
+	font-size: 15px;
+	cursor: pointer;
+}
+.cenRightBottom{
+	margin-left: 5px;
+	margin-bottom:20px;
+	width:1065px; 
+	height: 600px;
+	overflow:auto; 
+	overflow-x:hidden;
+}
+
+.cenRightTop .checked{
+	color:#e60012;
+}
+
+.cenRightCenter .checked{
+	color:#e60012;
+}
+
+.couponStatusWrap li{
+	display: inline-block;
+	width: 60px;
+	margin:0 30px;
+	text-align: center;
+}
+.couponStatusWrap li:hover{
+	cursor:pointer;
+}
+
+.couponStatusWrap li.selected{
+	color:#ff0000;
+}
+
+.coupons-wrap li{
+	position:relative;
+	margin: 5px 20px;
+	display:inline-block;
+	width:200px;
+	height:280px;
+	background-color: #f5f5f5;
+	vertical-align: middle;
+}
+
+.use-btn-position{
+	position: absolute;
+    bottom: 10px;
+    left: 29%;
+}
+
+.coupons-wrap li:hover b{
+	display: block;
+}
+
+.coupons-item b{
+	position: absolute;
+	display:none;
+	top:0;
+	right:0;
+	width:40px;
+	height: 40px;
+	background-image: url("../img/icon/coupons-icon.png");
+	background-repeat:no-repeat;
+	background-position: -215px -60px;
+}
+
+.coupons-item b:hover{
+	cursor: pointer;
+}
+
+.coupons-wrap .coupons-item .item-head{
+	padding-top: 20px;
+	width:205px;
+	height: 100px;
+	background-image: url("../img/icon/coupons-icon.png");
+	background-repeat:no-repeat;
+	background-position: -6px 0 ;
+}
+
+.coupons-wrap .coupons-item.otherCoupons  .item-head{
+	background-image: url("../img/icon/coupons-icon-other.png");
+}
+
+.item-head p{
+	color:#ffffff;
+	text-align: center;
+	line-height: 24px;	
+}
+
+.item-head p.price{
+	font-size:26px;
+	font-weight: bold;
+}
+
+.item-head p.time{
+	font-size:10px;
+}
+
+.item-content p{
+	line-height: 26px;
+}
+
+.item-content{
+	padding-top:10px;
+}
+
+.item-content .lable{
+	float:left;
+	width: 80px;
+    display: inline;
+    text-align: right;
+}
+
+.item-content .txt{
+	float:left;
+	width: 110px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #999;
+    overflow: hidden;
+}
+
+.item-content .intro{
+	float:left;
+	width: 110px;
+    color: #999;
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.to-use-btn{
+	padding: 5px 20px;
+	color:#fb9999;
+	border:1px solid #fb9999;
+	border-radius: 10px;
+}
+
+.to-use-btn:hover{
+	cursor:pointer;
+	color:#ffffff;
+	background-color: #fb9999;
+}
+
+.time-position{
+	position: absolute;
+    bottom: 20px;
+	left: 64px;
+	text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color:#333333;
+}
+
+.used-position{
+	position: absolute;
+    bottom: 10px;
+    right : 10px;
+    width: 67px;
+    height: 59px;
+    background-image: url("../img/icon/coupons-icon.png");
+    background-repeat: no-repeat;
+    background-position: -215px 3px;
+}
+
+.mask-layer{
+	position:absolute;
+	top:0;
+	right:0;
+	bottom: 0;
+	left: 0;
+	background-color: #000000;
+    opacity: 0.1;
+}
+
+.no-coupons{
+	padding:20px;
+	font-size: 16px;
+}

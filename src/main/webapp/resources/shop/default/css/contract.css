@@ -1,0 +1,561 @@
+.content-wrap{
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 1190px;
+    height: 650px;
+}
+
+.contract-choose-goods{
+    width: 740px;
+    float: left;
+}
+
+.contract-choose-userinfo-wrap{
+    float: left;
+    margin-left: 10px;
+    width: 440px;
+}
+
+.phonewrap{
+    width: 100%;
+    border: 1px solid #dddddd;
+    background-color: #f7f7f7;
+    overflow: hidden;
+}
+
+.phone-title{
+    line-height: 26px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.product-tips{
+    float: left;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666666;
+}
+
+.phone-tilte{
+    line-height: 26px;
+}
+
+.product-price{
+    padding-right: 10px;
+    float: right;
+    color: #666666;
+    font-weight: bold;
+}
+
+.product-price em ,
+tbody em{
+    font-style: normal;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.phone-img{
+    float: left;
+}
+
+.phone-img img{
+    margin: 3px 10px;
+    vertical-align: middle;
+}
+
+.product-desc{
+    width: 90%;
+    line-height: 56px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.phone-info{
+
+
+}
+
+.phone ul li{
+    display: inline-block;
+    color: #666666;
+}
+
+.contract{
+    position: relative;
+    margin-top: 18px;
+    padding-left: 50px;
+    border: 2px solid #dddddd;
+    height: 160px;
+}
+
+.contract.selected{
+    border: 2px solid #fbc400;
+    height: 460px;
+}
+
+.index{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/icon/contract-step.png");
+    background-repeat: no-repeat;
+}
+
+.first{
+    background-position: 0 -40px;
+}
+
+.nuselect .choose-phone-number span.second{
+	display:none;
+    background-position: -40px -40px;
+}
+
+.third{
+    background-position: -80px -40px;
+}
+
+
+.selected .first{
+    background-position: 0 0;
+}
+
+.selected .second{
+    background-position: -40px 0;
+}
+
+.finished .second{
+    background-position: -40px -40px;
+}
+
+.selected .third{
+    background-position: -80px 0;
+}
+
+.nav-title-step-name{
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #666666;
+}
+
+.constract-item{
+    line-height: 25px;
+}
+
+.constract-item-half{
+    float: left;
+    width: 50%;
+}
+
+.constract-item dt{
+    float: left;
+    width: 60px;
+    color: #666666;
+    text-align: right;
+    font-weight: bold;
+}
+
+.constract-item dd{
+    margin-left: 60px;
+}
+
+.constract-time li ,
+.contract-type li{
+    position: relative;
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.constract-time li:hover,
+.contract-type li:hover{
+    cursor: pointer;
+    color: #ff0000;
+    border: 1px solid #e4393c;
+    padding: 0 4px;
+}
+
+.constract-time li.selected ,
+.contract-type li.selected{
+    padding: 0 3px;
+    border: 1px solid #e4393c;
+    color: #ff0000;
+}
+
+.constract-time li.selected b,
+.contract-type li.selected b{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    background: url("../img/icon/select_icon.png") no-repeat 0 0;
+}
+
+.contract-content{
+    height: 250px;
+    overflow-y:auto;
+    border:1px solid #dddddd;
+    border-top: none;
+}
+
+.contract-item-title{
+    clear: both;
+    border:1px solid #dddddd;
+}
+
+.contract-content-item{
+    border-bottom: 1px solid #dddddd;
+}
+
+.contract-item-title span ,
+.contract-content-item span{
+    display: inline-block;
+    text-align: center;
+}
+
+.contract-content-item .text-left{
+    text-align: left;
+    vertical-align: middle;
+}
+
+.contract-content-item em{
+    font-style: normal;
+    color: #ff0000;
+}
+
+.commint-contract-wrap{
+    margin-top: 25px;
+}
+
+.commint-contract{
+    padding: 8px 20px;
+    font-size: 14px;
+    color:#ffffff;
+    background-color: #f32030;
+    border-radius: 5px;
+}
+
+.commint-contract:hover{
+    cursor: pointer;
+}
+
+.number-wrap{
+    margin-top: 30px;
+}
+
+.number-wrap.selected{
+	position:relative;
+    margin-top: 30px;
+  	border: 2px solid #fbc400;
+    height: 338px;
+}
+
+.choose-phone-number{
+	display:none;
+}
+
+
+.nuselect .choose-phone-number{
+	display:block;
+    height: 38px;
+    line-height: 38px;
+    border:2px solid #dddddd;
+}
+
+.choose-phone-number-selected{
+	display:none;
+	padding-left: 50px;
+}
+
+.selected .choose-phone-number-selected{
+	display:block;	
+}
+
+.nuselect .choose-phone-number span{
+    display: inline-block;
+    width: 40px;
+    background-color: #dddddd;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+}
+
+.nuselect .choose-phone-number .second-desc{
+    padding-left: 10px;
+    width: 200px;
+    color: #999999;
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.contract-choose-userinfo-step{
+    padding-left: 20px;
+    height: 85px;
+}
+
+
+.buy_nav{
+    position: relative;
+    display: block;
+    float: left;
+    padding-top: 10px;
+    width: 33.33%;
+    color: #999999;
+    font-size: 14px;
+    text-align: center;
+}
+
+.buy_nav p{
+    margin: 20px 0;
+    height: 2px;
+    background-color: #c5d9e9;
+    border: #bed2e1 2px solid;
+}
+
+.buy_nav span{
+    position: absolute;
+    left: 41%;
+    top: 32px;
+    display: block;
+    border: #bed2e1 2px solid;
+    border-radius: 13px;
+    height: 26px;
+    line-height: 26px;
+    width: 26px;
+    background-color: #c5d9e9;
+    color: #ffffff;
+}
+
+.done.buy_nav p{
+    background-color: #fbc503;
+    border: #fbc503 2px solid;
+}
+
+.done.buy_nav span{
+    border: #fbc503 2px solid;
+    background-color: #fbc503;
+}
+
+.contract-choose-userinfo{
+    position: relative;
+    margin-top: 18px;
+    width: 100%;
+    height: 533px;
+    border:2px solid #dddddd;
+}
+
+.contract-choose-userinfo.selected{
+	border: 2px solid #fbc400;
+}
+
+.contract-choose-userinfo .constract-item{
+    margin: 20px 0;
+}
+
+.constract-item label{
+    width: 60px;
+    color: #666666;
+    text-align: right;
+    font-weight: bold;
+}
+
+.constract-item>input{
+    padding: 5px 10px;
+}
+
+.contract-choose-userinfo .constract-item i{
+    padding: 5px 8px;
+    margin-right: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #1f8cbe;
+    border-radius: 4px;
+    font-style: normal;
+}
+.contract-choose-userinfo .constract-item i:hover{
+	cursor:pointer;
+}
+
+.contract-choose-userinfo .tips{
+    margin-right: 20px;
+    padding: 4px 5px;
+    line-height: 18px;
+    border:1px solid #dddddd;
+}
+
+.base-line{
+    margin: 30px 10px 0 -30px;
+    border: 1px solid #dddddd;
+}
+
+.contract-info-read{
+    margin: 40px 0;
+}
+
+.toorder-wrap{
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    text-align: right;
+    font-size: 14px;
+    color: #333333;
+}
+
+.toorder-wrap em{
+    font-style: normal;
+    color: #ff0000;
+}
+
+.toorder-btn{
+    margin: 12px 0;
+    padding: 8px 20px;
+    background-color: #cccccc;
+    font-size: 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+}
+
+.toorder-btn:hover{
+    cursor: pointer;
+}
+
+.contract-content-item input[name='contractItem']{
+	vertical-align: sub;
+}
+
+
+#selectedContract{
+	display:none;
+}
+
+.search-phone-num{
+	display:inline-block;
+	margin:0 10px;
+	padding: 2px 6px;
+	background-color:#fbc400;
+	border:1px solid #e4a45a;
+	width:60px;
+	text-align: center;
+	border-radius:4px;
+}
+
+.search-phone-num:hover{
+	cursor:pointer;
+	background-color:#ffd230;
+}
+
+.search-phone-num i{
+	display: inline-block;
+    background-image: url("../img/icon/search_icon.png");
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+.search-phone-num-next{
+	padding: 6px 8px;
+	background-color:#ffffff;
+	border:1px solid #dddddd;
+}
+
+.search-phone-num-next:hover{
+	cursor:pointer;
+}
+
+.search-phone-num-next i{
+	display: inline-block;
+	margin-right: 5px;
+    background-image: url("../img/icon/reflush-btn.png");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.phone-number{
+	display: inline-block;
+	width:100px;
+	margin:4px 5px;
+	padding: 4px 8px;
+	text-align: center;
+	line-height:16px;
+	background-color:#f8f6e6;
+	border:1px solid #dddddd;
+	color:#999999;
+	
+}
+
+.phone-number.selected{
+	border:1px solid #1f8cbe;
+}
+
+.phone-number .phone{
+	font-size:14px;
+	color:#222222;
+}
+
+.constract-item hr{
+	margin:10px 0;
+	margin-right: 20px;
+}
+
+.commit-phone{
+	display:inline-block;
+	margin-top:8px;
+	margin-left: 5px;
+	padding: 8px 20px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #f32030;
+    border-radius: 5px;
+}
+
+.commit-phone:hover{
+	cursor:pointer;
+}
+
+#allPhones{
+	height:200px;
+}
+
+.phone-number:hover{
+	cursor:pointer;
+	border: 1px solid #1f8cbe;
+}
+
+.phone-number-selected{
+	display:none;
+}
+
+.finished .phone-number-selected{
+	display:block;
+	position:relative;
+	padding-left: 50px;
+    border: 2px solid #dddddd;
+    height: 340px;
+}
+
+.finishedInfo{
+	margin-top: 3%;
+}
+
+.finishedInfo-tips{
+	margin: 0 auto;
+	margin-top: 70px;
+	background-color: #f8f6e6;
+	border:1px solid #fbc400;
+	color:#333333;
+	width: 400px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}

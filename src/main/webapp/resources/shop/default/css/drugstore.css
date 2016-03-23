@@ -1,0 +1,136 @@
+.center{
+	width: 1190px;
+	margin:0 auto;
+	margin-top: 10px;
+	position:relative;
+}
+
+.centerTop{
+    position:relative;
+    margin-top: 16px;
+	width: 1190px;
+}
+
+.centerTop li{
+    position: relative;
+    float: left;
+    padding: 3px 10px;
+    width: 164px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #DDDDDD;
+    border-bottom: none;
+    text-align: center;
+    cursor: pointer;
+    line-height: 30px;
+    height: 30px;
+}
+
+.centerTop .no-left-border{
+    border-left: none;
+}
+
+.centerTop .actived em{
+    display: inline-block;
+    width: 12px;
+    height: 16px;
+    background-image: url("../img/icon/organinzation-icon.png");
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.centerTop li.actived{
+    color: #fbc400;
+    background-color: #F7F7F7;
+}
+
+.centerTop li.actived:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -4px;
+    height: 4px;
+    background-color: #fbc400;
+}
+
+.centerTopWord{
+	color:#666666;
+	font-weight:bold;
+	font-size:18px;
+	margin-left:10px;
+	display: inline-block;
+}
+.centerList{
+    position:relative;
+	width: 1190px;
+    clear: both;
+    border-top : 1px solid #DDDDDD;
+    min-height: 550px;
+}
+
+.centerListTop{
+	clear: both;
+	width: 1190px;
+	height:50px;
+	background-image: url("../img/cart-head_bg.png"); 
+	background-repeat: repeat;
+}
+.centerListTopWord{
+	margin-top:15px;
+	color:#666666;
+	font-weight:bold;
+	font-size:16px;
+	margin-left:20px;
+	display: inline-block;
+}
+.organizationList{
+    position:relative;
+    padding: 10px 0;
+    margin-left: 30px;
+    height:110px;
+    border-bottom: 1px solid #dddddd;
+
+}
+.titleInput{
+    margin-bottom: 10px;
+	font-size:16px;
+    color: #333333;
+}
+
+.details{
+    position: relative;
+    top:20px;
+	font-size:13px;
+	color:#1f8cbe;
+    vertical-align: top;
+}
+
+.organizationTable{
+	width: 1190px;
+	position:relative;
+	/*height:609px;*/
+}
+
+.organization-img , .organinzation-content{
+    display: inline-block;
+}
+
+.organization-img{
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #DDDDDD;
+}
+
+.organinzation-content{
+    margin: 10px 20px;
+    width: 900px;
+    line-height: 18px;
+}
+
+.organizationList:hover{
+    background-color: #F7F7F7;
+}

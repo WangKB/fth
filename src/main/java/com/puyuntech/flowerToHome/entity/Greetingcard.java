@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 /**
  * 
- * Entity - 购物车 . Created on 2015-8-26 下午1:52:07
+ * Entity - Greetingcard. Created on 2015-8-26 下午1:52:07
  * 
  * @author 施长成
  */

@@ -1,6 +1,9 @@
 package com.puyuntech.flowerToHome.service;
 
+import java.util.List;
+
 import com.puyuntech.flowerToHome.entity.Coupon;
+import com.puyuntech.flowerToHome.entity.ProductCoupon;
 
 
 /**
@@ -11,4 +14,7 @@ import com.puyuntech.flowerToHome.entity.Coupon;
  */
 public interface CouponService extends BaseService<Coupon, Integer> {
 	
+	Coupon save(Coupon coupon,Integer[] productIds);
+	
+	Coupon update(Coupon coupon,Integer[] productIds,List<ProductCoupon> productCoupons);
 }

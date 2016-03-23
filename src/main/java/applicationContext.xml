@@ -126,6 +126,7 @@
 				<entry key="abbreviate" value-ref="abbreviateMethod" />
 				<entry key="currency" value-ref="currencyMethod" />
 				<entry key="flash_message" value-ref="flashMessageDirective" />
+				<entry key="shop_name" value-ref="shopNameMethod" />
 				<entry key="current_member" value-ref="currentMemberDirective" />
 				<entry key="pagination" value-ref="paginationDirective" />
 				

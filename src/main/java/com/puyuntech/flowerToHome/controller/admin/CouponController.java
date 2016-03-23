@@ -28,9 +28,12 @@ import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.Coupon;
 import com.puyuntech.flowerToHome.entity.CouponCode;
 import com.puyuntech.flowerToHome.entity.Product;
+import com.puyuntech.flowerToHome.entity.ProductCoupon;
 import com.puyuntech.flowerToHome.service.AdminService;
 import com.puyuntech.flowerToHome.service.CouponCodeService;
 import com.puyuntech.flowerToHome.service.CouponService;
+import com.puyuntech.flowerToHome.service.OrganizationService;
+import com.puyuntech.flowerToHome.service.ProductCouponService;
 import com.puyuntech.flowerToHome.service.ProductService;
 
 /**
@@ -54,6 +57,10 @@ public class CouponController extends BaseController {
 	private AdminService adminService;
 	@Resource(name = "productServiceImpl")
 	private ProductService productService;
+	@Resource(name = "productCouponServiceImpl")
+	private ProductCouponService productCouponService;
+	@Resource(name = "organizationServiceImpl")
+	private OrganizationService organizationService;
 	
 	/**
 	 * 
@@ -86,6 +93,8 @@ public class CouponController extends BaseController {
 	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String add(ModelMap model) {
+		
+		model.addAttribute("shops", organizationService.findAll());
 		return "/admin/coupon/add";
 	}
 	
@@ -100,10 +109,8 @@ public class CouponController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(Coupon coupon, Long[] productIds,RedirectAttributes redirectAttributes) {
+	public String save(Coupon coupon, Integer[] productIds,RedirectAttributes redirectAttributes) {
 		
-		if(null!=productIds){
-		}
 		StringBuffer expression = new StringBuffer("price-");
 		expression.append( coupon.getCountPrice() );
 		
@@ -118,7 +125,7 @@ public class CouponController extends BaseController {
 		coupon.setGross(0);
 		coupon.setResidue(0);
 		
-		couponService.save(coupon);
+		couponService.save(coupon,productIds);
 		
 		addFlashMessage(redirectAttributes, SUCCESS_MESSAGE);
 		return "redirect:list.jhtml";
@@ -136,7 +143,17 @@ public class CouponController extends BaseController {
 	 */
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String edit(Integer id, ModelMap model) {
+		
+		List<Filter> filters = new ArrayList<Filter>();
+		filters.add(Filter.eq("couponsId", id));
+		List<ProductCoupon> productCoupons=productCouponService.findList(null, filters, null);
+		List<Product> products = new ArrayList<Product>();
+		for(ProductCoupon productCoupon:productCoupons){
+			products.add(productService.find(productCoupon.getProductId()));
+		}
+		model.addAttribute("products", products);
 		model.addAttribute("coupon", couponService.find(id));
+		model.addAttribute("shops", organizationService.findAll());
 		return "/admin/coupon/edit";
 	}
 	
@@ -151,10 +168,12 @@ public class CouponController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Coupon coupon, Long[] productIds,RedirectAttributes redirectAttributes) {
+	public String update(Coupon coupon, Integer[] productIds,RedirectAttributes redirectAttributes) {
 		
-		if(null!=productIds){
-		}
+		List<Filter> filters = new ArrayList<Filter>();
+		filters.add(Filter.eq("couponsId", coupon.getId()));
+		List<ProductCoupon> productCoupons=productCouponService.findList(null, filters, null);
+		
 		StringBuffer expression = new StringBuffer("price-");
 		expression.append(coupon.getCountPrice().toString());
 		coupon.setPriceExpression(expression.toString());
@@ -165,7 +184,7 @@ public class CouponController extends BaseController {
 			return ERROR_VIEW;
 		}
 
-		couponService.update(coupon,  "orders");
+		couponService.update(coupon, productIds,productCoupons);
 		addFlashMessage(redirectAttributes, SUCCESS_MESSAGE);
 		return "redirect:list.jhtml";
 	}
@@ -280,17 +299,15 @@ public class CouponController extends BaseController {
 			return data;
 		}
 		Set<Product> excludes = new HashSet<Product>(productService.findList(excludeIds));
-		List<Filter> filters =new ArrayList<Filter>();
-		filters.add(Filter.like("sn", keyword));
-		List<Product> products = productService.findList(count, filters, null);
+		List<Product> products = productService.search(keyword, excludes, count);
+		String[] empty ={};
 		for (Product product : products) {
-			if(excludes.contains(product)){
-				continue;
-			}
 			Map<String, Object> item = new HashMap<String, Object>();
 			item.put("id", product.getId());
 			item.put("sn", product.getSn());
 			item.put("name", product.getName());
+			item.put("specifications", empty);
+			item.put("url", "");
 			data.add(item);
 		}
 		return data;

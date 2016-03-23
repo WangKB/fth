@@ -203,6 +203,9 @@ public class Order extends BaseEntity<Integer> {
 	/** 贺卡id */
 	private Integer greetingcardsId;
 	
+	/** 贺卡内容 */
+	private String greetingCardsMemp;
+	
 	/** 地区id */
 	private Integer areaId;
 	
@@ -1064,6 +1067,15 @@ public class Order extends BaseEntity<Integer> {
 
 	public void setGreetingcardsId(Integer greetingcardsId) {
 		this.greetingcardsId = greetingcardsId;
+	}
+
+	@Column(name="greetingcards_memp")
+	public String getGreetingCardsMemp() {
+		return greetingCardsMemp;
+	}
+
+	public void setGreetingCardsMemp(String greetingCardsMemp) {
+		this.greetingCardsMemp = greetingCardsMemp;
 	}
 
 	@Column(name="area_id")

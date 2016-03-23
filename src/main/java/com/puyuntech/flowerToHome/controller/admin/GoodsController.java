@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.Product;
+import com.puyuntech.flowerToHome.entity.ProductChangeLog;
 import com.puyuntech.flowerToHome.service.ProductChangeLogService;
 import com.puyuntech.flowerToHome.service.ProductService;
 import com.puyuntech.flowerToHome.service.SpecificationValueService;
@@ -140,12 +141,35 @@ public class GoodsController extends BaseController {
 		return "/admin/goods/edit";
 	}
 	
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	public String view(Integer id,ModelMap model) {
+		
+		model.addAttribute("goods", productChangeLogService.find(id));
+		model.addAttribute("specs", specificationValueService.findAll());
+		return "/admin/goods/view";
+	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Product product){
 		
 		productService.update(product,"sn");
 		return "redirect:list.jhtml";
+	}
+
+	@RequestMapping(value = "/reject", method = RequestMethod.POST)
+	public @ResponseBody Message reject(Integer id){
+		
+		ProductChangeLog productChangeLog = productChangeLogService.find(id);
+		productChangeLog.setApplicationState(ProductChangeLog.state.Rejected);
+		productChangeLogService.update(productChangeLog);
+		return SUCCESS_MESSAGE;
+	}
+
+	@RequestMapping(value = "/check", method = RequestMethod.POST)
+	public String check(Integer id,Integer actType,String auditMemo){
+		
+		productChangeLogService.check(productChangeLogService.find(id), actType,auditMemo);
+		return "redirect:examine.jhtml";
 	}
 
 }

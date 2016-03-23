@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>${message("admin.coupon.list")}</title>
-<meta name="author" />
-<meta name="copyright" />
+<title>${message("admin.attribute.list")} </title>
+<meta name="author"  />
+<meta name="copyright"  />
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
@@ -22,7 +22,7 @@ $().ready(function() {
 </head>
 <body>
 	<div class="breadcrumb">
-		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; ${message("admin.coupon.list")} <span>(${message("admin.page.total", page.total)})</span>
+		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 门店管理 <span>(${message("admin.page.total", page.total)})</span>
 	</div>
 	<form id="listForm" action="list.jhtml" method="get">
 		<div class="bar">
@@ -55,7 +55,7 @@ $().ready(function() {
 					<button type="submit">&nbsp;</button>
 				</div>
 				<ul>
-					<li[#if page.searchProperty == "name"] class="current"[/#if] val="name">${message("Coupon.name")}</li>
+					<li[#if page.searchProperty == "name"] class="current"[/#if] val="name">名称</li>
 				</ul>
 			</div>
 		</div>
@@ -65,56 +65,34 @@ $().ready(function() {
 					<input type="checkbox" id="selectAll" />
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="name">${message("Coupon.name")}</a>
+					<a href="javascript:;" class="sort" name="address">贺卡名称</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="prefix">${message("Coupon.prefix")}</a>
+					<a href="javascript:;" class="sort" name="wishes">寄语</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="beginDate">${message("Coupon.beginDate")}</a>
-				</th>
-				<th>
-					<a href="javascript:;" class="sort" name="endDate">${message("Coupon.endDate")}</a>
-				</th>
-				<th>
-					<a href="javascript:;" class="sort" name="isEnabled">${message("Coupon.isEnabled")}</a>
+					<a href="javascript:;" class="sort" name="createDate">创建时间</a>
 				</th>
 				<th>
 					<span>${message("admin.common.action")}</span>
 				</th>
 			</tr>
-			[#list page.content as coupon]
+			[#list page.content as greetingcard]
 				<tr>
 					<td>
-						<input type="checkbox" name="ids" value="${coupon.id}" />
+						<input type="checkbox" name="ids" value="${greetingcard.id}" />
 					</td>
 					<td>
-						${coupon.name}
+						${greetingcard.name}
 					</td>
 					<td>
-						${coupon.prefix}
+						${greetingcard.wishes}
 					</td>
 					<td>
-						[#if coupon.beginDate??]
-							<span title="${coupon.beginDate?string("yyyy-MM-dd HH:mm:ss")}">${coupon.beginDate}</span>
-						[#else]
-							-
-						[/#if]
+						<span title="${greetingcard.createDate?string("yyyy-MM-dd HH:mm:ss")}">${greetingcard.createDate}</span>
 					</td>
 					<td>
-						[#if coupon.endDate??]
-							<span title="${coupon.endDate?string("yyyy-MM-dd HH:mm:ss")}">${coupon.endDate}</span>
-						[#else]
-							-
-						[/#if]
-					</td>
-					<td>
-						<span [#if coupon.isEnabled==1]class="trueIcon"[#else]class="falseIcon"[/#if]>&nbsp;</span>
-					</td>
-					<td>
-						<a href="generate.jhtml?id=${coupon.id}">[${message("admin.coupon.generate")}]</a>
-						<a href="edit.jhtml?id=${coupon.id}">[${message("admin.common.edit")}]</a>
-						<a href="statistic.jhtml?id=${coupon.id}">[统计]</a>
+						<a href="edit.jhtml?id=${greetingcard.id}">[${message("admin.common.edit")}]</a>
 					</td>
 				</tr>
 			[/#list]

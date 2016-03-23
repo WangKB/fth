@@ -1,6 +1,9 @@
 
 package com.puyuntech.flowerToHome.service;
 
+import java.util.List;
+import java.util.Set;
+
 import com.puyuntech.flowerToHome.entity.Product;
 
 
@@ -12,4 +15,5 @@ import com.puyuntech.flowerToHome.entity.Product;
  */
 public interface ProductService extends BaseService<Product, Integer> {
 
+	List<Product> search(String keyword, Set<Product> excludes, Integer count);
 }

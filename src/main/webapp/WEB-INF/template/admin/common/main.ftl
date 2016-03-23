@@ -132,6 +132,9 @@
         <dd>
             <a href="../coupon/list.jhtml" target="iframe">优惠券管理</a>
         </dd>
+        <dd>
+            <a href="../greetingcard/list.jhtml" target="iframe">贺卡管理</a>
+        </dd>
 </dl>
 </td>
 <td>

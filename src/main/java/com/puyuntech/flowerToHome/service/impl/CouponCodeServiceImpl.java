@@ -9,6 +9,8 @@ import javax.annotation.Resource;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.puyuntech.flowerToHome.dao.CouponCodeDao;
 import com.puyuntech.flowerToHome.entity.Coupon;
@@ -28,6 +30,7 @@ public class CouponCodeServiceImpl extends BaseServiceImpl<CouponCode, Integer> 
 	@Resource(name = "couponCodeDaoImpl")
 	private CouponCodeDao couponCodeDao;
 	
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public CouponCode generate(Coupon coupon, Member member) {
 
 		CouponCode couponCode = new CouponCode();
@@ -38,6 +41,7 @@ public class CouponCodeServiceImpl extends BaseServiceImpl<CouponCode, Integer> 
 		return super.save(couponCode);
 	}
 
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public List<CouponCode> generate(Coupon coupon, Member member, Integer count) {
 		List<CouponCode> couponCodes = new ArrayList<CouponCode>();
 		for (int i = 0; i < count; i++) {

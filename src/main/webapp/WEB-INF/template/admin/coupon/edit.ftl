@@ -156,17 +156,6 @@ $().ready(function() {
 			</tr>
 			<tr>
 				<th>
-					类型:
-				</th>
-				<td>
-					<select name="couponType" id="couponType">
-						<option value="1" [#if coupon.couponType == 1]selected="selected"[/#if]>平台优惠券</option>
-						<option value="2" [#if coupon.couponType == 2]selected="selected"[/#if]>第三方优惠券</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<th>
 					<span class="requiredField">*</span>${message("Coupon.beginDate")}:
 				</th>
 				<td>
@@ -199,21 +188,25 @@ $().ready(function() {
 			</tr>
 			<tr>
 				<th>
+					<span class="requiredField">*</span>门店:
+				</th>
+				<td colspan="2">
+					<select name="shopId">
+						[#list shops as shop]
+							<option value="${shop.id}" [#if coupon.shopId==shop.id]selected=true[/#if]>${shop.name}</option>
+						[/#list]
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>
 					${message("admin.common.setting")}:
 				</th>
 				<td>
 					<label>
-						<input type="checkbox" name="isEnabled" value="true"[#if coupon.isEnabled] checked="checked"[/#if] />${message("Coupon.isEnabled")}
-						<input type="hidden" name="_isEnabled" value="false" />
+						<input type="checkbox" name="isEnabled" value="1"[#if coupon.isEnabled==1] checked="checked"[/#if] />${message("Coupon.isEnabled")}
+						<input type="hidden" name="isEnabled" value="0" />
 					</label>
-				</td>
-			</tr>
-			<tr [#if coupon.couponType == 1]class="hidden"[/#if]>
-				<th>
-					第三方介绍:
-				</th>
-				<td>
-					<input type="text" name="thirdParty" id="thirdParty" class="text" value="${coupon.thirdParty}" maxlength="200"/>
 				</td>
 			</tr>
 			<tr>
@@ -238,7 +231,7 @@ $().ready(function() {
 				</th>
 				<td>
 					<table id="productTable" class="item">
-						<tr [#if coupon.products?size lt 1]class="hidden"[/#if]>
+						<tr [#if products?size lt 1]class="hidden"[/#if]>
 							<th>
 								${message("Product.sn")}
 							</th>
@@ -249,7 +242,7 @@ $().ready(function() {
 								${message("admin.common.action")}
 							</th>
 						</tr>
-						[#list coupon.products as product]
+						[#list products as product]
 						<tr>
 							<td>
 								<input type="hidden" name="productIds" value="${product.id}"> 

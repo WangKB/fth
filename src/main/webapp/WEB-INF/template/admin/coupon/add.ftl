@@ -185,6 +185,18 @@ $().ready(function() {
 			</tr>
 			<tr>
 				<th>
+					<span class="requiredField">*</span>门店:
+				</th>
+				<td colspan="2">
+					<select name="shopId">
+						[#list shops as shop]
+							<option value="${shop.id}">${shop.name}</option>
+						[/#list]
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>
 					${message("admin.common.setting")}:
 				</th>
 				<td>

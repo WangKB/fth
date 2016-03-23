@@ -132,10 +132,10 @@ public class ProductChangeLog extends BaseEntity<Integer> {
 	//申请备注
 	private String applicationMemo;
 	
-	//申请备注
+	//一级审核备注
 	private String auditMemo1;
 	
-	//申请备注
+	//二级审核备注
 	private String auditMemo2;
 	
 	@Column(name="price")

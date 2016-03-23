@@ -87,10 +87,10 @@ $().ready(function() {
 						<input type="checkbox" name="ids" value="${goods.id}" />
 					</td>
 					<td>
-						${goods.applicationState}
+						${message("Goods.ApplicationState."+goods.applicationState)}
 					</td>
 					<td>
-						${goods.shopId}
+						${shop_name(goods.shopId)}
 					</td>
 					<td>
 						<span title="${goods.name}">

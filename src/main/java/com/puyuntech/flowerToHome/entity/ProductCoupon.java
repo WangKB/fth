@@ -11,6 +11,7 @@ import javax.persistence.Table;
  * @author 王凯斌
  * 
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "t_product_coupon")
 public class ProductCoupon extends BaseEntity<Integer> {
@@ -18,7 +19,7 @@ public class ProductCoupon extends BaseEntity<Integer> {
 	//商品id
 	private Integer productId;
 	
-	//商家id
+	//优惠券id
 	private Integer couponsId;
 
 	@Column(name="product_id")

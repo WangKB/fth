@@ -83,6 +83,11 @@
 	<setting name= "rewardRate"  value="1"/><!-- 每消费一元获得积分数额 -->
 	<setting name= "expenseRate"  value="1"/><!-- 每一积分相当于的人民币数额 -->
 	<setting name= "minimumAmount"  value="1"/><!-- 最小可以使用订单金额 -->
+	
+	<!-- 财务相关 -->
+	<setting name= "platformRate"  value="0.1"/><!-- 平台分账比例 -->
+	<setting name= "shopRate"  value="0.1"/><!-- 店铺分账比例 -->
+	<setting name= "supplierRate"  value="0.1"/><!-- 供货商分账比例 -->
 
     <!-- 模版配置 -->
 	<templateConfig id="shopCommonJs" type="page" name="shop_common_js" templatePath="/shop/${theme}/js/common.ftl" staticPath="/resources/shop/${theme}/js/common.js" />

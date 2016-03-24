@@ -32,32 +32,10 @@ public class ShopAudit extends OrderEntity<Integer> {
 		
 	}
 
-    /**
-     *
-     * 门店状态.
-     * Created on 2015-8-25 下午5:51:50
-     * @author 王凯斌
-     */
-    public enum Status{
-
-        //正常
-        normal,
-
-        //关闭
-        close,
-
-        //申请中
-        applying,
-
-        //驳回
-        rejected,
-
-    }
-    
     /** 名称*/
     private String name;
     
-    private ShopAudit.Status status;
+    private Organization.Status status;
     
     private Organization.Level level;
 
@@ -98,7 +76,7 @@ public class ShopAudit extends OrderEntity<Integer> {
     private Date nextRollDate;
     
     /** 每月结算时间*/
-    private Integer payment_date;
+    private Integer paymentDate;
     
     /** 上次结算时间*/
     private Date lastPaymentDate;
@@ -194,11 +172,11 @@ public class ShopAudit extends OrderEntity<Integer> {
     }
 
     @Column(name="status")
-	public ShopAudit.Status getStatus() {
+	public Organization.Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(ShopAudit.Status status) {
+	public void setStatus(Organization.Status status) {
 		this.status = status;
 	}
 
@@ -257,12 +235,12 @@ public class ShopAudit extends OrderEntity<Integer> {
 	}
 
 	@Column(name="payment_date")
-	public Integer getPayment_date() {
-		return payment_date;
+	public Integer getPaymentDate() {
+		return paymentDate;
 	}
 
-	public void setPayment_date(Integer payment_date) {
-		this.payment_date = payment_date;
+	public void setPaymentDate(Integer paymentDate) {
+		this.paymentDate = paymentDate;
 	}
 
 	@Column(name="last_payment_date")

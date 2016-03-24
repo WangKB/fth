@@ -294,6 +294,15 @@ public class Setting implements Serializable {
 
     /** 法律声明 **/
     private String footerLawInfo;
+    
+    /** 平台分账比例 **/
+    private String platformRate;
+
+    /** 店铺分账比例 **/
+    private String shopRate;
+
+    /** 供货商分账比例 **/
+    private String supplierRate;
 
     /** 每消费一元获得积分数额 */
 	private Integer rewardRate;
@@ -1486,6 +1495,29 @@ public class Setting implements Serializable {
 	public void setMinimumAmount(Integer minimumAmount) {
 		this.minimumAmount = minimumAmount;
 	}
-    
+
+	public String getPlatformRate() {
+		return platformRate;
+	}
+
+	public void setPlatformRate(String platformRate) {
+		this.platformRate = platformRate;
+	}
+
+	public String getShopRate() {
+		return shopRate;
+	}
+
+	public void setShopRate(String shopRate) {
+		this.shopRate = shopRate;
+	}
+
+	public String getSupplierRate() {
+		return supplierRate;
+	}
+
+	public void setSupplierRate(String supplierRate) {
+		this.supplierRate = supplierRate;
+	}
     
 }

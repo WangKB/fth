@@ -13,13 +13,13 @@ import com.puyuntech.flowerToHome.util.SystemUtils;
 
 /**
  * 
- * Controller - 邮件模板. Created on 2015-10-13 下午7:51:10
+ * Controller - 财务设置. Created on 2015-10-13 下午7:51:10
  * 
  * @author 王凯斌
  */
-@Controller("adminReviewController")
-@RequestMapping("/admin/review")
-public class ReviewController extends BaseController {
+@Controller("adminFinRateController")
+@RequestMapping("/admin/finRate")
+public class FinRateController extends BaseController {
 	
 	@Resource(name = "cacheServiceImpl")
 	private CacheService cacheService;
@@ -27,20 +27,20 @@ public class ReviewController extends BaseController {
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	public String list(ModelMap model){
 		
-		model.addAttribute("reviewOne",SystemUtils.getSetting().getReviewOne());
-		model.addAttribute("reviewTwo",SystemUtils.getSetting().getReviewTwo());
-		model.addAttribute("reviewThree",SystemUtils.getSetting().getReviewThree());
-		return "/admin/review/list";
+		model.addAttribute("platformRate",SystemUtils.getSetting().getPlatformRate());
+		model.addAttribute("shopRate",SystemUtils.getSetting().getShopRate());
+		model.addAttribute("supplierRate",SystemUtils.getSetting().getSupplierRate());
+		return "/admin/finrate/list";
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.POST)
-	public String update(String reviewOne,String reviewTwo,String reviewThree){
+	public String update(String platformRate,String shopRate,String supplierRate){
 		
 		Setting preSetting =SystemUtils.getSetting();
 		
-		preSetting.setReviewOne(reviewOne);
-		preSetting.setReviewTwo(reviewTwo);
-		preSetting.setReviewThree(reviewThree);
+		preSetting.setPlatformRate(platformRate);
+		preSetting.setShopRate(shopRate);
+		preSetting.setSupplierRate(supplierRate);
 		
 		SystemUtils.setSetting(preSetting);
 		cacheService.clear();

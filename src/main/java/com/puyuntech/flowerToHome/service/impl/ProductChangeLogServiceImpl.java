@@ -9,6 +9,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.puyuntech.flowerToHome.dao.ProductDao;
 import com.puyuntech.flowerToHome.dao.SnDao;
@@ -52,9 +53,10 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 					product.setModifyDate(null);
 					product.setId(null);
 					product.setSn(snDao.generate(Sn.Type.goods));
-					producteDao.merge(product);
+					producteDao.persist(product);
 					
 				} catch (Exception e) {
+					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				}
 				
 			break;

@@ -6,11 +6,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.puyuntech.flowerToHome.Pageable;
+import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.Organization;
+import com.puyuntech.flowerToHome.entity.ShopAudit;
 import com.puyuntech.flowerToHome.service.AreaService;
 import com.puyuntech.flowerToHome.service.OrganizationService;
+import com.puyuntech.flowerToHome.service.ShopAuditService;
 
 /**
  *
@@ -27,6 +31,9 @@ public class OrganizationController extends BaseController {
      */
     @Resource(name = "organizationServiceImpl")
     private OrganizationService organizationService;
+    
+    @Resource(name = "shopAuditServiceImpl")
+    private ShopAuditService shopAuditService;
 
     @Resource(name = "areaServiceImpl")
     private AreaService areaService;
@@ -85,4 +92,35 @@ public class OrganizationController extends BaseController {
     	organizationService.update(organization,"status","nextRollDate","lastPaymentDate");
         return "redirect:list.jhtml";
     }
+    
+    @RequestMapping(value = "/reject", method = RequestMethod.POST)
+	public @ResponseBody Message reject(Integer id){
+		
+    	ShopAudit shopAudit = shopAuditService.find(id);
+		shopAudit.setApplicationState(ShopAudit.state.Rejected);
+		shopAuditService.update(shopAudit);
+		return SUCCESS_MESSAGE;
+	}
+
+	@RequestMapping(value = "/check", method = RequestMethod.POST)
+	public String check(Integer id,Integer actType,String auditMemo){
+		
+		shopAuditService.check(shopAuditService.find(id), actType,auditMemo);
+		return "redirect:examine.jhtml";
+	}
+	
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	public String view(Integer id,ModelMap model) {
+		
+		model.addAttribute("organization", shopAuditService.find(id));
+		model.addAttribute("levels",Organization.Level.values());
+		return "/admin/organization/view";
+	}
+	
+	@RequestMapping(value = "/examine", method = RequestMethod.GET)
+	public String examine(ModelMap model,Pageable pageable) {
+
+		model.addAttribute("page", shopAuditService.findPage(pageable));
+		return "/admin/organization/examine";
+	}
 }

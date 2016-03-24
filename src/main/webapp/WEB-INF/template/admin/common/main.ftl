@@ -75,6 +75,9 @@
                 <li>
                     <a href="#member">会员</a>
                 </li>
+                <li>
+                    <a href="#finance">财务</a>
+                </li>
             </ul>
         </div>
         <div class="link">
@@ -103,13 +106,16 @@
             <a href="../area/list.jhtml" target="iframe">价格管理</a>
         </dd>
     	<dd>
-            <a href="../Review/list.jhtml" target="iframe">商品评价设置</a>
+            <a href="../review/list.jhtml" target="iframe">商品评价设置</a>
         </dd>
 </dl>
 <dl id="organization">
     <dt>店铺管理</dt>
     	<dd>
             <a href="../organization/list.jhtml" target="iframe">店铺列表</a>
+        </dd>
+        <dd>
+            <a href="../organization/examine.jhtml" target="iframe">店铺审核</a>
         </dd>
 </dl>
 <dl id="order">
@@ -134,6 +140,12 @@
         </dd>
         <dd>
             <a href="../greetingcard/list.jhtml" target="iframe">贺卡管理</a>
+        </dd>
+</dl>
+<dl id="finance">
+    <dt>财务管理</dt>
+    	<dd>
+            <a href="../finRate/list.jhtml" target="iframe">分账设置</a>
         </dd>
 </dl>
 </td>

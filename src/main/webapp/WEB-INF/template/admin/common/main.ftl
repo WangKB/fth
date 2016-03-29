@@ -108,6 +108,12 @@
     	<dd>
             <a href="../review/list.jhtml" target="iframe">商品评价设置</a>
         </dd>
+        <dd>
+            <a href="../tag/list.jhtml" target="iframe">标签管理</a>
+        </dd>
+        <dd>
+            <a href="../tagDetail/list.jhtml" target="iframe">标签详情管理</a>
+        </dd>
 </dl>
 <dl id="organization">
     <dt>店铺管理</dt>
@@ -123,7 +129,7 @@
     	<dd>
             <a href="../order/list.jhtml" target="iframe">订单列表</a>
         </dd>
-        <dd>
+        <dd class='none'>
             <a href="../order/statics.jhtml" target="iframe">订单统计</a>
         </dd>
 </dl>

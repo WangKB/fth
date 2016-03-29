@@ -28,8 +28,6 @@
             $inputForm.validate({
                 rules: {
                    name: "required",
-                   wishes: "required",
-                   images: "required",
                 }
             });
 
@@ -38,26 +36,26 @@
 </head>
 <body>
 <div class="breadcrumb">
-    <a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 编辑贺卡
+    <a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 编辑标签
 </div>
 <form id="inputForm" action="update.jhtml" method="post">
-    <input type="hidden" name="id" value="${greetingcard.id}" />
+    <input type="hidden" name="id" value="${tag.id}" />
     <table class="input">
         <tr>
             <th>
-                <span class="requiredField">*</span>贺卡名称:
+                <span class="requiredField">*</span>标签名称:
             </th>
             <td>
-                <input type="text" name="name" class="text" maxlength="200" value="${greetingcard.name}"/>
+                <input type="text" name="name" class="text" maxlength="200" value='${tag.name}'/>
             </td>
         </tr>
         
         <tr>
             <th>
-                <span class="requiredField">*</span>贺卡寄语:
+                标签介绍:
             </th>
             <td>
-                <input type="text" name="wishes" class="text" maxlength="200" value="${greetingcard.wishes}" />
+                <input type="text" name="introduction" class="text" maxlength="200" value='${tag.introduction}' />
             </td>
         </tr>
 
@@ -66,8 +64,20 @@
                 图片:
             </th>
             <td>
-                <input type="text" name="images" class="text" maxlength="200" value="${greetingcard.images}" title="${message("admin.goods.imageTitle")}" />
+                <input type="text" name="images" class="text" maxlength="200" title="${message("admin.goods.imageTitle")}" value='${tag.images}' />
                 <a href="javascript:;" id="filePicker" class="button">${message("admin.upload.filePicker")}</a>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                关联商品：
+            </th>
+            <td>
+                <select name='productId'>
+                [#list products as product]
+                	<option value='${product.id}' [#if product.id==tag.productId]selected=true[/#if]>${product.name}</option>
+                [/#list]
+                </select>
             </td>
         </tr>
         <tr>

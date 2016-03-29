@@ -28,7 +28,7 @@ var $inputForm = $("#inputForm");
 		$.ajax({
 			url: "reject.jhtml",
 			type: "POST",
-			data: {id:${goods.id}},
+			data: {id:${goods.id},auditMemo:$('#auditMemo').val()},
 			dataType: "json",
 			success: function(data) {
 				$.message('success','操作成功');
@@ -45,7 +45,7 @@ var $inputForm = $("#inputForm");
 </head>
 <body>
 	<div class="breadcrumb">
-		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; ${message("admin.goods.edit")}
+		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 商品审核
 	</div>
 	<form id="inputForm" action="check.jhtml" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="id" value="${goods.id}" />
@@ -146,7 +146,7 @@ var $inputForm = $("#inputForm");
 							一级审核备注:
 						</th>
 						<td>
-							<input type="text" name='auditMemo' class="text" />
+							<input type="text" name='auditMemo' id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
 							<input type="hidden" name="actType" value="1" />
@@ -164,10 +164,26 @@ var $inputForm = $("#inputForm");
 					</tr>
 					<tr>
 						<th>
+							一级审核人:
+						</th>
+						<td>
+							${auditAdmin1.name}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							一级审核时间:
+						</th>
+						<td>
+							${goods.auditDate1}
+						</td>
+					</tr>
+					<tr>
+						<th>
 							二级审核备注:
 						</th>
 						<td>
-							<input type="text" name='auditMemo' class="text" />
+							<input type="text" name='auditMemo' id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
 							<input type="hidden" name="actType" value="2" />
@@ -185,10 +201,42 @@ var $inputForm = $("#inputForm");
 					</tr>
 					<tr>
 						<th>
+							一级审核人:
+						</th>
+						<td>
+							${auditAdmin1.name}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							一级审核时间:
+						</th>
+						<td>
+							${goods.auditDate1}
+						</td>
+					</tr>
+					<tr>
+						<th>
 							二级审核备注:
 						</th>
 						<td>
 							${goods.auditMemo2}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							二级审核人:
+						</th>
+						<td>
+							${auditAdmin2.name}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							二级审核时间:
+						</th>
+						<td>
+							${goods.auditDate2}
 						</td>
 					</tr>
 				[#break]

@@ -49,7 +49,7 @@ $().ready(function() {
 </head>
 <body>
 	<div class="breadcrumb">
-		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; ${message("admin.area.list")}
+		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 价格管理
 	</div>
 	<div class="bar">
 		<a href="add.jhtml[#if parent??]?parentId=${parent.id}[/#if]" class="iconButton">

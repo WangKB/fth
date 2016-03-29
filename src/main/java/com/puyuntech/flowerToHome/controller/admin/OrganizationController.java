@@ -1,5 +1,7 @@
 package com.puyuntech.flowerToHome.controller.admin;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.Organization;
+import com.puyuntech.flowerToHome.entity.ProductChangeLog;
 import com.puyuntech.flowerToHome.entity.ShopAudit;
+import com.puyuntech.flowerToHome.service.AdminService;
 import com.puyuntech.flowerToHome.service.AreaService;
 import com.puyuntech.flowerToHome.service.OrganizationService;
 import com.puyuntech.flowerToHome.service.ShopAuditService;
@@ -31,6 +35,9 @@ public class OrganizationController extends BaseController {
      */
     @Resource(name = "organizationServiceImpl")
     private OrganizationService organizationService;
+    
+	@Resource(name = "adminServiceImpl")
+	private AdminService adminService;
     
     @Resource(name = "shopAuditServiceImpl")
     private ShopAuditService shopAuditService;
@@ -89,14 +96,23 @@ public class OrganizationController extends BaseController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(Organization organization) {
 
-    	organizationService.update(organization,"status","nextRollDate","lastPaymentDate");
+    	organizationService.update(organization,"status","nextRollDate","lastPaymentDate","qq","qqKey","wechat","designerId");
         return "redirect:list.jhtml";
     }
     
     @RequestMapping(value = "/reject", method = RequestMethod.POST)
-	public @ResponseBody Message reject(Integer id){
+	public @ResponseBody Message reject(Integer id,String auditMemo){
 		
     	ShopAudit shopAudit = shopAuditService.find(id);
+		if(shopAudit.getApplicationState().equals(ShopAudit.state.ApplyingOne)){
+			shopAudit.setAuditAdmin1(adminService.getCurrent().getId());
+			shopAudit.setAuditMemo1(auditMemo);
+			shopAudit.setAuditDate1(new Date());
+		}else if(shopAudit.getApplicationState().equals(ShopAudit.state.ApplyingTwo)){
+			shopAudit.setAuditAdmin2(adminService.getCurrent().getId());
+			shopAudit.setAuditMemo2(auditMemo);
+			shopAudit.setAuditDate2(new Date());
+		}
 		shopAudit.setApplicationState(ShopAudit.state.Rejected);
 		shopAuditService.update(shopAudit);
 		return SUCCESS_MESSAGE;
@@ -105,7 +121,7 @@ public class OrganizationController extends BaseController {
 	@RequestMapping(value = "/check", method = RequestMethod.POST)
 	public String check(Integer id,Integer actType,String auditMemo){
 		
-		shopAuditService.check(shopAuditService.find(id), actType,auditMemo);
+		shopAuditService.check(shopAuditService.find(id), actType,auditMemo,adminService.getCurrent().getId());
 		return "redirect:examine.jhtml";
 	}
 	
@@ -114,6 +130,8 @@ public class OrganizationController extends BaseController {
 		
 		model.addAttribute("organization", shopAuditService.find(id));
 		model.addAttribute("levels",Organization.Level.values());
+		model.addAttribute("auditAdmin1",adminService.find(shopAuditService.find(id).getAuditAdmin1()));
+		model.addAttribute("auditAdmin2",adminService.find(shopAuditService.find(id).getAuditAdmin2()));
 		return "/admin/organization/view";
 	}
 	

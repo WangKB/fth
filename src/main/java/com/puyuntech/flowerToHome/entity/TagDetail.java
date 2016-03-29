@@ -17,29 +17,29 @@ public class TagDetail extends OrderEntity<Integer> {
 	//名称
 	private String name;
 
-	//商品id
+	//标签id
 	private Integer tagsId;
 	
 	//规格-目标
-	private Integer specTargetId;
+	private String specTargetId;
 	
 	//规格-花卉
-	private Integer specFlowertId;
+	private String specFlowertId;
 	
 	//规格-类别
-	private Integer specSorttId;
+	private String specSorttId;
 	
 	//规格-设计
-	private Integer specDesigntId;
+	private String specDesigntId;
 	
 	//规格-颜色
-	private Integer specColortId;
+	private String specColortId;
 	
 	//规格-系列
-	private Integer specSeriestId;
+	private String specSeriestId;
 	
 	//规格-主题
-	private Integer specThemetId;
+	private String specThemetId;
 	
 	@Column(name = "name")
 	public String getName() {
@@ -60,65 +60,65 @@ public class TagDetail extends OrderEntity<Integer> {
 	}
 
 	@Column(name="spec_target_id")
-	public Integer getSpecTargetId() {
+	public String getSpecTargetId() {
 		return specTargetId;
 	}
 
-	public void setSpecTargetId(Integer specTargetId) {
+	public void setSpecTargetId(String specTargetId) {
 		this.specTargetId = specTargetId;
 	}
 
 	@Column(name="spec_flowert_id")
-	public Integer getSpecFlowertId() {
+	public String getSpecFlowertId() {
 		return specFlowertId;
 	}
 
-	public void setSpecFlowertId(Integer specFlowertId) {
+	public void setSpecFlowertId(String specFlowertId) {
 		this.specFlowertId = specFlowertId;
 	}
 
 	@Column(name="spec_sortt_id")
-	public Integer getSpecSorttId() {
+	public String getSpecSorttId() {
 		return specSorttId;
 	}
 
-	public void setSpecSorttId(Integer specSorttId) {
+	public void setSpecSorttId(String specSorttId) {
 		this.specSorttId = specSorttId;
 	}
 
 	@Column(name="spec_designt_id")
-	public Integer getSpecDesigntId() {
+	public String getSpecDesigntId() {
 		return specDesigntId;
 	}
 
-	public void setSpecDesigntId(Integer specDesigntId) {
+	public void setSpecDesigntId(String specDesigntId) {
 		this.specDesigntId = specDesigntId;
 	}
 
 	@Column(name="spec_colort_id")
-	public Integer getSpecColortId() {
+	public String getSpecColortId() {
 		return specColortId;
 	}
 
-	public void setSpecColortId(Integer specColortId) {
+	public void setSpecColortId(String specColortId) {
 		this.specColortId = specColortId;
 	}
 
 	@Column(name="spec_seriest_id")
-	public Integer getSpecSeriestId() {
+	public String getSpecSeriestId() {
 		return specSeriestId;
 	}
 
-	public void setSpecSeriestId(Integer specSeriestId) {
+	public void setSpecSeriestId(String specSeriestId) {
 		this.specSeriestId = specSeriestId;
 	}
 
 	@Column(name="spec_themet_id")
-	public Integer getSpecThemetId() {
+	public String getSpecThemetId() {
 		return specThemetId;
 	}
 
-	public void setSpecThemetId(Integer specThemetId) {
+	public void setSpecThemetId(String specThemetId) {
 		this.specThemetId = specThemetId;
 	}
 }

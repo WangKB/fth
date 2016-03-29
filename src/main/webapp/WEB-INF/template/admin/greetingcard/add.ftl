@@ -39,7 +39,7 @@
 </head>
 <body>
 <div class="breadcrumb">
-    <a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 添加门店
+    <a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 添加贺卡
 </div>
 <form id="inputForm" action="save.jhtml" method="post">
     <table class="input">

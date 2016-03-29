@@ -1,5 +1,7 @@
 package com.puyuntech.flowerToHome.service.impl;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -25,17 +27,21 @@ public class ShopAuditServiceImpl extends BaseServiceImpl<ShopAudit, Integer> im
 	private OrganizationDao organizationDao;
 	
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-	public void check(ShopAudit shopAudit,Integer actType,String auditMemo){
+	public void check(ShopAudit shopAudit,Integer actType,String auditMemo,Integer adminId){
 		
 		switch(actType){
 			case 1:
 				shopAudit.setApplicationState(ShopAudit.state.ApplyingTwo);
 				shopAudit.setAuditMemo1(auditMemo);
+				shopAudit.setAuditAdmin1(adminId);
+				shopAudit.setAuditDate1(new Date());
 				update(shopAudit);
 			break;
 			case 2:
 				shopAudit.setApplicationState(ShopAudit.state.Pass);
 				shopAudit.setAuditMemo2(auditMemo);
+				shopAudit.setAuditAdmin2(adminId);
+				shopAudit.setAuditDate2(new Date());
 				update(shopAudit);
 				Organization organization = new Organization();
 				try {

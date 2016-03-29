@@ -98,6 +98,18 @@ public class ShopAudit extends OrderEntity<Integer> {
 	
 	//申请备注
 	private String auditMemo2;
+	
+	//一级审核人
+	private Integer auditAdmin1;
+	
+	//二级审核人
+	private Integer auditAdmin2;
+	
+	//一级审核时间
+	private Date auditDate1;
+	
+	//二级审核时间
+	private Date auditDate2;
 
     @Column(name="intro")
     public String getIntro() {
@@ -117,7 +129,7 @@ public class ShopAudit extends OrderEntity<Integer> {
         this.name = name;
     }
 
-    @Column(name="longitude" , nullable=false)
+    @Column(name="point_X" , nullable=false)
     public String getLongitude() {
         return longitude;
     }
@@ -126,7 +138,7 @@ public class ShopAudit extends OrderEntity<Integer> {
         this.longitude = longitude;
     }
 
-    @Column(name="latitude",nullable=false)
+    @Column(name="point_Y",nullable=false)
     public String getLatitude() {
         return latitude;
     }
@@ -304,6 +316,42 @@ public class ShopAudit extends OrderEntity<Integer> {
 
 	public void setAuditMemo2(String auditMemo2) {
 		this.auditMemo2 = auditMemo2;
+	}
+	
+	@Column(name="audit_admin1")
+	public Integer getAuditAdmin1() {
+		return auditAdmin1;
+	}
+
+	public void setAuditAdmin1(Integer auditAdmin1) {
+		this.auditAdmin1 = auditAdmin1;
+	}
+
+	@Column(name="audit_admin2")
+	public Integer getAuditAdmin2() {
+		return auditAdmin2;
+	}
+
+	public void setAuditAdmin2(Integer auditAdmin2) {
+		this.auditAdmin2 = auditAdmin2;
+	}
+
+	@Column(name="audit_date1")
+	public Date getAuditDate1() {
+		return auditDate1;
+	}
+
+	public void setAuditDate1(Date auditDate1) {
+		this.auditDate1 = auditDate1;
+	}
+
+	@Column(name="audit_date2")
+	public Date getAuditDate2() {
+		return auditDate2;
+	}
+
+	public void setAuditDate2(Date auditDate2) {
+		this.auditDate2 = auditDate2;
 	}
 }
 

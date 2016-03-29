@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>${message("admin.memberRank.list")}</title>
-<meta name="author" />
-<meta name="copyright" />
+<title>${message("admin.attribute.list")} </title>
+<meta name="author"  />
+<meta name="copyright"  />
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
@@ -22,21 +22,17 @@ $().ready(function() {
 </head>
 <body>
 	<div class="breadcrumb">
-		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; ${message("admin.memberRank.list")} <span>(${message("admin.page.total", page.total)})</span>
+		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 标签列表 <span>(${message("admin.page.total", page.total)})</span>
 	</div>
 	<form id="listForm" action="list.jhtml" method="get">
 		<div class="bar">
-            [@shiro.hasPermission name="admin:memberRank-edit"]
 			<a href="add.jhtml" class="iconButton">
 				<span class="addIcon">&nbsp;</span>${message("admin.common.add")}
 			</a>
-            [/@shiro.hasPermission]
 			<div class="buttonGroup">
-    [@shiro.hasPermission name="admin:memberRank-edit"]
 				<a href="javascript:;" id="deleteButton" class="iconButton disabled">
 					<span class="deleteIcon">&nbsp;</span>${message("admin.common.delete")}
 				</a>
-        [/@shiro.hasPermission]
 				<a href="javascript:;" id="refreshButton" class="iconButton">
 					<span class="refreshIcon">&nbsp;</span>${message("admin.common.refresh")}
 				</a>
@@ -59,7 +55,7 @@ $().ready(function() {
 					<button type="submit">&nbsp;</button>
 				</div>
 				<ul>
-					<li[#if page.searchProperty == "name"] class="current"[/#if] val="name">${message("MemberRank.name")}</li>
+					<li[#if page.searchProperty == "name"] class="current"[/#if] val="name">名称</li>
 				</ul>
 			</div>
 		</div>
@@ -69,45 +65,41 @@ $().ready(function() {
 					<input type="checkbox" id="selectAll" />
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="name">${message("MemberRank.name")}</a>
+					<a href="javascript:;" class="sort" name="name">标签名称</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="scale">${message("MemberRank.scale")}</a>
+					<a href="javascript:;" class="sort" name="productId">商品id</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="amount">${message("MemberRank.amount")}</a>
+					<a href="javascript:;" class="sort" name="images">图片链接</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="isDefault">${message("MemberRank.isDefault")}</a>
+					<a href="javascript:;" class="sort" name="createDate">创建时间</a>
 				</th>
-    [@shiro.hasPermission name="admin:memberRank-edit"]
 				<th>
 					<span>${message("admin.common.action")}</span>
 				</th>
-    [/@shiro.hasPermission]
 			</tr>
-			[#list page.content as memberRank]
+			[#list page.content as tag]
 				<tr>
 					<td>
-						<input type="checkbox" name="ids"[#if memberRank.isDefault] title="${message("admin.memberRank.deleteDefaultNotAllowed")}" disabled="disabled"[#else] value="${memberRank.id}"[/#if] />
+						<input type="checkbox" name="ids" value="${tag.id}" />
 					</td>
 					<td>
-						${memberRank.name}
+						${tag.name}
 					</td>
 					<td>
-						${memberRank.scale}
+						${tag.productId}
 					</td>
 					<td>
-						${memberRank.amount}
+						${tag.images}
 					</td>
 					<td>
-						${message(memberRank.isDefault?string('admin.common.true', 'admin.common.false'))}
+						<span title="${tag.createDate?string("yyyy-MM-dd HH:mm:ss")}">${tag.createDate}</span>
 					</td>
-                [@shiro.hasPermission name="admin:memberRank-edit"]
 					<td>
-						<a href="edit.jhtml?id=${memberRank.id}">[${message("admin.common.edit")}]</a>
+						<a href="edit.jhtml?id=${tag.id}">[${message("admin.common.edit")}]</a>
 					</td>
-                [/@shiro.hasPermission]
 				</tr>
 			[/#list]
 		</table>

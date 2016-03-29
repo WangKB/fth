@@ -10,5 +10,5 @@ import com.puyuntech.flowerToHome.entity.ShopAudit;
  */
 public interface ShopAuditService extends BaseService<ShopAudit, Integer> {
 
-	void check(ShopAudit shopAudit,Integer actType,String auditMemo);
+	void check(ShopAudit shopAudit,Integer actType,String auditMemo,Integer adminId);
 }

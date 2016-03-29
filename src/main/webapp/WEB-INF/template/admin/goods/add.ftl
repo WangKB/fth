@@ -35,6 +35,14 @@ $().ready(function() {
 	$filePicker3.uploader();
 	$filePicker4.uploader();
 	$filePicker.uploader();
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			name:"required",
+		}
+	});
+	
 });
 </script>
 </head>
@@ -64,6 +72,14 @@ $().ready(function() {
 				</th>
 				<td>
 					<input type="text" name="name" class="text" maxlength="200" />
+				</td>
+			</tr>
+			<tr>
+				<th>
+					花语:
+				</th>
+				<td>
+					<input type="text" name="flowerLanguage" class="text" maxlength="200" />
 				</td>
 			</tr>
 			<tr>

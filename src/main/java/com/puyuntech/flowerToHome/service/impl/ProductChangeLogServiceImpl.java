@@ -3,6 +3,8 @@ package com.puyuntech.flowerToHome.service.impl;
 
 
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -34,20 +36,19 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 	private SnDao snDao;
 	
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-	public void check(ProductChangeLog productChangeLog,Integer actType,String auditMemo){
+	public void check(ProductChangeLog productChangeLog,Integer actType,String auditMemo,Integer adminId){
 		
 		switch(actType){
 			case 1:
 				productChangeLog.setApplicationState(ProductChangeLog.state.ApplyingTwo);
 				productChangeLog.setAuditMemo1(auditMemo);
+				productChangeLog.setAuditAdmin1(adminId);
+				productChangeLog.setAuditDate1(new Date());
 				update(productChangeLog);
 			break;
 			case 2:
-				productChangeLog.setApplicationState(ProductChangeLog.state.Pass);
-				productChangeLog.setAuditMemo2(auditMemo);
-				update(productChangeLog);
-				Product product = new Product();
 				try {
+					Product product = new Product();
 					BeanUtils.copyProperties(product, productChangeLog);
 					product.setCreateDate(null);
 					product.setModifyDate(null);
@@ -55,6 +56,12 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 					product.setSn(snDao.generate(Sn.Type.goods));
 					producteDao.persist(product);
 					
+					productChangeLog.setApplicationState(ProductChangeLog.state.Pass);
+					productChangeLog.setAuditMemo2(auditMemo);
+					productChangeLog.setProductId(product.getId());
+					productChangeLog.setAuditAdmin2(adminId);
+					productChangeLog.setAuditDate2(new Date());
+					update(productChangeLog);
 				} catch (Exception e) {
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				}

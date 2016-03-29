@@ -36,6 +36,9 @@ public class OrderItem extends BaseEntity<Integer> {
 	
 	//订单id
 	private Integer orderId;
+	
+	//是否评论
+	private Integer isComment;
 		
 
 
@@ -153,5 +156,14 @@ public class OrderItem extends BaseEntity<Integer> {
 		this.orderId = orderId;
 	}
 
+	@Column(name="is_comment")
+	public Integer getIsComment() {
+		return isComment;
+	}
 
+	public void setIsComment(Integer isComment) {
+		this.isComment = isComment;
+	}
+
+	
 }

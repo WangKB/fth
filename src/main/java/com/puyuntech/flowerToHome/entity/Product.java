@@ -18,7 +18,7 @@ import org.hibernate.search.annotations.Indexed;
 @Indexed
 @Entity
 @Table(name = "t_product")
-public class Product extends BaseEntity<Integer> {
+public class Product extends OrderEntity<Integer> {
 
 	private static final long serialVersionUID = 4979454533832727241L;
 
@@ -99,6 +99,12 @@ public class Product extends BaseEntity<Integer> {
 	
 	//商品编号
 	private String sn;
+	
+	//花语
+	private String flowerLanguage;
+	
+	//购买次数
+	private Integer buytimes;
 	
 	//是否是虚拟商品
 	private Integer isVirtual;
@@ -357,5 +363,24 @@ public class Product extends BaseEntity<Integer> {
 	public void setAreaPrice(BigDecimal areaPrice) {
 		this.areaPrice = areaPrice;
 	}
+
+	@Column(name="flower_language")
+	public String getFlowerLanguage() {
+		return flowerLanguage;
+	}
+
+	public void setFlowerLanguage(String flowerLanguage) {
+		this.flowerLanguage = flowerLanguage;
+	}
+
+	@Column(name="buytimes")
+	public Integer getBuytimes() {
+		return buytimes;
+	}
+
+	public void setBuytimes(Integer buytimes) {
+		this.buytimes = buytimes;
+	}
+
 	
 }

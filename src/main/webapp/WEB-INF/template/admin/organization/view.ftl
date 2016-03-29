@@ -28,7 +28,7 @@
 				$.ajax({
 					url: "reject.jhtml",
 					type: "POST",
-					data: {id:${goods.id}},
+					data: {id:${organization.id},auditMemo:$('#auditMemo').val()},
 					dataType: "json",
 					success: function(data) {
 						$.message('success','操作成功');
@@ -62,7 +62,7 @@
 </head>
 <body>
 <div class="breadcrumb">
-    <a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 编辑门店
+    <a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 门店审核
 </div>
 <form id="inputForm" action="check.jhtml" method="post">
     <input type="hidden" name="id" value="${organization.id}" />
@@ -192,7 +192,7 @@
 							一级审核备注:
 						</th>
 						<td>
-							<input type="text" name='auditMemo' class="text" />
+							<input type="text" name='auditMemo'  id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
 							<input type="hidden" name="actType" value="1" />
@@ -205,7 +205,23 @@
 							一级审核备注:
 						</th>
 						<td>
-							${goods.auditMemo1}
+							${organization.auditMemo1}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							一级审核人:
+						</th>
+						<td>
+							${auditAdmin1.name}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							一级审核时间:
+						</th>
+						<td>
+							${organization.auditDate1}
 						</td>
 					</tr>
 					<tr>
@@ -213,7 +229,7 @@
 							二级审核备注:
 						</th>
 						<td>
-							<input type="text" name='auditMemo' class="text" />
+							<input type="text" name='auditMemo'  id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
 							<input type="hidden" name="actType" value="2" />
@@ -226,7 +242,23 @@
 							一级审核备注:
 						</th>
 						<td>
-							${goods.auditMemo1}
+							${organization.auditMemo1}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							一级审核人:
+						</th>
+						<td>
+							${auditAdmin1.name}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							一级审核时间:
+						</th>
+						<td>
+							${organization.auditDate1}
 						</td>
 					</tr>
 					<tr>
@@ -234,7 +266,23 @@
 							二级审核备注:
 						</th>
 						<td>
-							${goods.auditMemo2}
+							${organization.auditMemo2}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							二级审核人:
+						</th>
+						<td>
+							${auditAdmin2.name}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							二级审核时间:
+						</th>
+						<td>
+							${organization.auditDate2}
 						</td>
 					</tr>
 				[#break]

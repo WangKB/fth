@@ -22,7 +22,7 @@ public class Tag extends OrderEntity<Integer> {
 	//图标
 	private String images;
 
-	//备注
+	//介绍
 	private String introduction;
 
 	//商品id

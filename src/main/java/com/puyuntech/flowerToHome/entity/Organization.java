@@ -106,6 +106,18 @@ public class Organization extends OrderEntity<Integer> {
     
     /** 二维码地址*/
     private String qrcode;
+    
+    //qq
+    private String qq;
+    
+    //qqKey
+    private String qqKey;
+    
+    //微信号
+    private String wechat;
+    
+    //设计师id
+    private String designerId;
 
     @Column(name="intro")
     public String getIntro() {
@@ -125,7 +137,7 @@ public class Organization extends OrderEntity<Integer> {
         this.name = name;
     }
 
-    @Column(name="longitude" , nullable=false)
+    @Column(name="point_X" , nullable=false)
     public String getLongitude() {
         return longitude;
     }
@@ -134,7 +146,7 @@ public class Organization extends OrderEntity<Integer> {
         this.longitude = longitude;
     }
 
-    @Column(name="latitude",nullable=false)
+    @Column(name="point_Y",nullable=false)
     public String getLatitude() {
         return latitude;
     }
@@ -276,6 +288,42 @@ public class Organization extends OrderEntity<Integer> {
 
 	public void setQrcode(String qrcode) {
 		this.qrcode = qrcode;
+	}
+
+	@Column(name="QQ")
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	@Column(name="QQ_key")
+	public String getQqKey() {
+		return qqKey;
+	}
+
+	public void setQqKey(String qqKey) {
+		this.qqKey = qqKey;
+	}
+
+	@Column(name="wechat")
+	public String getWechat() {
+		return wechat;
+	}
+
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
+	}
+
+	@Column(name="designer_id")
+	public String getDesignerId() {
+		return designerId;
+	}
+
+	public void setDesignerId(String designerId) {
+		this.designerId = designerId;
 	}
 
     

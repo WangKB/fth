@@ -26,7 +26,7 @@ $().ready(function() {
 </head>
 <body>
 	<div class="breadcrumb">
-		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo;编辑邮件模板
+		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo;商品评价设置
 	</div>
 	<form id="inputForm" action="update.jhtml" method="post">
 		<table class="input">

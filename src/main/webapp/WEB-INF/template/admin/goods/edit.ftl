@@ -34,6 +34,13 @@ var $inputForm = $("#inputForm");
 	$filePicker3.uploader();
 	$filePicker4.uploader();
 	$filePicker.uploader();
+	
+	// 表单验证
+	$inputForm.validate({
+		rules: {
+			name:"required",
+		}
+	});
 });
 </script>
 </head>
@@ -72,6 +79,14 @@ var $inputForm = $("#inputForm");
 				</th>
 				<td>
 					<input type="text" name="name" class="text" value=${goods.name} maxlength="200" />
+				</td>
+			</tr>
+			<tr>
+				<th>
+					花语:
+				</th>
+				<td>
+					<input type="text" name="flowerLanguage" class="text" value=${goods.flowerLanguage} maxlength="200" />
 				</td>
 			</tr>
 			<tr>

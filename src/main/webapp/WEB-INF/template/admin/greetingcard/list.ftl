@@ -22,7 +22,7 @@ $().ready(function() {
 </head>
 <body>
 	<div class="breadcrumb">
-		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 门店管理 <span>(${message("admin.page.total", page.total)})</span>
+		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 贺卡管理 <span>(${message("admin.page.total", page.total)})</span>
 	</div>
 	<form id="listForm" action="list.jhtml" method="get">
 		<div class="bar">
@@ -65,7 +65,7 @@ $().ready(function() {
 					<input type="checkbox" id="selectAll" />
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="address">贺卡名称</a>
+					<a href="javascript:;" class="sort" name="name">贺卡名称</a>
 				</th>
 				<th>
 					<a href="javascript:;" class="sort" name="wishes">寄语</a>

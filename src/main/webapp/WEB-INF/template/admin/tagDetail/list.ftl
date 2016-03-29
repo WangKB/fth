@@ -5,9 +5,9 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>${message("admin.parameter.list")}</title>
-<meta name="author"/>
-<meta name="copyright" />
+<title>${message("admin.attribute.list")} </title>
+<meta name="author"  />
+<meta name="copyright"  />
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
@@ -22,21 +22,17 @@ $().ready(function() {
 </head>
 <body>
 	<div class="breadcrumb">
-		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 帮助中心内容列表 <span>(${message("admin.page.total", page.total)})</span>
+		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 标签列表 <span>(${message("admin.page.total", page.total)})</span>
 	</div>
 	<form id="listForm" action="list.jhtml" method="get">
 		<div class="bar">
-    [@shiro.hasPermission name="admin:helpCenter-edit"]
 			<a href="add.jhtml" class="iconButton">
 				<span class="addIcon">&nbsp;</span>${message("admin.common.add")}
 			</a>
-    [/@shiro.hasPermission]
 			<div class="buttonGroup">
-    [@shiro.hasPermission name="admin:helpCenter-edit"]
 				<a href="javascript:;" id="deleteButton" class="iconButton disabled">
 					<span class="deleteIcon">&nbsp;</span>${message("admin.common.delete")}
 				</a>
-    [/@shiro.hasPermission]
 				<a href="javascript:;" id="refreshButton" class="iconButton">
 					<span class="refreshIcon">&nbsp;</span>${message("admin.common.refresh")}
 				</a>
@@ -59,8 +55,7 @@ $().ready(function() {
 					<button type="submit">&nbsp;</button>
 				</div>
 				<ul>
-					<li[#if page.searchProperty == "group"] class="current"[/#if] val="title">标题</li>
-					<li[#if page.searchProperty == "desc"] class="current"[/#if] val="desc">内容</li>
+					<li[#if page.searchProperty == "name"] class="current"[/#if] val="name">名称</li>
 				</ul>
 			</div>
 		</div>
@@ -70,50 +65,35 @@ $().ready(function() {
 					<input type="checkbox" id="selectAll" />
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="title">标题</a>
+					<a href="javascript:;" class="sort" name="name">标签详情名称</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="desc">内容</a>
+					<a href="javascript:;" class="sort" name="tagsId">标签id</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="problemClassification">${message("Parameter.productCategory")}</a>
+					<a href="javascript:;" class="sort" name="createDate">创建时间</a>
 				</th>
-				
-				<th>
-					<a href="javascript:;" class="sort" name="order">${message("admin.common.order")}</a>
-				</th>
-    [@shiro.hasPermission name="admin:helpCenter-edit"]
 				<th>
 					<span>${message("admin.common.action")}</span>
 				</th>
-    [/@shiro.hasPermission]
 			</tr>
-			[#list page.content as parameter]
+			[#list page.content as tagDetail]
 				<tr>
 					<td>
-						<input type="checkbox" name="ids" value="${parameter.id}" />
+						<input type="checkbox" name="ids" value="${tagDetail.id}" />
 					</td>
 					<td>
-						${parameter.title}
+						${tagDetail.name}
 					</td>
 					<td>
-						<ol class=" list-paddingleft-2" style="width: 1000px; white-space: normal;">
-							[#noescape]
-								${parameter.desc}
-				 			[/#noescape]
-			 			</ol>
+						${tagDetail.tagsId}
 					</td>
 					<td>
-						${parameter.problemClassification.name}
+						<span title="${tagDetail.createDate?string("yyyy-MM-dd HH:mm:ss")}">${tagDetail.createDate}</span>
 					</td>
 					<td>
-						${parameter.order}
+						<a href="edit.jhtml?id=${tagDetail.id}">[${message("admin.common.edit")}]</a>
 					</td>
-                [@shiro.hasPermission name="admin:helpCenter-edit"]
-					<td>
-						<a href="edit.jhtml?id=${parameter.id}">[${message("admin.common.edit")}]</a>
-					</td>
-                [/@shiro.hasPermission]
 				</tr>
 			[/#list]
 		</table>

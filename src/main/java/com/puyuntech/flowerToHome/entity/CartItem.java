@@ -26,6 +26,9 @@ public class CartItem extends BaseEntity<Integer> {
 	
 	//商家id
 	private Integer shopId;
+	
+	/** 附近门店id */
+	private Integer nearShopId;
 
 	@Column(name="product_id")
 	public Integer getProductId() {
@@ -75,4 +78,12 @@ public class CartItem extends BaseEntity<Integer> {
 		this.quantity = quantity;
 	}
 
+	@Column(name="near_shop_id")
+	public Integer getNearShopId() {
+		return nearShopId;
+	}
+
+	public void setNearShopId(Integer nearShopId) {
+		this.nearShopId = nearShopId;
+	}
 }

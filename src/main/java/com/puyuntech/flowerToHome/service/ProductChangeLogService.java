@@ -12,5 +12,5 @@ import com.puyuntech.flowerToHome.entity.ProductChangeLog;
  */
 public interface ProductChangeLogService extends BaseService<ProductChangeLog, Integer> {
 
-		void check(ProductChangeLog productChangeLog,Integer actType,String auditMemo);
+		void check(ProductChangeLog productChangeLog,Integer actType,String auditMemo,Integer adminId);
 }

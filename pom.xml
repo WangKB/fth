@@ -77,9 +77,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<springframework.version>4.0.9.RELEASE</springframework.version>
 		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-	    <jdbc.url>jdbc:mysql://localhost:3306/fth</jdbc.url>
-	    <jdbc.username>root</jdbc.username>
-	    <jdbc.password>root</jdbc.password>
+	    <jdbc.url>jdbc:mysql://rds73781w2l1r7n527d6.mysql.rds.aliyuncs.com:3306/yhhp</jdbc.url>
+	    <jdbc.username>webuser</jdbc.username>
+	    <jdbc.password>DC5G84EuK6</jdbc.password>
 	    <indexBase>D:/WEB-INF/index</indexBase>
 	    <log.home>D:/WEB-INF/log</log.home>
 	    <cache.home>D:/WEB-INF/cache</cache.home>

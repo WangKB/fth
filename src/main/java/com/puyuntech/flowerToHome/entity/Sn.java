@@ -54,7 +54,7 @@ public class Sn extends BaseEntity<Integer> {
 	 * 
 	 * @return 类型
 	 */
-	@Column(name="f_type",nullable = false, updatable = false, unique = true)
+	@Column(name="type",nullable = false, updatable = false, unique = true)
 	public Sn.Type getType() {
 		return type;
 	}
@@ -74,7 +74,7 @@ public class Sn extends BaseEntity<Integer> {
 	 * 
 	 * @return 末值
 	 */
-	@Column(name="f_last_value",nullable = false)
+	@Column(name="last_value",nullable = false)
 	public Integer getLastValue() {
 		return lastValue;
 	}

@@ -35,28 +35,38 @@ public class Order extends BaseEntity<Integer> {
 	public enum Status {
 		
 		/** 等待付款 0*/
-		pendingPayment,
+		pendingPayment(0),
 
 		/** 等待接单 1*/
-		pendingConfirm,
+		pendingConfirm(1),
 		
 		/** 已接单 2*/
-		Confirmed,
+		Confirmed(2),
 		
 		/** 配送中 3*/
-		Delivery,
+		Delivery(3),
 		
 		/** 已收货 4*/
-		Reciverd,
+		Reciverd(4),
 		
 		/** 退款中 5*/
-		Returning,
+		Returning(5),
 		
 		/** 已退货 6*/
-		Returned,
+		Returned(6),
 		
 		/** 已取消 7*/
-		Canceled
+		Canceled(7);
+		
+		private Integer id;
+		
+		private Status(Integer id){
+			this.id = id;
+		}
+
+		public Integer getId() {
+			return id;
+		}
 
 	}
 	

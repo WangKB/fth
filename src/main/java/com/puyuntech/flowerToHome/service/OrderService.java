@@ -11,5 +11,5 @@ import com.puyuntech.flowerToHome.entity.Order;
  * @author 王凯斌
  */
 public interface OrderService extends BaseService<Order, Integer> {
-
+	public Integer changeStatus(Order order, Order.Status status);
 }

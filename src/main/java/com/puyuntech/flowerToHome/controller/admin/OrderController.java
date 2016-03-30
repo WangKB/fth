@@ -63,11 +63,13 @@ public class OrderController extends BaseController {
 	public String changeStatus(Integer orderId, Order.Status status) {
 
 		Order order = orderService.find(orderId);
-		order.setStatus(status);
-		orderService.update(order);
+		orderService.changeStatus(order, status);
+		
 		/**
 		 * 返回模板位置
 		 */
 		return "redirect:view.jhtml?id="+orderId;
 	}
+	
+	
 }

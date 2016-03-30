@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.index{
+	position:absolute;
+	top:1220px;	
+	font-size:30px;
+	width:100%;
+}	
+.index li{
+	display:inline-block;
+	width:15%;
+	}
+
+.tran
+{
+width:100%;
+height:1200px;
+background:grey;
+overflow:hidden;
+transition:width 2s,height 2s,transform 2s;
+-moz-transition:width 2s,height 2s,transform 2s; /* Firefox 4 */
+-webkit-transition:width 2s,height 2s,transform 2s; /* Safari and Chrome */
+-o-transition:width 2s,height 2s,transform 2s; /* Opera */
+}
+
+.tran:hover
+{
+width:0;
+height:0;
+transform: rotate(90deg);
+-ms-transform: rotate(90deg);		/* IE 9 */
+-webkit-transform: rotate(90deg);	/* Safari and Chrome */
+-o-transform: rotate(90deg);		/* Opera */
+-moz-transform: rotate(90deg);	
+}
+</style>
+</head>
+<body>
+
+<div class='tran'>
+	<img src='41.jpg'/>
+</div>
+<div class='tran'>
+	<img src='41.jpg'/>
+</div>
+<ul class='index'>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+</body>
+</html>

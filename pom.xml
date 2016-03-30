@@ -80,10 +80,10 @@
 	    <jdbc.url>jdbc:mysql://rds73781w2l1r7n527d6.mysql.rds.aliyuncs.com:3306/yhhp</jdbc.url>
 	    <jdbc.username>webuser</jdbc.username>
 	    <jdbc.password>DC5G84EuK6</jdbc.password>
-	    <indexBase>D:/WEB-INF/index</indexBase>
-	    <log.home>D:/WEB-INF/log</log.home>
-	    <cache.home>D:/WEB-INF/cache</cache.home>
-	    <project.info>http://localhost:8080/flowerToHome/</project.info>
+	    <indexBase>c:/WEB-INF/index</indexBase>
+	    <log.home>c:/WEB-INF/log</log.home>
+	    <cache.home>c:/WEB-INF/cache</cache.home>
+	    <project.info>http://www.wangkaibin.cn:8080/flowerToHome/</project.info>
 	</properties>
 
 	<dependencies>

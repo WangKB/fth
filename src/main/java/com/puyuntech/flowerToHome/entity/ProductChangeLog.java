@@ -7,8 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.hibernate.search.annotations.Indexed;
-
 /**
  * 
  * Entity - 商品 . Created on 2015-8-27 下午3:25:10
@@ -16,7 +14,6 @@ import org.hibernate.search.annotations.Indexed;
  * @author 王凯斌
  * 
  */
-@Indexed
 @Entity
 @Table(name = "t_product_change_log")
 public class ProductChangeLog extends BaseEntity<Integer> {
@@ -36,6 +33,18 @@ public class ProductChangeLog extends BaseEntity<Integer> {
 		Rejected
 		
 	}
+	
+	public enum Type{
+		
+		//新增
+		ADD,
+		
+		//修改
+		EDIT,
+		
+	}
+	
+	private ProductChangeLog.Type type;
 	
 	//销售价
 	private BigDecimal price;
@@ -97,7 +106,7 @@ public class ProductChangeLog extends BaseEntity<Integer> {
 	//规格-花卉
 	private Integer specFlowertId;
 	
-	//规格-类别
+	//规格-花型
 	private Integer specSorttId;
 	
 	//规格-设计
@@ -516,4 +525,15 @@ public class ProductChangeLog extends BaseEntity<Integer> {
 	public void setBuytimes(Integer buytimes) {
 		this.buytimes = buytimes;
 	}
+
+	@Column(name="type")
+	public ProductChangeLog.Type getType() {
+		return type;
+	}
+
+	public void setType(ProductChangeLog.Type type) {
+		this.type = type;
+	}
+	
+	
 }

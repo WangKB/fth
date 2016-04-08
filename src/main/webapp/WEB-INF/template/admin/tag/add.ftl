@@ -23,7 +23,7 @@
 			[@flash_message /]
 			
 
-            $filePicker.uploader();
+            $filePicker.uploader({data:{imageType:'tag'}});
 
             // 表单验证
             $inputForm.validate({
@@ -68,7 +68,7 @@
                 <a href="javascript:;" id="filePicker" class="button">${message("admin.upload.filePicker")}</a>
             </td>
         </tr>
-        <tr>
+        <tr class='none'>
             <th>
                 关联商品：
             </th>

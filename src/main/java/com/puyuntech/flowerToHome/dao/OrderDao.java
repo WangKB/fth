@@ -1,5 +1,7 @@
 package com.puyuntech.flowerToHome.dao;
 
+import com.puyuntech.flowerToHome.Page;
+import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.entity.Order;
 
 /**
@@ -9,5 +11,10 @@ import com.puyuntech.flowerToHome.entity.Order;
  * @author 王凯斌
  */
 public interface OrderDao extends BaseDao<Order, Integer> {
-	public Integer changeStatus(Order order, Order.Status status);
+	Integer changeStatus(Order order, Order.Status status);
+	
+	Page<Order> pageByTel(Pageable pageable);
+	
+	Page<Order> report(Pageable pageable,Order.Status status,Integer shopId,String memberTel,
+			String province,String city,String distract,Integer isBlance,Order.FromType fromType);
 }

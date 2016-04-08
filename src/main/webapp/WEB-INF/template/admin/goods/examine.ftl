@@ -63,6 +63,9 @@ $().ready(function() {
 					<input type="checkbox" id="selectAll" />
 				</th>
 				<th>
+					<a href="javascript:;" class="sort" name="type">申请类型</a>
+				</th>
+				<th>
 					<a href="javascript:;" class="sort" name="applicationState">申请状态</a>
 				</th>
 				<th>
@@ -85,6 +88,9 @@ $().ready(function() {
 				<tr>
 					<td>
 						<input type="checkbox" name="ids" value="${goods.id}" />
+					</td>
+					<td>
+						${message("Goods.Type."+goods.type)}
 					</td>
 					<td>
 						${message("Goods.ApplicationState."+goods.applicationState)}

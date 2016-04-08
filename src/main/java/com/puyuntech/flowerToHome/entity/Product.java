@@ -79,7 +79,7 @@ public class Product extends OrderEntity<Integer> {
 	//规格-花卉
 	private Integer specFlowertId;
 	
-	//规格-类别
+	//规格-花型
 	private Integer specSorttId;
 	
 	//规格-设计

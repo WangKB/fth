@@ -26,7 +26,7 @@ public class TagDetail extends OrderEntity<Integer> {
 	//规格-花卉
 	private String specFlowertId;
 	
-	//规格-类别
+	//规格-花型
 	private String specSorttId;
 	
 	//规格-设计

@@ -132,6 +132,9 @@
 				<entry key="currency" value-ref="currencyMethod" />
 				<entry key="flash_message" value-ref="flashMessageDirective" />
 				<entry key="shop_name" value-ref="shopNameMethod" />
+				<entry key="member_tel" value-ref="memberTel" />
+				<entry key="tag_detail_name" value-ref="tagDetailName" />
+				<entry key="tag_name" value-ref="tagName" />
 				<entry key="current_member" value-ref="currentMemberDirective" />
 				<entry key="pagination" value-ref="paginationDirective" />
 				

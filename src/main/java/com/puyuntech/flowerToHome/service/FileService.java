@@ -69,5 +69,7 @@ public interface FileService {
 	 * @return 路径
 	 */
 	String uploadLocal(FileType fileType, MultipartFile multipartFile);
+	
+	String qiNiuUpload(String imageType, MultipartFile multipartFile);
 
 }

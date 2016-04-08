@@ -17,7 +17,7 @@
 <script type="text/javascript" src="${base}/resources/admin/datePicker/WdatePicker.js"></script>
 <script type="text/javascript">
 $().ready(function() {
-	var $inputForm = $("#inputForm");
+var $inputForm = $("#inputForm");
 	var $reject=$("#reject");
 
 	[@flash_message /]
@@ -62,11 +62,24 @@ $().ready(function() {
 		</ul>
 		<table class="input tabContent">
 			<tr>
+	            <th>
+	            </th>
+	            <td style="width:150px">
+	                申请内容
+	            </td>
+	            <td>
+	                当前内容
+	            </td>
+	        </tr>
+			<tr>
 				<th>
 					${message("Goods.sn")}:
 				</th>
 				<td>
 					${goods.sn}
+				</td>
+				<td>
+					${goodsBefore.sn}
 				</td>
 			</tr>
 			<tr>
@@ -76,6 +89,9 @@ $().ready(function() {
 				<td>
 					${goods.name}
 				</td>
+				<td>
+					${goodsBefore.name}
+				</td>
 			</tr>
 			<tr>
 				<th>
@@ -84,13 +100,8 @@ $().ready(function() {
 				<td>
 					${goods.order}
 				</td>
-			</tr>
-			<tr>
-				<th>
-					申请状态:
-				</th>
 				<td>
-					${message("Goods.ApplicationState."+goods.applicationState)}
+					${goodsBefore.order}
 				</td>
 			</tr>
 			<tr class='none'>
@@ -108,6 +119,19 @@ $().ready(function() {
 				<td>
 					${goods.price}
 				</td>
+				<td>
+					${goodsBefore.price}
+				</td>
+			</tr>
+			<tr>
+				<th>
+					申请状态:
+				</th>
+				<td>
+					${message("Goods.ApplicationState."+goods.applicationState)}
+				</td>
+				<td>
+				</td>
 			</tr>
 			<tr>
 				<th>
@@ -115,6 +139,8 @@ $().ready(function() {
 				</th>
 				<td>
 					${goods.applicationMemo}
+				</td>
+				<td>
 				</td>
 			</tr>
 			<tr>
@@ -126,13 +152,21 @@ $().ready(function() {
 						${message("Goods.isMarketable")}:[#if  goods.isMarketable==1]是; [#else]否; [/#if]
 					</label>
 					<label>
-						${message("Goods.isList")}:[#if  goods.isList==1]是; [#else]否; [/#if]
-					</label>
-					<label>
 						是否标品:[#if  goods.isStandard==1]是; [#else]否; [/#if]
 					</label>
 					<label>
 						是否虚拟商品:[#if  goods.isVirtual==1]是; [#else]否; [/#if]
+					</label>
+				</td>
+				<td>
+					<label>
+						${message("Goods.isMarketable")}:[#if  goodsBefore.isMarketable==1]是; [#else]否; [/#if]
+					</label>
+					<label>
+						是否标品:[#if  goodsBefore.isStandard==1]是; [#else]否; [/#if]
+					</label>
+					<label>
+						是否虚拟商品:[#if  goodsBefore.isVirtual==1]是; [#else]否; [/#if]
 					</label>
 				</td>
 			</tr>
@@ -142,7 +176,7 @@ $().ready(function() {
 						<th>
 							一级审核备注:
 						</th>
-						<td>
+						<td colspan=2>
 							<input type="text" name='auditMemo' id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
@@ -155,7 +189,7 @@ $().ready(function() {
 						<th>
 							一级审核备注:
 						</th>
-						<td>
+						<td colspan=2>
 							${goods.auditMemo1}
 						</td>
 					</tr>
@@ -163,7 +197,7 @@ $().ready(function() {
 						<th>
 							一级审核人:
 						</th>
-						<td>
+						<td colspan=2>
 							${auditAdmin1.name}
 						</td>
 					</tr>
@@ -171,7 +205,7 @@ $().ready(function() {
 						<th>
 							一级审核时间:
 						</th>
-						<td>
+						<td colspan=2>
 							${goods.auditDate1}
 						</td>
 					</tr>
@@ -179,7 +213,7 @@ $().ready(function() {
 						<th>
 							二级审核备注:
 						</th>
-						<td>
+						<td colspan=2>
 							<input type="text" name='auditMemo' id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
@@ -192,7 +226,7 @@ $().ready(function() {
 						<th>
 							一级审核备注:
 						</th>
-						<td>
+						<td colspan=2>
 							${goods.auditMemo1}
 						</td>
 					</tr>
@@ -200,7 +234,7 @@ $().ready(function() {
 						<th>
 							一级审核人:
 						</th>
-						<td>
+						<td colspan=2>
 							${auditAdmin1.name}
 						</td>
 					</tr>
@@ -208,7 +242,7 @@ $().ready(function() {
 						<th>
 							一级审核时间:
 						</th>
-						<td>
+						<td colspan=2>
 							${goods.auditDate1}
 						</td>
 					</tr>
@@ -216,7 +250,7 @@ $().ready(function() {
 						<th>
 							二级审核备注:
 						</th>
-						<td>
+						<td colspan=2>
 							${goods.auditMemo2}
 						</td>
 					</tr>
@@ -241,18 +275,42 @@ $().ready(function() {
 		</table>
 		<table class="input tabContent">
 			<tr>
+				<th>
+					修改后
+				</th>
 				<td>
 					${goods.introduction} 
+				</td>
+			</tr>
+			<tr>
+				<th>
+					修改前
+				</th>
+				<td>
+					${goodsBefore.introduction} 
 				</td>
 			</tr>
 		</table>
 		<table  class="input tabContent">
 			<tr>
+	            <th>
+	            </th>
+	            <td style="width:150px">
+	                申请内容
+	            </td>
+	            <td>
+	                当前内容
+	            </td>
+	        </tr>
+			<tr>
 				<th>
 					商品图片1:
 				</th>
 				<td>
-					<img src='${goods.productImages1}'>
+					<img src='${goods.productImages1}' class='width125'>
+				</td>
+				<td>
+					<img src='${goodsBefore.productImages1}' class='width125'>
 				</td>
 			</tr>
 			<tr>
@@ -260,7 +318,10 @@ $().ready(function() {
 					商品图片2:
 				</th>
 				<td>
-					<img src='${goods.productImages2}'>
+					<img src='${goods.productImages2}' class='width75'>
+				</td>
+				<td>
+					<img src='${goodsBefore.productImages2}' class='width125'>
 				</td>
 			</tr>
 			<tr>
@@ -268,7 +329,10 @@ $().ready(function() {
 					商品图片3:
 				</th>
 				<td>
-					<img src='${goods.productImages3}'>
+					<img src='${goods.productImages3}' class='width75'>
+				</td>
+				<td>
+					<img src='${goodsBefore.productImages3}' class='width125'>
 				</td>
 			</tr>
 			<tr>
@@ -276,11 +340,24 @@ $().ready(function() {
 					商品图片4:
 				</th>
 				<td>
-					<img src='${goods.productImages4}'>
+					<img src='${goods.productImages4}' class='width75'>
+				</td>
+				<td>
+					<img src='${goodsBefore.productImages4}' class='width125'>
 				</td>
 			</tr>
 		</table>
 		<table  class="input tabContent">
+			<tr>
+	            <th>
+	            </th>
+	            <td style="width:150px">
+	                申请内容
+	            </td>
+	            <td>
+	                当前内容
+	            </td>
+	        </tr>
 			<tr>
 				<th>
 					规格-目标:
@@ -289,6 +366,13 @@ $().ready(function() {
 						[#list specs as spec]
 							[#if spec.specification=='Target']
 								[#if goods.specTargetId=spec.id]${spec.specificationValue}[/#if]
+							[/#if]
+						[/#list]
+				</td>
+				<td>
+						[#list specs as spec]
+							[#if spec.specification=='Target']
+								[#if goodsBefore.specTargetId=spec.id]${spec.specificationValue}[/#if]
 							[/#if]
 						[/#list]
 				</td>
@@ -304,6 +388,14 @@ $().ready(function() {
 							[/#if]
 						[/#list]
 				</td>
+				
+				<td>
+						[#list specs as spec]
+							[#if spec.specification=='Flower']
+								[#if goodsBefore.specFlowertId=spec.id]${spec.specificationValue}[/#if]
+							[/#if]
+						[/#list]
+				</td>
 			</tr>
 			<tr>
 				<th>
@@ -313,6 +405,14 @@ $().ready(function() {
 						[#list specs as spec]
 							[#if spec.specification=='Sort']
 								[#if goods.specSorttId=spec.id]${spec.specificationValue}[/#if]
+							[/#if]
+						[/#list]
+				</td>
+				
+				<td>
+						[#list specs as spec]
+							[#if spec.specification=='Sort']
+								[#if goodsBefore.specSorttId=spec.id]${spec.specificationValue}[/#if]
 							[/#if]
 						[/#list]
 				</td>
@@ -328,6 +428,14 @@ $().ready(function() {
 							[/#if]
 						[/#list]
 				</td>
+				
+				<td>
+						[#list specs as spec]
+							[#if spec.specification=='Design']
+								[#if goodsBefore.specDesigntId=spec.id]${spec.specificationValue}[/#if]
+							[/#if]
+						[/#list]
+				</td>
 			</tr>
 			<tr>
 				<th>
@@ -340,6 +448,14 @@ $().ready(function() {
 							[/#if]
 						[/#list]
 				</td>
+				
+				<td>
+						[#list specs as spec]
+							[#if spec.specification=='Color']
+								[#if goodsBefore.specColortId=spec.id]${spec.specificationValue}[/#if]
+							[/#if]
+						[/#list]
+				</td>
 			</tr>
 			<tr>
 				<th>
@@ -347,8 +463,16 @@ $().ready(function() {
 				</th>
 				<td>
 						[#list specs as spec]
-							[#if spec.specification=='Series']
-								[#if goods.specSeriestId=spec.id]${spec.specificationValue}[/#if]
+							[#if spec.specification=='Color']
+								[#if goods.specColortId=spec.id]${spec.specificationValue}[/#if]
+							[/#if]
+						[/#list]
+				</td>
+				
+				<td>
+						[#list specs as spec]
+							[#if spec.specification=='Color']
+								[#if goodsBefore.specColortId=spec.id]${spec.specificationValue}[/#if]
 							[/#if]
 						[/#list]
 				</td>
@@ -361,6 +485,14 @@ $().ready(function() {
 						[#list specs as spec]
 							[#if spec.specification=='Theme']
 								[#if goods.specThemetId=spec.id]${spec.specificationValue}[/#if]
+							[/#if]
+						[/#list]
+				</td>
+				
+				<td>
+						[#list specs as spec]
+							[#if spec.specification=='Theme']
+								[#if goodsBefore.specThemetId=spec.id]${spec.specificationValue}[/#if]
 							[/#if]
 						[/#list]
 				</td>

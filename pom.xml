@@ -83,6 +83,7 @@
 	    <indexBase>c:/WEB-INF/index</indexBase>
 	    <log.home>c:/WEB-INF/log</log.home>
 	    <cache.home>c:/WEB-INF/cache</cache.home>
+	    <!--<project.info>http://114.55.72.225/flowerToHome/</project.info>  -->
 	    <project.info>http://www.wangkaibin.cn:8080/flowerToHome/</project.info>
 	</properties>
 
@@ -91,6 +92,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${springframework.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.qiniu</groupId>
+		    <artifactId>qiniu-java-sdk</artifactId>
+		    <version>[7.0.0, 7.0.99]</version>
 		</dependency>
 
 		<dependency>

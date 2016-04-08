@@ -12,7 +12,6 @@
     <script type="text/javascript" src="${base}/resources/admin/js/jquery.lSelect.js"></script>
     <script type="text/javascript" src="${base}/resources/admin/js/jquery.validate.js"></script>
     <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
-    <script type="text/javascript" src="${base}/resources/admin/js/webuploader.js"></script>
 
     <script type="text/javascript">
         $().ready(function() {
@@ -96,7 +95,7 @@
 		</tr>
 		<tr>
         	<th>
-                类别-规格：
+                花型-规格：
             </th>
             <td>
         		[#list sortSpecs as sortSpec]

@@ -28,7 +28,7 @@
 				url: "${base}/admin/common/area.jhtml"
 			});
 
-            $filePicker.uploader();
+            $filePicker.uploader({data:{imageType:'shop'}});
 
             // 表单验证
             $inputForm.validate({
@@ -60,7 +60,32 @@
             </td>
         </tr>
 
-        <tr>
+		<tr>
+            <th>
+                门店状态:
+            </th>
+            <td>
+            	<select name="status">
+                [#list statuses as status]
+                    <option value=${status} [#if organization.status==status]selected=true[/#if]>${message("Organization.Status."+status)}</option>
+                [/#list]
+                </select>
+            </td>
+        </tr>
+
+		<tr>
+			<th>
+				设置:
+			</th>
+			<td>
+				<label>
+					<input type="checkbox" name="isOpen" value="1"  [#if  organization.isOpen==1]checked="checked"[/#if] />是否开启
+					<input type="hidden" name="isOpen" value="0" />
+				</label>
+			</td>
+		</tr>
+
+        <tr class='none'>
             <th>
                 <span class="requiredField">*</span>门店等级:
             </th>
@@ -87,6 +112,30 @@
             </th>
             <td>
                 <input type="text" name="email" value="${organization.email}" class="text" maxlength="200" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                qq:
+            </th>
+            <td>
+                <input type="text" name="qq" class="text" maxlength="200" value="${organization.qq}" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                qqKey:
+            </th>
+            <td>
+                <input type="text" name="qqKey" class="text" maxlength="200" value="${organization.qqKey}" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                微信:
+            </th>
+            <td>
+                <input type="text" name="wechat" class="text" maxlength="200" value="${organization.wechat}" />
             </td>
         </tr>
         <tr>
@@ -168,7 +217,7 @@
 			</th>
 			<td>
 				<span class="fieldSet">
-					<input type="hidden" id="areaId" name="area" value="${(organization.area)!}" treePath=",1,2," />
+					<input type="hidden" id="areaId" name="area" value="${(organization.area)!}" treePath="${(area.treePath)!}" />
 				</span>
 			</td>
 		</tr>

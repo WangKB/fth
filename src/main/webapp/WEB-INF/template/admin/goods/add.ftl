@@ -12,7 +12,6 @@
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.tools.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/webuploader.js"></script>
-<script type="text/javascript" src="${base}/resources/admin/ueditor/ueditor.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/input.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/datePicker/WdatePicker.js"></script>
@@ -20,8 +19,6 @@
 $().ready(function() {
 
 	var $inputForm = $("#inputForm");
-	var $introduction = $("#introduction");
-	var $filePicker = $("#filePicker");
 	var $filePicker1 = $("#filePicker1");
 	var $filePicker2 = $("#filePicker2");
 	var $filePicker3 = $("#filePicker3");
@@ -29,12 +26,10 @@ $().ready(function() {
 
 	[@flash_message /]
 	
-	$introduction.editor();
-	$filePicker1.uploader();
-	$filePicker2.uploader();
-	$filePicker3.uploader();
-	$filePicker4.uploader();
-	$filePicker.uploader();
+	$filePicker1.uploader({data:{imageType:'product'}});
+	$filePicker2.uploader({data:{imageType:'product'}});
+	$filePicker3.uploader({data:{imageType:'product'}});
+	$filePicker4.uploader({data:{imageType:'product'}});
 	
 	// 表单验证
 	$inputForm.validate({
@@ -76,13 +71,21 @@ $().ready(function() {
 			</tr>
 			<tr>
 				<th>
+					排序:
+				</th>
+				<td>
+					<input type="text" name="order" class="text" maxlength="200" />
+				</td>
+			</tr>
+			<tr>
+				<th>
 					花语:
 				</th>
 				<td>
 					<input type="text" name="flowerLanguage" class="text" maxlength="200" />
 				</td>
 			</tr>
-			<tr>
+			<tr class='none'>
 				<th>
 					${message("Goods.caption")}:
 				</th>
@@ -100,43 +103,26 @@ $().ready(function() {
 			</tr>
 			<tr>
 				<th>
-					缩略图:
-				</th>
-				<td>
-					<span class="fieldSet">
-						<input type="text" name="productImagesDefault" class="text" maxlength="200" title="${message("admin.goods.imageTitle")}" />
-						<a href="javascript:;" id="filePicker" class="button">${message("admin.upload.filePicker")}</a>
-					</span>
-				</td>
-			</tr>
-			<tr>
-				<th>
 					${message("admin.common.setting")}:
 				</th>
 				<td>
 					<label>
 						<input type="checkbox" name="isMarketable" value="1" checked="checked" />${message("Goods.isMarketable")}
-						<input type="hidden" name="_isMarketable" value="0" />
+						<input type="hidden" name="isMarketable" value="0" />
 					</label>
+					<input type="hidden" name="isList" value="1" />
 					<label>
-						<input type="checkbox" name="isList" value="1" checked="checked" />${message("Goods.isList")}
-						<input type="hidden" name="_isList" value="0" />
+						<input type="checkbox" checked="checked" disabled = true/>是否标品
+						<input type="hidden" name="isStandard" value="1" />
 					</label>
-					<label>
-						<input type="checkbox" name="isStandard" value="1" checked="checked" />是否标品
-						<input type="hidden" name="_isStandard" value="0" />
-					</label>
-					<label>
-						<input type="checkbox" name="isVirtual" value="1" checked="checked" />是否虚拟商品
-						<input type="hidden" name="_isVirtual" value="0" />
-					</label>
+					<input type="hidden" name="isVirtual" value="0" />
 				</td>
 			</tr>
 		</table>
 		<table class="input tabContent">
 			<tr>
 				<td>
-					<textarea id="introduction" name="introduction" class="editor" style="width: 100%;"></textarea>
+					<textarea name="introduction" class="text"></textarea>
 				</td>
 			</tr>
 		</table>
@@ -149,6 +135,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages1" class="text" maxlength="200" title="商品图片1" />
 						<a href="javascript:;" id="filePicker1" class="button">商品图片1</a>
+						<input type='radio' name='imageNum' value='1' checked=true>设为默认
 					</span>
 				</td>
 			</tr>
@@ -160,6 +147,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages2" class="text" maxlength="200" title="商品图片2" />
 						<a href="javascript:;" id="filePicker2" class="button">商品图片2</a>
+						<input type='radio' name='imageNum' value='2'>设为默认
 					</span>
 				</td>
 			</tr>
@@ -171,6 +159,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages3" class="text" maxlength="200" title="商品图片3" />
 						<a href="javascript:;" id="filePicker3" class="button">商品图片3</a>
+						<input type='radio' name='imageNum' value='3'>设为默认
 					</span>
 				</td>
 			</tr>
@@ -182,6 +171,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages4" class="text" maxlength="200" title="商品图片4" />
 						<a href="javascript:;" id="filePicker4" class="button">商品图片4</a>
+						<input type='radio' name='imageNum' value='4'>设为默认
 					</span>
 				</td>
 			</tr>
@@ -217,7 +207,7 @@ $().ready(function() {
 			</tr>
 			<tr>
 				<th>
-					规格-类别:
+					规格-花型:
 				</th>
 				<td>
 					<select name="specSorttId">

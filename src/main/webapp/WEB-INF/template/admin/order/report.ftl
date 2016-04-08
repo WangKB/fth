@@ -14,6 +14,7 @@
 <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/list.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js_src/onlinedeliverylist.js"></script>
+<script type="text/javascript" src="${base}/resources/admin/datePicker/WdatePicker.js"></script>
 <style type="text/css">
 .moreTable th {
 	width: 80px;
@@ -38,7 +39,10 @@ $().ready(function() {
 	
 	[@flash_message /]
     
-    
+    $("#report").on('click',function(){
+		location.href="excelReport.jhtml?"+$listForm.serialize();
+		return false;
+    });
     
 });
 </script>
@@ -47,8 +51,8 @@ $().ready(function() {
 	<div class="breadcrumb">
 		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 订单列表 <span>(${message("admin.page.total", page.total)})</span>
 	</div>
-	<form id="listForm" action="list.jhtml" method="get">
-		<div class="bar">
+	<form id="listForm" action="report.jhtml" method="get">
+		<div class="bar" style="height:70px">
 			<div class="buttonGroup">
                 
 				<a href="javascript:;" id="refreshButton" class="iconButton">
@@ -66,17 +70,46 @@ $().ready(function() {
 					</ul>
 				</div>
 			</div>
-			<div id="searchPropertyMenu" class="dropdownMenu">
-				<div class="search">
-					<span class="arrow">&nbsp;</span>
-					<input type="text" id="searchValue" name="searchValue" value="${page.searchValue}" maxlength="200" />
-					<button type="submit">&nbsp;</button>
-				</div>
-				<ul>
-					<li[#if page.searchProperty == "sn"] class="current"[/#if] val="sn">${message("Order.sn")}</li>
-					<li[#if page.searchProperty == "consignee"] class="current"[/#if] val="consignee">${message("Order.consignee")}</li>
-					<li[#if page.searchProperty == "memberTel"] class="current"[/#if] val="memberTel">会员电话</li>
-				</ul>
+			<div class="dropdownMenu">
+				创建时间：
+				<input type="text" style="width:100px" id="beginDate" name="beginDate" [#if beginDate??] value="${beginDate?string('yyyy.MM.dd')}"[/#if] class="text Wdate" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd', maxDate: '#F{$dp.$D(\'endDate\')}'});" />
+				-
+				<input type="text" style="width:100px" id="endDate" name="endDate" [#if endDate??] value="${endDate?string('yyyy.MM.dd')}"[/#if]  class="text Wdate" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd', minDate: '#F{$dp.$D(\'beginDate\')}'});" />
+				状态：
+					<select name='status'>
+						<option value="">未选择</option>
+						[#list statuses as status]
+							<option value='${status}' [#if statusBefore==status]selected=true[/#if]>${message("Order.Status."+status)}</option>
+						[/#list]
+					</select>
+				商家：
+					<select name='shopId'>
+						<option  value=-1>未选择</option>
+						[#list shops as shop]
+							<option value='${shop.id}'[#if shopBefore==shop.id]selected=true[/#if]>${shop.name}</option>
+						[/#list]
+					</select>
+				会员手机：<input  type="text" class='text' style="width:100px" name='memberTel' [#if memberTel??]value='${memberTel}'[/#if]>
+			</div><br/><br/>
+			<div class="dropdownMenu">
+				省：<input  type="text" class='text' style="width:100px" name='province' [#if province??]value='${province}'[/#if]>
+				市：<input  type="text" class='text' style="width:100px" name='city' [#if city??]value='${city}'[/#if]>
+				区：<input  type="text" class='text' style="width:100px" name='distract' [#if distract??]value='${distract}'[/#if]>
+				是否结算：	
+					<select name='isBlance'>
+						<option value='-1'>未选择</option>
+						<option value='1' [#if isBlance==1]selected=true[/#if]>是</option>
+						<option value='0' [#if isBlance==0]selected=true[/#if]>否</option>						
+					</select>
+				来源：
+					<select name='fromType'>
+						<option  value="">未选择</option>
+						[#list fromTypes as fromType]
+							<option value='${fromType}' [#if fromTypeBefore==fromType]selected=true[/#if]>${message("Order.FromType."+fromType)}</option>
+						[/#list]
+					</select>&nbsp&nbsp
+				<input type="submit" class='button' value='提交查询'>
+				<input type="button" class='button' id='report' value='导出报表'>
 			</div>
 		</div>
 		<table id="listTable" class="list">

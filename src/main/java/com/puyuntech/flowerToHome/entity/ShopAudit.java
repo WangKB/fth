@@ -110,6 +110,18 @@ public class ShopAudit extends OrderEntity<Integer> {
 	
 	//二级审核时间
 	private Date auditDate2;
+	
+	/** 省份*/
+    private String addrProvince;
+    
+    /** 市*/
+    private String addrCity;
+    
+    /** 区*/
+    private String addrDistrict;
+    
+    /** 关联店铺id*/
+    private Integer shopId;
 
     @Column(name="intro")
     public String getIntro() {
@@ -353,5 +365,15 @@ public class ShopAudit extends OrderEntity<Integer> {
 	public void setAuditDate2(Date auditDate2) {
 		this.auditDate2 = auditDate2;
 	}
+	
+	@Column(name="shop_id")
+	public Integer getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
+	
 }
 

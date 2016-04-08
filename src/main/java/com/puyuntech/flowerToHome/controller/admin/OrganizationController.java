@@ -1,6 +1,7 @@
 package com.puyuntech.flowerToHome.controller.admin;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
+import com.puyuntech.flowerToHome.entity.Area;
 import com.puyuntech.flowerToHome.entity.Organization;
-import com.puyuntech.flowerToHome.entity.ProductChangeLog;
 import com.puyuntech.flowerToHome.entity.ShopAudit;
 import com.puyuntech.flowerToHome.service.AdminService;
 import com.puyuntech.flowerToHome.service.AreaService;
@@ -71,6 +72,7 @@ public class OrganizationController extends BaseController {
         /**
          * 将数据写入数据模型
          */
+    	model.addAttribute("statuses",Organization.Status.values());
     	model.addAttribute("levels",Organization.Level.values());
         return "/admin/organization/add";
     }
@@ -81,7 +83,9 @@ public class OrganizationController extends BaseController {
         /**
          * 将数据写入数据模型
          */
+    	model.addAttribute("statuses",Organization.Status.values());
     	model.addAttribute("levels",Organization.Level.values());
+    	model.addAttribute("area",areaService.find(organizationService.find(id).getArea()));
     	model.addAttribute("organization",organizationService.find(id));
         return "/admin/organization/edit";
     }
@@ -89,6 +93,25 @@ public class OrganizationController extends BaseController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Organization organization) {
 
+    	Area area = areaService.find(organization.getArea());
+    	List<Area> areas = area.getParents();
+    	areas.add(area);
+    	for(Area areaItem :areas){
+    		switch(areaItem.getGrade()){
+    			case 0:
+    				organization.setAddrProvince(areaItem.getName());
+    				break;
+    			case 1:
+    				organization.setAddrCity(areaItem.getName());
+    				break;
+    			case 2:
+    				organization.setAddrDistrict(areaItem.getName());
+    				break;
+    			default:
+    				continue;
+    			
+    		}
+    	}
     	organizationService.save(organization);
         return "redirect:list.jhtml";
     }
@@ -96,7 +119,38 @@ public class OrganizationController extends BaseController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(Organization organization) {
 
-    	organizationService.update(organization,"status","nextRollDate","lastPaymentDate","qq","qqKey","wechat","designerId");
+    	Area area = areaService.find(organization.getArea());
+    	List<Area> areas = area.getParents();
+    	areas.add(area);
+    	for(Area areaItem :areas){
+    		switch(areaItem.getGrade()){
+    			case 0:
+    				organization.setAddrProvince(areaItem.getName());
+    				break;
+    			case 1:
+    				organization.setAddrCity(areaItem.getName());
+    				break;
+    			case 2:
+    				organization.setAddrDistrict(areaItem.getName());
+    				break;
+    			default:
+    				continue;
+    			
+    		}
+    	}
+    	if(area.getGrade()>2){
+    		switch(area.getGrade()){
+				case 0:
+					organization.setAddrCity("");
+					organization.setAddrDistrict("");
+					break;
+				case 1:
+					organization.setAddrDistrict("");
+					break;
+				
+			}
+    	}
+    	organizationService.update(organization,"nextRollDate","lastPaymentDate","designerId");
         return "redirect:list.jhtml";
     }
     
@@ -128,7 +182,9 @@ public class OrganizationController extends BaseController {
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public String view(Integer id,ModelMap model) {
 		
+		model.addAttribute("area",areaService.find(shopAuditService.find(id).getArea()));
 		model.addAttribute("organization", shopAuditService.find(id));
+		model.addAttribute("organizationBefore", organizationService.find(id));
 		model.addAttribute("levels",Organization.Level.values());
 		model.addAttribute("auditAdmin1",adminService.find(shopAuditService.find(id).getAuditAdmin1()));
 		model.addAttribute("auditAdmin2",adminService.find(shopAuditService.find(id).getAuditAdmin2()));

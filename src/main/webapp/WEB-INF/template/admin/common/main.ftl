@@ -105,7 +105,7 @@
     	<dd>
             <a href="../area/list.jhtml" target="iframe">价格管理</a>
         </dd>
-    	<dd>
+    	<dd class='none'>
             <a href="../review/list.jhtml" target="iframe">商品评价设置</a>
         </dd>
         <dd>
@@ -152,6 +152,9 @@
     <dt>财务管理</dt>
     	<dd>
             <a href="../finRate/list.jhtml" target="iframe">分账设置</a>
+        </dd>
+        <dd>
+            <a href="../order/report.jhtml" target="iframe">报表导出</a>
         </dd>
 </dl>
 </td>

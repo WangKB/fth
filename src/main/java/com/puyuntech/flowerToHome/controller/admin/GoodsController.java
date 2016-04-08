@@ -1,6 +1,8 @@
 package com.puyuntech.flowerToHome.controller.admin;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -10,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.puyuntech.flowerToHome.Filter;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
+import com.puyuntech.flowerToHome.entity.Comment;
 import com.puyuntech.flowerToHome.entity.Product;
 import com.puyuntech.flowerToHome.entity.ProductChangeLog;
 import com.puyuntech.flowerToHome.service.AdminService;
+import com.puyuntech.flowerToHome.service.CommentService;
 import com.puyuntech.flowerToHome.service.ProductChangeLogService;
 import com.puyuntech.flowerToHome.service.ProductService;
 import com.puyuntech.flowerToHome.service.SpecificationValueService;
@@ -34,6 +39,9 @@ public class GoodsController extends BaseController {
 	 */
 	@Resource(name = "productServiceImpl")
 	private ProductService productService;
+	
+	@Resource(name = "commentServiceImpl")
+	private CommentService commentService;
 	
 	@Resource(name = "adminServiceImpl")
 	private AdminService adminService;
@@ -55,8 +63,21 @@ public class GoodsController extends BaseController {
 	 * @return 模板位置
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(Product product) {
+	public String save(Product product,Integer imageNum) {
 
+		switch(imageNum){
+			case 2:
+				product.setProductImagesDefault(product.getProductImages2());
+				break;
+			case 3:
+				product.setProductImagesDefault(product.getProductImages3());
+				break;
+			case 4:
+				product.setProductImagesDefault(product.getProductImages4());
+				break;
+			default:
+				product.setProductImagesDefault(product.getProductImages1());
+		}
 		productService.save(product);
 		return "redirect:list.jhtml";
 	}
@@ -112,6 +133,18 @@ public class GoodsController extends BaseController {
 		return SUCCESS_MESSAGE;
 	}
 	
+	@RequestMapping(value = "/commentDelete", method = RequestMethod.POST)
+	public @ResponseBody
+	Message commentDelete(Integer id) {
+
+		/**
+		 * 删除商品
+		 */
+		commentService.delete(id);
+		return SUCCESS_MESSAGE;
+	}
+	
+	
 	/**
 	 * 
 	 * 进入添加页面.
@@ -142,6 +175,11 @@ public class GoodsController extends BaseController {
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String edit(Integer id,ModelMap model) {
 		
+		List<Filter> filters = new ArrayList<Filter>();
+		filters.add(Filter.eq("productId", id));
+		List<Comment> comments = commentService.findList(null, filters, null);
+
+		model.addAttribute("comments", comments);
 		model.addAttribute("goods", productService.find(id));
 		model.addAttribute("specs", specificationValueService.findAll());
 		return "/admin/goods/edit";
@@ -151,15 +189,34 @@ public class GoodsController extends BaseController {
 	public String view(Integer id,ModelMap model) {
 		
 		model.addAttribute("goods", productChangeLogService.find(id));
+		model.addAttribute("goodsBefore", productService.find(productChangeLogService.find(id).getProductId()));
 		model.addAttribute("specs", specificationValueService.findAll());
 		model.addAttribute("auditAdmin1",adminService.find(productChangeLogService.find(id).getAuditAdmin1()));
 		model.addAttribute("auditAdmin2",adminService.find(productChangeLogService.find(id).getAuditAdmin2()));
-		return "/admin/goods/view";
+		if(productChangeLogService.find(id).getType().equals(ProductChangeLog.Type.ADD)){
+			return "/admin/goods/view";
+		}else{
+			return "/admin/goods/viewedit";
+		}
+		
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Product product){
+	public String update(Product product,Integer imageNum){
 		
+		switch(imageNum){
+		case 2:
+			product.setProductImagesDefault(product.getProductImages2());
+			break;
+		case 3:
+			product.setProductImagesDefault(product.getProductImages3());
+			break;
+		case 4:
+			product.setProductImagesDefault(product.getProductImages4());
+			break;
+		default:
+			product.setProductImagesDefault(product.getProductImages1());
+	}
 		productService.update(product,"sn","buytimes");
 		return "redirect:list.jhtml";
 	}

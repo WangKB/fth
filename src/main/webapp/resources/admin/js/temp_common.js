@@ -316,7 +316,9 @@ function message(code) {
 				maxSize: 10,
 				extensions: null,
 				before: null,
-				complete: null
+				complete: function(){
+					$.message('success','上传成功');
+				}
 			};
 			$.extend(settings, options);
 			

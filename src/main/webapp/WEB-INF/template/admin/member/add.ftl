@@ -23,7 +23,7 @@ $().ready(function() {
 	var $areaId = $("#areaId");
 	var $filePicker = $("#filePicker");
 	 
-	$filePicker.uploader();
+	$filePicker.uploader({data:{imageType:'member'}});
 	
 	[@flash_message /]
 	
@@ -142,6 +142,16 @@ $().ready(function() {
 					<input type="text" name="phone" class="text" maxlength="11" />
 				</td>
 			</tr>
+			
+			<tr>
+				<th>
+					电话:
+				</th>
+				<td>
+					<input type="text" name="mobile" class="text"/>
+				</td>
+			</tr>
+			
 			
 			<tr>
 				<th>

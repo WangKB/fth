@@ -25,6 +25,10 @@ import com.puyuntech.flowerToHome.service.FileService;
 import com.puyuntech.flowerToHome.service.PluginService;
 import com.puyuntech.flowerToHome.util.FreeMarkerUtils;
 import com.puyuntech.flowerToHome.util.SystemUtils;
+import com.qiniu.common.QiniuException;
+import com.qiniu.http.Response;
+import com.qiniu.storage.UploadManager;
+import com.qiniu.util.Auth;
 
 import freemarker.template.TemplateException;
 
@@ -36,6 +40,9 @@ import freemarker.template.TemplateException;
  */
 @Service("fileServiceImpl")
 public class FileServiceImpl implements FileService, ServletContextAware {
+	
+	String ACCESS_KEY = "02Abe5dFhxHv0RA8IObefXaekjeGJchtuDCvJGlF";
+	String SECRET_KEY = "u5tA8-GVx-F9kH7waDHxJV9X6gGFPJ1O65VGwD6T";
 
 	/** ServletContext */
 	private ServletContext servletContext;
@@ -209,6 +216,53 @@ public class FileServiceImpl implements FileService, ServletContextAware {
 		} catch (TemplateException e) {
 			throw new RuntimeException(e.getMessage(), e);
 		}
+	}
+
+	@Override
+	public String qiNiuUpload(String imageType, MultipartFile multipartFile) {
+		Assert.notNull(multipartFile);
+		Assert.state(!multipartFile.isEmpty());
+
+		String bucket;
+		String host;
+		switch (imageType) {
+		case "product":
+			host="7xsqqq.com2.z0.glb.qiniucdn.com";
+			bucket = "product";
+			break;
+		case "shop":
+			host="7xsqqq.com2.z0.glb.qiniucdn.com";
+			bucket = "shop";
+			break;
+		default:
+			host="7xsqqq.com2.z0.glb.qiniucdn.com";
+			bucket = "yihaohuapu";
+			break;
+		}
+		try {
+			Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
+			UploadManager uploadManager = new UploadManager();
+			String name = UUID.randomUUID()+multipartFile.getOriginalFilename();
+			Response res = uploadManager.put(multipartFile.getBytes(), name,auth.uploadToken(bucket));
+			StringBuffer url=new StringBuffer("http://");
+			url.append(host);
+			url.append("/");
+			url.append(res.jsonToMap().get("key").toString());
+			return url.toString();
+		} catch (QiniuException  e) {
+			Response r = e.response;
+	          // 请求失败时打印的异常的信息
+	          System.out.println(r.toString());
+	          try {
+	              //响应的文本信息
+	            System.out.println(r.bodyString());
+	          } catch (QiniuException e1) {
+	              //ignore
+	          }
+	          return null;
+		} catch (IOException  e) {
+			return null;
+		} 
 	}
 
 }

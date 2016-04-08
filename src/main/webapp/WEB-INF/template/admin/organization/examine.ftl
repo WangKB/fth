@@ -90,7 +90,7 @@ $().ready(function() {
 						${message("Goods.ApplicationState."+organization.applicationState)}
 					</td>
 					<td>
-						${shop_name(organization.address)}
+						${organization.address}
 					</td>
 					<td>
 						<span title="${organization.name}">

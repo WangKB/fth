@@ -33,7 +33,9 @@ $().ready(function() {
 								<td>
 									<select name="status">
 										[#list statuses as status]
+											[#if status.id!=0&&status.id!=1&&status.id>order.status.id]
 											<option value="${status}">${message("Order.Status." + status)}<\/option>
+											[/#if]
 										[/#list]
 									<\/select>
 								<\/td>
@@ -265,6 +267,15 @@ $().ready(function() {
 			<td>
 				${order.remark}
 			</td>
+		</tr>
+		<tr>
+			<th>
+				发货图片:
+			</th>
+			<td colspan=3>
+				<img src='${order.deliveryImages}' style="width:350px">
+			</td>
+			
 		</tr>
 	</table>
 	<table class="item tabContent">

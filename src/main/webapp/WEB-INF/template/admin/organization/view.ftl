@@ -12,13 +12,11 @@
     <script type="text/javascript" src="${base}/resources/admin/js/jquery.lSelect.js"></script>
     <script type="text/javascript" src="${base}/resources/admin/js/jquery.validate.js"></script>
     <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
-    <script type="text/javascript" src="${base}/resources/admin/js/webuploader.js"></script>
 
     <script type="text/javascript">
         $().ready(function() {
 
             var $inputForm = $("#inputForm");
-            var $filePicker = $("#filePicker");
             var $areaId = $("#areaId");
 			var $reject=$("#reject");
 
@@ -44,7 +42,6 @@
 				url: "${base}/admin/common/area.jhtml"
 			});
 
-            $filePicker.uploader();
 
             // 表单验证
             $inputForm.validate({
@@ -67,6 +64,17 @@
 <form id="inputForm" action="check.jhtml" method="post">
     <input type="hidden" name="id" value="${organization.id}" />
     <table class="input">
+    	<tr>
+            <th>
+            </th>
+            <td style="width:150px">
+                申请内容
+            </td>
+            <td>
+                当前内容
+            </td>
+        </tr>
+    
         <tr>
             <th>
                 <span class="requiredField">*</span>门店名称:
@@ -74,16 +82,8 @@
             <td>
                 ${organization.name}
             </td>
-        </tr>
-
-        <tr>
-            <th>
-                <span class="requiredField">*</span>门店等级:
-            </th>
             <td>
-                [#list levels as level]
-                    [#if organization.level == level]${message("Organization.level."+level)}[/#if]
-                [/#list]
+                ${organizationBefore.name}
             </td>
         </tr>
 
@@ -94,6 +94,9 @@
             <td>
                 ${organization.tel}
             </td>
+            <td>
+                ${organizationBefore.tel}
+            </td>
         </tr>
         <tr>
             <th>
@@ -102,13 +105,20 @@
             <td>
                 ${organization.email}
             </td>
+            <td>
+                ${organizationBefore.email}
+            </td>
         </tr>
+        
         <tr>
             <th>
                 开门时间:
             </th>
             <td>
                 ${organization.openingStart}
+            </td>
+            <td>
+                ${organizationBefore.openingStart}
             </td>
         </tr>
         <tr>
@@ -118,6 +128,9 @@
             <td>
                 ${organization.openingEnd}
             </td>
+            <td>
+                ${organizationBefore.openingEnd}
+            </td>
         </tr>
         <tr>
             <th>
@@ -125,6 +138,9 @@
             </th>
             <td>
                 ${organization.address}
+            </td>
+            <td>
+                ${organizationBefore.address}
             </td>
         </tr>
         <tr>
@@ -134,21 +150,8 @@
             <td>
                 ${organization.intro}
             </td>
-        </tr>
-        <tr>
-            <th>
-                <span class="requiredField">*</span>经度:
-            </th>
-            <td>
-                ${organization.longitude}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <span class="requiredField">*</span>纬度:
-            </th>
-            <td>
-                ${organization.latitude}
+             <td>
+                ${organizationBefore.intro}
             </td>
         </tr>
 		<tr>
@@ -158,13 +161,8 @@
             <td>
                 ${organization.paymentDate}
             </td>
-        </tr>
-        <tr>
-            <th>
-                <span class="requiredField">*</span>分成比例:
-            </th>
             <td>
-                ${organization.paymentPercent}
+                ${organizationBefore.paymentDate}
             </td>
         </tr>
         <tr>
@@ -174,24 +172,17 @@
             <td>
             	<img src='${organization.image}'>
             </td>
+            <td>
+            	<img src='${organizationBefore.image}'>
+            </td>
         </tr>
-        <tr>
-			<th>
-				<span class="requiredField">*</span>地区:
-			</th>
-			<td>
-				<span class="fieldSet">
-					<input type="hidden" id="areaId" name="area" value="${(organization.area)!}" treePath=",1,2," />
-				</span>
-			</td>
-		</tr>
 		[#switch organization.applicationState]
 				[#case 'ApplyingOne']
 					<tr>
 						<th>
 							一级审核备注:
 						</th>
-						<td>
+						<td colspan=2>
 							<input type="text" name='auditMemo'  id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
@@ -207,6 +198,8 @@
 						<td>
 							${organization.auditMemo1}
 						</td>
+						<td>
+						</td>
 					</tr>
 					<tr>
 						<th>
@@ -214,6 +207,8 @@
 						</th>
 						<td>
 							${auditAdmin1.name}
+						</td>
+						<td>
 						</td>
 					</tr>
 					<tr>
@@ -223,12 +218,14 @@
 						<td>
 							${organization.auditDate1}
 						</td>
+						<td>
+						</td>
 					</tr>
 					<tr>
 						<th>
 							二级审核备注:
 						</th>
-						<td>
+						<td colspan=2>
 							<input type="text" name='auditMemo'  id='auditMemo' class="text" />
 							<input type="submit" class="button" value="通过" />
 							<input id='reject' type="button" class="button" value="拒绝" />
@@ -244,6 +241,8 @@
 						<td>
 							${organization.auditMemo1}
 						</td>
+						<td>
+						</td>
 					</tr>
 					<tr>
 						<th>
@@ -251,6 +250,8 @@
 						</th>
 						<td>
 							${auditAdmin1.name}
+						</td>
+						<td>
 						</td>
 					</tr>
 					<tr>
@@ -260,6 +261,8 @@
 						<td>
 							${organization.auditDate1}
 						</td>
+						<td>
+						</td>
 					</tr>
 					<tr>
 						<th>
@@ -267,6 +270,8 @@
 						</th>
 						<td>
 							${organization.auditMemo2}
+						</td>
+						<td>
 						</td>
 					</tr>
 					<tr>
@@ -276,6 +281,8 @@
 						<td>
 							${auditAdmin2.name}
 						</td>
+						<td>
+						</td>
 					</tr>
 					<tr>
 						<th>
@@ -284,6 +291,8 @@
 						<td>
 							${organization.auditDate2}
 						</td>
+						<td>
+						</td>
 					</tr>
 				[#break]
 			[/#switch]
@@ -291,8 +300,7 @@
             <th>
                 &nbsp;
             </th>
-            <td>
-                <input type="submit" class="button" value="${message("admin.common.submit")}" />
+            <td colspan=2>
                 <input type="button" class="button" value="${message("admin.common.back")}" onclick="history.back(); return false;" />
             </td>
         </tr>

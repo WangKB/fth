@@ -89,6 +89,15 @@ public class Organization extends OrderEntity<Integer> {
     /** 关联地区*/
     private Integer area;
     
+    /** 省份*/
+    private String addrProvince;
+    
+    /** 市*/
+    private String addrCity;
+    
+    /** 区*/
+    private String addrDistrict;
+    
     /** 关店时间*/
     private Date closeDate;
     
@@ -118,6 +127,9 @@ public class Organization extends OrderEntity<Integer> {
     
     //设计师id
     private String designerId;
+    
+    /** 开关店 开关*/
+    private Integer isOpen;
 
     @Column(name="intro")
     public String getIntro() {
@@ -155,7 +167,7 @@ public class Organization extends OrderEntity<Integer> {
         this.latitude = latitude;
     }
 
-    @Column(name="address" , nullable=false)
+    @Column(name="addr_detail" , nullable=false)
     public String getAddress() {
         return address;
     }
@@ -324,6 +336,42 @@ public class Organization extends OrderEntity<Integer> {
 
 	public void setDesignerId(String designerId) {
 		this.designerId = designerId;
+	}
+
+	@Column(name="addr_province")
+	public String getAddrProvince() {
+		return addrProvince;
+	}
+
+	public void setAddrProvince(String addrProvince) {
+		this.addrProvince = addrProvince;
+	}
+
+	@Column(name="addr_city")
+	public String getAddrCity() {
+		return addrCity;
+	}
+
+	public void setAddrCity(String addrCity) {
+		this.addrCity = addrCity;
+	}
+
+	@Column(name="addr_district")
+	public String getAddrDistrict() {
+		return addrDistrict;
+	}
+
+	public void setAddrDistrict(String addrDistrict) {
+		this.addrDistrict = addrDistrict;
+	}
+
+	@Column(name="is_open")
+	public Integer getIsOpen() {
+		return isOpen;
+	}
+
+	public void setIsOpen(Integer isOpen) {
+		this.isOpen = isOpen;
 	}
 
     

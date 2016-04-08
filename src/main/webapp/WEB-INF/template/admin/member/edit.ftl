@@ -15,11 +15,15 @@
 <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/input.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/datePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="${base}/resources/admin/js/webuploader.js"></script>
 <script type="text/javascript">
 $().ready(function() {
 
 	var $inputForm = $("#inputForm");
 	var $areaId = $("#areaId");
+	var $filePicker = $("#filePicker");
+	 
+	$filePicker.uploader({data:{imageType:'member'}});
 	
 	[@flash_message /]
 	
@@ -96,6 +100,15 @@ $().ready(function() {
 				</th>
 				<td>
 					<input type="text" name="phone" class="text" maxlength="11"  value='${member.phone}'/>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>
+					电话:
+				</th>
+				<td>
+					<input type="text" name="mobile" class="text" value='${member.mobile}'/>
 				</td>
 			</tr>
 			

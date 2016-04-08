@@ -47,25 +47,31 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 				update(productChangeLog);
 			break;
 			case 2:
+				productChangeLog.setApplicationState(ProductChangeLog.state.Pass);
+				productChangeLog.setAuditMemo2(auditMemo);
+				productChangeLog.setAuditAdmin2(adminId);
+				productChangeLog.setAuditDate2(new Date());
 				try {
-					Product product = new Product();
-					BeanUtils.copyProperties(product, productChangeLog);
-					product.setCreateDate(null);
-					product.setModifyDate(null);
-					product.setId(null);
-					product.setSn(snDao.generate(Sn.Type.goods));
-					producteDao.persist(product);
-					
-					productChangeLog.setApplicationState(ProductChangeLog.state.Pass);
-					productChangeLog.setAuditMemo2(auditMemo);
-					productChangeLog.setProductId(product.getId());
-					productChangeLog.setAuditAdmin2(adminId);
-					productChangeLog.setAuditDate2(new Date());
-					update(productChangeLog);
+					if(productChangeLog.getType().equals(ProductChangeLog.Type.ADD)){
+						Product product = new Product();
+						BeanUtils.copyProperties(product, productChangeLog);
+						product.setCreateDate(null);
+						product.setModifyDate(null);
+						product.setId(null);
+						product.setSn(snDao.generate(Sn.Type.goods));
+						producteDao.persist(product);
+						
+						productChangeLog.setProductId(product.getId());
+					}else{
+						Product product = producteDao.find(productChangeLog.getProductId());
+						BeanUtils.copyProperties(product, productChangeLog);
+						product.setId(productChangeLog.getProductId());
+						producteDao.merge(product);
+					}
 				} catch (Exception e) {
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				}
-				
+				update(productChangeLog);
 			break;
 		}
 	}

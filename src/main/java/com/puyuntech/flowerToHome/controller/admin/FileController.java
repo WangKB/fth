@@ -46,7 +46,7 @@ public class FileController extends BaseController {
 	 */
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public @ResponseBody
-	Map<String, Object> upload(FileType fileType, MultipartFile file) {
+	Map<String, Object> upload(FileType fileType, MultipartFile file,String imageType) {
 
 		/**
 		 * 创建模型对象
@@ -74,8 +74,14 @@ public class FileController extends BaseController {
 		/**
 		 * 上传文件并且返回服务器路径
 		 */
-		String url = fileService.upload(fileType, file, false);
-
+		String url="";
+		Boolean flag = StringUtils.isNotEmpty(imageType);
+		if(flag&&FileType.image.equals(fileType)){
+			url = fileService.qiNiuUpload(imageType, file);
+		}else{
+			url = fileService.upload(fileType, file, false);
+		}
+			
 		/**
 		 * 判断路径是否为空
 		 */

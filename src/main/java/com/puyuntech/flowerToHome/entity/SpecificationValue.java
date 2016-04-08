@@ -28,7 +28,7 @@ public class SpecificationValue extends OrderEntity<Integer> {
 		//2花卉 
 		Flower,
 		
-		//3类别
+		//3花型
 		Sort,
 		
 		//4设计

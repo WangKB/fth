@@ -24,10 +24,16 @@ public class Comment extends BaseEntity<Integer> {
 	//图片
 	private String image;
 	
+	//图片2
+	private String image2;
+	
+	//图片3
+	private String image3;
+	
 	//商品id
 	private Integer productId;
 	
-	//商家id
+	//会员id
 	private Integer memberId;
 
 	@Column(name="product_id")
@@ -75,4 +81,24 @@ public class Comment extends BaseEntity<Integer> {
 		this.memberId = memberId;
 	}
 
+	@Column(name="image2")
+	public String getImage2() {
+		return image2;
+	}
+
+	public void setImage2(String image2) {
+		this.image2 = image2;
+	}
+
+	@Column(name="image3")
+	public String getImage3() {
+		return image3;
+	}
+
+	public void setImage3(String image3) {
+		this.image3 = image3;
+	}
+
+	
+	
 }

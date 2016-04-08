@@ -139,7 +139,7 @@ public class Order extends BaseEntity<Integer> {
 	private Integer fromShop;
 	
 	/** 附近门店id */
-	private Integer nearShopId;
+	private String nearShopId;
 	
 	/** 是否指定门店 */
 	private Integer designation;
@@ -981,11 +981,11 @@ public class Order extends BaseEntity<Integer> {
 	}
 
 	@Column(name="near_shop_id")
-	public Integer getNearShopId() {
+	public String getNearShopId() {
 		return nearShopId;
 	}
 
-	public void setNearShopId(Integer nearShopId) {
+	public void setNearShopId(String nearShopId) {
 		this.nearShopId = nearShopId;
 	}
 

@@ -23,7 +23,7 @@
 			[@flash_message /]
 			
 
-            $filePicker.uploader();
+            $filePicker.uploader({data:{imageType:'card'}});
 
             // 表单验证
             $inputForm.validate({

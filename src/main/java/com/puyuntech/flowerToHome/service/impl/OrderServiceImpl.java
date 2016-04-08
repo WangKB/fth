@@ -10,9 +10,13 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import com.puyuntech.flowerToHome.Page;
+import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.dao.OrderDao;
 import com.puyuntech.flowerToHome.dao.SnDao;
 import com.puyuntech.flowerToHome.entity.Order;
+import com.puyuntech.flowerToHome.entity.Order.FromType;
+import com.puyuntech.flowerToHome.entity.Order.Status;
 import com.puyuntech.flowerToHome.entity.Sn;
 import com.puyuntech.flowerToHome.service.OrderService;
 
@@ -42,5 +46,14 @@ public class OrderServiceImpl extends BaseServiceImpl<Order, Integer> implements
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Integer changeStatus(Order order, Order.Status status){
 		return orderDao.changeStatus(order, status);
+	}
+
+	public Page<Order> pageByTel(Pageable pageable) {
+		return orderDao.pageByTel(pageable);
+	}
+
+	public Page<Order> report(Pageable pageable, Status status, Integer shopId, String memberTel, String province,
+			String city, String distract, Integer isBlance, FromType fromType) {
+		return orderDao.report(pageable, status, shopId, memberTel, province, city, distract, isBlance, fromType);
 	}
 }

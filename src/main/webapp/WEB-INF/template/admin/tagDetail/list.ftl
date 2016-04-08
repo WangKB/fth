@@ -68,7 +68,7 @@ $().ready(function() {
 					<a href="javascript:;" class="sort" name="name">标签详情名称</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="tagsId">标签id</a>
+					<a href="javascript:;" class="sort" name="tagsId">标签名称</a>
 				</th>
 				<th>
 					<a href="javascript:;" class="sort" name="createDate">创建时间</a>
@@ -86,7 +86,7 @@ $().ready(function() {
 						${tagDetail.name}
 					</td>
 					<td>
-						${tagDetail.tagsId}
+						${tag_name(tagDetail.tagsId)}
 					</td>
 					<td>
 						<span title="${tagDetail.createDate?string("yyyy-MM-dd HH:mm:ss")}">${tagDetail.createDate}</span>

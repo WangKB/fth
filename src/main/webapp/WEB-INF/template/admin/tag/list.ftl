@@ -68,6 +68,9 @@ $().ready(function() {
 					<a href="javascript:;" class="sort" name="name">标签名称</a>
 				</th>
 				<th>
+					<a href="javascript:;" name="detail">标签详情名称</a>
+				</th>
+				<th>
 					<a href="javascript:;" class="sort" name="productId">商品id</a>
 				</th>
 				<th>
@@ -89,10 +92,13 @@ $().ready(function() {
 						${tag.name}
 					</td>
 					<td>
+						${tag_detail_name(tag.id)}
+					</td>
+					<td>
 						${tag.productId}
 					</td>
 					<td>
-						${tag.images}
+						<img src='${tag.images}' class='width125'>
 					</td>
 					<td>
 						<span title="${tag.createDate?string("yyyy-MM-dd HH:mm:ss")}">${tag.createDate}</span>

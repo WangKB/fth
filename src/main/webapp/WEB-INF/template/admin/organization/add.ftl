@@ -28,7 +28,7 @@
 				url: "${base}/admin/common/area.jhtml"
 			});
 
-            $filePicker.uploader();
+            $filePicker.uploader({data:{imageType:'shop'}});
 
             // 表单验证
             $inputForm.validate({
@@ -59,7 +59,32 @@
             </td>
         </tr>
 
-        <tr>
+		<tr>
+            <th>
+                <span class="requiredField">*</span>门店状态:
+            </th>
+            <td>
+            	<select name="status">
+                [#list statuses as status]
+                    <option value=${status}>${message("Organization.Status."+status)}</option>
+                [/#list]
+                </select>
+            </td>
+        </tr>
+
+		<tr>
+			<th>
+				设置:
+			</th>
+			<td>
+				<label>
+					<input type="checkbox" name="isOpen" value="1" checked="checked" />是否开启
+					<input type="hidden" name="isOpen" value="0" />
+				</label>
+			</td>
+		</tr>
+
+        <tr class='none'>
             <th>
                 <span class="requiredField">*</span>门店等级:
             </th>
@@ -86,6 +111,30 @@
             </th>
             <td>
                 <input type="text" name="email" class="text" maxlength="200" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                qq:
+            </th>
+            <td>
+                <input type="text" name="qq" class="text" maxlength="200" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                qqKey:
+            </th>
+            <td>
+                <input type="text" name="qqKey" class="text" maxlength="200" />
+            </td>
+        </tr>
+        <tr>
+            <th>
+                微信:
+            </th>
+            <td>
+                <input type="text" name="wechat" class="text" maxlength="200" />
             </td>
         </tr>
         <tr>

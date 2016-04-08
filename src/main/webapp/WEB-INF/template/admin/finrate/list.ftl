@@ -10,7 +10,6 @@
 <link href="${base}/resources/admin/css/common.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/jquery.validate.js"></script>
-<script type="text/javascript" src="${base}/resources/admin/js/webuploader.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/ueditor/ueditor.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/temp_common.js"></script>
 <script type="text/javascript" src="${base}/resources/admin/js/input.js"></script>

@@ -17,9 +17,23 @@
 <script type="text/javascript">
 $().ready(function() {
 
+	$("#saveRemark").click(function() {
+		var remark = $("#remark").val();
+		$.ajax({
+			url: "remark.jhtml",
+			type: "POST",
+			data: {id:${order.id},remark:remark},
+			dataType: "json",
+			success: function(data) {
+				$.message('success','操作成功');
+			}
+		});
+		
+	});
+
 	$("#changeButton").click(function() {
 		$.dialog({
-			title: "${message("admin.order.payment")}",
+			title: "改变状态",
 			content: 
 				[@compress single_line = true]
 					'<form id="statusForm" action="changeStatus.jhtml" method="post">
@@ -55,7 +69,50 @@ $().ready(function() {
 		});
 	});
 	
-	
+	$("#changeShop").click(function() {
+		$.dialog({
+			title: "改变店铺",
+			content: 
+				[@compress single_line = true]
+					'<form id="changeShopForm" action="changeShop.jhtml" method="post">
+						<input type="hidden" name="token" value="${token}" \/>
+						<input type="hidden" name="orderId" value="${order.id}" \/>
+						<table class="input">
+							<tr>
+								<th>
+									店铺:
+								<\/th>
+								<td>
+									<select name="shopId">
+										[#list shops as shop]
+											[#if shop.id!=order.shopId]
+											<option value="${shop.id}">${shop.name}<\/option>
+											[/#if]
+										[/#list]
+									<\/select>
+								<\/td>
+							<\/tr>
+						<\/table>
+					<\/form>'
+				[/@compress]
+			,
+			width: 350,
+			modal: true,
+			ok: "${message("admin.dialog.ok")}",
+			cancel: "${message("admin.dialog.cancel")}",
+			onOk: function() {
+				$.ajax({
+					url: "changeShop.jhtml",
+					type: "POST",
+					data: $("#changeShopForm").serialize(),
+					dataType: "json",
+					success: function(data) {
+						$.message(data);
+					}
+				});
+			}
+		});
+	});
 });
 </script>
 </head>
@@ -78,6 +135,7 @@ $().ready(function() {
 			</td>
 			<td colspan="3">
 				<input type="button" id="changeButton" class="button" value="改变状态" />
+				<input type="button" id="changeShop" class="button" value="改变店铺" />
 			</td>
 		</tr>
 		<tr>
@@ -265,17 +323,23 @@ $().ready(function() {
 				${message("Order.memo")}:
 			</th>
 			<td>
-				${order.remark}
+				<input type='text' class='text' id="remark"  value='${order.remark}'>
+				<input type="button" id="saveRemark" class="button" value="保存备注" />
 			</td>
 		</tr>
 		<tr>
 			<th>
 				发货图片:
 			</th>
-			<td colspan=3>
+			<td>
 				<img src='${order.deliveryImages}' style="width:350px">
 			</td>
-			
+			<th>
+				所在店铺:
+			</th>
+			<td>
+				${shop_name(order.shopId)}
+			</td>
 		</tr>
 	</table>
 	<table class="item tabContent">

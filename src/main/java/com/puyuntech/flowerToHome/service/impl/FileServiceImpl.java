@@ -227,15 +227,15 @@ public class FileServiceImpl implements FileService, ServletContextAware {
 		String host;
 		switch (imageType) {
 		case "product":
-			host="7xsqqq.com2.z0.glb.qiniucdn.com";
+			host="http://image3.yihaohuapu.cn";
 			bucket = "product";
 			break;
 		case "shop":
-			host="7xsqqq.com2.z0.glb.qiniucdn.com";
+			host="http://image1.yihaohuapu.cn";
 			bucket = "shop";
 			break;
 		default:
-			host="7xsqqq.com2.z0.glb.qiniucdn.com";
+			host="http://image2.yihaohuapu.cn";
 			bucket = "yihaohuapu";
 			break;
 		}
@@ -244,8 +244,7 @@ public class FileServiceImpl implements FileService, ServletContextAware {
 			UploadManager uploadManager = new UploadManager();
 			String name = UUID.randomUUID()+multipartFile.getOriginalFilename();
 			Response res = uploadManager.put(multipartFile.getBytes(), name,auth.uploadToken(bucket));
-			StringBuffer url=new StringBuffer("http://");
-			url.append(host);
+			StringBuffer url=new StringBuffer(host);
 			url.append("/");
 			url.append(res.jsonToMap().get("key").toString());
 			return url.toString();

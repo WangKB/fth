@@ -327,6 +327,75 @@ public abstract class BaseDaoImpl<T extends BaseEntity<ID>, ID extends Serializa
 		return new Page<T>(query.getResultList(), total, pageable);
 	}
 
+	public List<T> findList(CriteriaQuery<T> criteriaQuery, Pageable pageable) {
+		Assert.notNull(criteriaQuery);
+		Assert.notNull(criteriaQuery.getSelection());
+		Assert.notEmpty(criteriaQuery.getRoots());
+
+		if (pageable == null) {
+			pageable = new Pageable();
+		}
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		Root<T> root = getRoot(criteriaQuery);
+
+		Predicate restrictions = criteriaQuery.getRestriction() != null ? criteriaQuery.getRestriction() : criteriaBuilder.conjunction();
+		restrictions = criteriaBuilder.and(restrictions, toPredicate(root, pageable.getFilters()));
+		String searchProperty = pageable.getSearchProperty();
+		String searchValue = pageable.getSearchValue();
+		if (StringUtils.isNotEmpty(searchProperty) && StringUtils.isNotEmpty(searchValue)) {
+			Path<String> searchPath = getPath(root, searchProperty);
+			if (searchPath != null) {
+				restrictions = criteriaBuilder.and(restrictions, criteriaBuilder.like(searchPath, "%" + searchValue + "%"));
+			}
+		}
+		if (pageable.getBeginDate() != null ) {
+			restrictions = criteriaBuilder.and(restrictions,
+					criteriaBuilder.greaterThanOrEqualTo(root.<Date> get("createDate"),pageable.getBeginDate()));
+		}
+		if (pageable.getEndDate() != null ) {
+			restrictions = criteriaBuilder.and(restrictions,
+					criteriaBuilder.lessThanOrEqualTo(root.<Date> get("createDate"),pageable.getEndDate()));
+		}
+		criteriaQuery.where(restrictions);
+
+		List<javax.persistence.criteria.Order> orderList = new ArrayList<javax.persistence.criteria.Order>();
+		orderList.addAll(criteriaQuery.getOrderList());
+		orderList.addAll(toOrders(root, pageable.getOrders()));
+		String orderProperty = pageable.getOrderProperty();
+		Order.Direction orderDirection = pageable.getOrderDirection();
+		if (StringUtils.isNotEmpty(orderProperty) && orderDirection != null) {
+			Path<?> orderPath = getPath(root, orderProperty);
+			if (orderPath != null) {
+				switch (orderDirection) {
+				case asc:
+					orderList.add(criteriaBuilder.asc(orderPath));
+					break;
+				case desc:
+					orderList.add(criteriaBuilder.desc(orderPath));
+					break;
+				}
+			}
+		}
+		if (orderList.isEmpty()) {
+			if (OrderEntity.class.isAssignableFrom(entityClass)) {
+				orderList.add(criteriaBuilder.asc(getPath(root, OrderEntity.ORDER_PROPERTY_NAME)));
+			} else {
+				orderList.add(criteriaBuilder.desc(getPath(root, OrderEntity.CREATE_DATE_PROPERTY_NAME)));
+			}
+		}
+		criteriaQuery.orderBy(orderList);
+
+		long total = count(criteriaQuery, null);
+		int totalPages = (int) Math.ceil((double) total / (double) pageable.getPageSize());
+		if (totalPages < pageable.getPageNumber()) {
+			pageable.setPageNumber(totalPages);
+		}
+		TypedQuery<T> query = entityManager.createQuery(criteriaQuery);
+		return query.getResultList();
+	}
+	
+	
 	/**
 	 * 查询实体对象数量
 	 * 

@@ -3,6 +3,8 @@ package com.puyuntech.flowerToHome.service.impl;
 
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -55,5 +57,15 @@ public class OrderServiceImpl extends BaseServiceImpl<Order, Integer> implements
 	public Page<Order> report(Pageable pageable, Status status, Integer shopId, String memberTel, String province,
 			String city, String distract, Integer isBlance, FromType fromType) {
 		return orderDao.report(pageable, status, shopId, memberTel, province, city, distract, isBlance, fromType);
+	}
+
+	public List<Order> findList(Pageable pageable, Status status, Integer shopId, String memberTel, String province,
+			String city, String distract, Integer isBlance, FromType fromType) {
+		return orderDao.findList(pageable, status, shopId, memberTel, province, city, distract, isBlance, fromType);
+	}
+
+	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+	public String changeShop(Integer orderId, Integer shopId) {
+		return orderDao.changeShop(orderId, shopId);
 	}
 }

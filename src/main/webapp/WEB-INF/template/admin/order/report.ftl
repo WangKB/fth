@@ -121,19 +121,34 @@ $().ready(function() {
 					<a href="javascript:;" class="sort" name="sn">${message("Order.sn")}</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="amount">${message("Order.amount")}</a>
-				</th>
-				<th>
-					<a href="javascript:;" class="sort" name="consignee">${message("Order.consignee")}</a>
-				</th>
-				<th>
-					<a href="javascript:;" class="sort" name="memberId">会员电话</a>
+					<a href="javascript:;" class="sort" name="createDate">${message("admin.common.createDate")}</a>
 				</th>
 				<th>
 					<a href="javascript:;" class="sort" name="status">${message("Order.status")}</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="createDate">${message("admin.common.createDate")}</a>
+					<a href="javascript:;" class="sort" name="addrCity">市</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="shopId">商铺名称</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="memberId">会员电话</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="amount">${message("Order.amount")}</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="promotionDiscount">促销金额</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="amountPaid">实付金额</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="isBalance">是否结算</a>
+				</th>
+				<th>
+					<a href="javascript:;" class="sort" name="remark">备注</a>
 				</th>
 				<th>
 					<span>${message("admin.common.action")}</span>
@@ -148,25 +163,72 @@ $().ready(function() {
 						${order.sn}
 					</td>
 					<td>
-						${currency(order.amount, true)}
-					</td>
-					<td>
-						${order.consignee}
-					</td>
-					<td>
-						${member_tel(order.memberId)}
+						<span title="${order.createDate?string("yyyy-MM-dd HH:mm:ss")}">${order.createDate}</span>
 					</td>
 					<td>
 						${message("Order.Status." + order.status)}
 					</td>
 					<td>
-						<span title="${order.createDate?string("yyyy-MM-dd HH:mm:ss")}">${order.createDate}</span>
+						${order.addrCity}
+					</td>
+					<td>
+						${shop_name(order.shopId)}
+					</td>
+					<td>
+						${member_tel(order.memberId)}
+					</td>
+					<td>
+						${currency(order.amount, true)}
+					</td>
+					<td>
+						${currency(order.promotionDiscount, true)}
+					</td>
+					<td>
+						${currency(order.amountPaid, true)}
+					</td>
+					<td>
+						[#if order.isBalance==1]是[#else]否[/#if]
+					</td>
+					<td>
+						${order.remark}
 					</td>
 					<td>
 						<a href="view.jhtml?id=${order.id}">[${message("admin.common.view")}]</a>
 					</td>
 				</tr>
 			[/#list]
+				<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+						总计：
+					</td>
+					<td>
+						${currency(amountAll, true)}
+					</td>
+					<td>
+						${currency(amountProAll, true)}
+					</td>
+					<td>
+						${currency(amountPaidAll, true)}
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+					</td>
+				</tr>
 		</table>
 		[@pagination pageNumber = page.pageNumber totalPages = page.totalPages]
 			[#include "/admin/include/pagination.ftl"]

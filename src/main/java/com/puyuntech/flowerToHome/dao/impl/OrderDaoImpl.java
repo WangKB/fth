@@ -1,5 +1,9 @@
 package com.puyuntech.flowerToHome.dao.impl;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +16,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.CallableStatementCallback;
+import org.springframework.jdbc.core.CallableStatementCreator;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -138,5 +145,91 @@ OrderDao {
 		}
 		String property = StringUtils.substringBefore(propertyPath, PROPERTY_SEPARATOR);
 		return getPath(path.get(property), StringUtils.substringAfter(propertyPath, PROPERTY_SEPARATOR));
+	}
+
+	public List<Order> findList(Pageable pageable, Status status, Integer shopId, String memberTel, String province,
+			String city, String distract, Integer isBlance, FromType fromType) {
+
+
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Order> criteriaQuery = criteriaBuilder
+				.createQuery(Order.class);
+		Root<Order> root = criteriaQuery.from(Order.class);
+		criteriaQuery.select(root);
+		Predicate restrictions = criteriaBuilder.conjunction();
+		if (status != null) {
+			restrictions = criteriaBuilder.and(restrictions,
+					criteriaBuilder.equal(root.get("status"), status));
+		}
+		if (shopId != null&&shopId!=-1) {
+			restrictions = criteriaBuilder.and(restrictions,
+					criteriaBuilder.equal(root.get("shopId"), shopId));
+		}
+		if (isBlance != null&&isBlance!=-1) {
+			restrictions = criteriaBuilder.and(restrictions,
+					criteriaBuilder.equal(root.get("isBalance"), isBlance));
+		}
+		if (fromType != null) {
+			restrictions = criteriaBuilder.and(restrictions,
+					criteriaBuilder.equal(root.get("fromType"), fromType));
+		}
+		if (memberTel != null) {
+			String jpql = "select members.id from Member members where members.phone like :phone ";
+			List<Integer> memberIds = entityManager.createQuery(jpql, Integer.class).setParameter("phone","%" + memberTel + "%").getResultList();
+			if(memberIds.size()!=0){
+				restrictions = criteriaBuilder.and(restrictions,
+						root.get("memberId").in(memberIds));
+			}else{
+				List<Integer> empty = new ArrayList<Integer>();
+				empty.add(-1);
+				restrictions = criteriaBuilder.and(restrictions,
+						root.get("memberId").in(empty));
+			}
+			
+		}
+		Path<String> searchPath;
+		if (province != null) {
+			searchPath = getPath(root, "addrProvince");
+			restrictions = criteriaBuilder.and(restrictions, criteriaBuilder.like(searchPath, "%" + province + "%"));
+		}
+		if (city != null) {
+			searchPath = getPath(root, "addrCity");
+			restrictions = criteriaBuilder.and(restrictions, criteriaBuilder.like(searchPath, "%" + city + "%"));
+		}
+		if (distract != null) {
+			searchPath = getPath(root, "addrDistrict");
+			restrictions = criteriaBuilder.and(restrictions, criteriaBuilder.like(searchPath, "%" + distract + "%"));
+		}
+		criteriaQuery.where(restrictions);
+		return findList(criteriaQuery, pageable);
+
+	}
+
+	@Override
+	public String changeShop(final Integer orderId, final Integer shopId) {
+
+		
+		String reuslt = (String) jdbcTemplate.execute(   
+			     new CallableStatementCreator() {   
+			        public CallableStatement createCallableStatement(Connection con) throws SQLException {   
+			        	String sql = "{call proc_changeOrderShop(?,?)}";
+			        	CallableStatement cs = con.prepareCall(sql);   
+			        	cs.setInt(1, orderId);
+			        	cs.setInt(2, shopId);
+			        	return cs;   
+			        }   
+			     }, new CallableStatementCallback<String>() {   
+			        public String doInCallableStatement(CallableStatement cs) throws SQLException,DataAccessException {   
+			           cs.execute();   
+			           ResultSet rs = cs.getResultSet();
+			           String msg="";
+			           while (rs.next()) {// 转换每行的返回值到Map中   
+			              msg=rs.getString("return_msg");   
+			           }   
+			           rs.close();   
+			           return msg;   
+			        }   
+			  });   
+		return reuslt;
 	}
 }

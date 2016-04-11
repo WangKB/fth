@@ -32,6 +32,9 @@ public class OrderShop extends BaseEntity<Integer> {
 	
 	//是否默认
 	private Integer isDefalut;
+	
+	/** 附近门店id */
+	private String nearShopId;
 
 	@Column(name="shop_id")
 	public Integer getShopId() {
@@ -60,4 +63,13 @@ public class OrderShop extends BaseEntity<Integer> {
 		this.isDefalut = isDefalut;
 	}
 	
+	@Column(name="near_shop_id")
+	public String getNearShopId() {
+		return nearShopId;
+	}
+
+	public void setNearShopId(String nearShopId) {
+		this.nearShopId = nearShopId;
+	}
+
 }

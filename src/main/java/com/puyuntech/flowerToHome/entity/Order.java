@@ -445,7 +445,7 @@ public class Order extends BaseEntity<Integer> {
 	 */
 	@Min(0)
 	@Digits(integer = 12, fraction = 3)
-	@Column(name="tax",nullable = false, precision = 21, scale = 6)
+	@Column(name="tax",precision = 21, scale = 6)
 	public BigDecimal getTax() {
 		return tax;
 	}
@@ -715,7 +715,7 @@ public class Order extends BaseEntity<Integer> {
 	 * 
 	 * @return 是否已使用优惠码
 	 */
-	@Column(name="is_use_coupon_code",nullable = false)
+	@Column(name="is_use_coupon_code")
 	public Integer getIsUseCouponCode() {
 		return isUseCouponCode;
 	}
@@ -744,7 +744,7 @@ public class Order extends BaseEntity<Integer> {
 	 * 
 	 * @return 是否已兑换积分
 	 */
-	@Column(name="is_exchange_point",nullable = false)
+	@Column(name="is_exchange_point")
 	public Integer getIsExchangePoint() {
 		return isExchangePoint;
 	}

@@ -4,6 +4,7 @@ package com.puyuntech.flowerToHome.dao;
 import java.util.List;
 
 import javax.persistence.LockModeType;
+import javax.persistence.criteria.CriteriaQuery;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -197,5 +198,7 @@ public interface BaseDao<T extends BaseEntity<ID>, ID extends Serializable> {
 	 */
 	@Transactional
 	void flush();
+	
+	List<T> findList(CriteriaQuery<T> criteriaQuery, Pageable pageable);
 
 }

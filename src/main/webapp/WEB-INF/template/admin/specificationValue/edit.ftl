@@ -20,9 +20,32 @@ $().ready(function() {
 	
 	// 表单验证
 	$inputForm.validate({
+		onkeyup: false,
+        onclick: false,
+        onfocusout: false,
 		rules: {
-			specificationValue: "required",
+			specificationValue: {
+				required:true,
+				remote: {
+					url: "checkValue.jhtml",
+					cache: false,
+					data:{
+				    	value: function(){
+				          	return $('#inputForm :input[name="specificationValue"]').val();
+				       	},
+				       	type: function(){
+				          	return $('#inputForm :input[name="specification"]').val();
+				       	},
+				       	id:"${specificationValue.id}"
+				   	}
+				}
+			},
 			specification: "required"
+		},
+		messages:{
+			specificationValue:{
+				remote:"同一类型下，规格名称必须唯一"
+			}
 		}
 	});
 
@@ -41,7 +64,7 @@ $().ready(function() {
 					规格值:
 				</th>
 				<td>
-					<input type="text" name="specificationValue" class="text" value=${specificationValue.specificationValue} maxlength="200" />
+					<input type="text" name="specificationValue" class="text" value='${specificationValue.specificationValue}' maxlength="200" />
 				</td>
 			</tr>
 			<tr>

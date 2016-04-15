@@ -78,6 +78,9 @@ public class GoodsController extends BaseController {
 			default:
 				product.setProductImagesDefault(product.getProductImages1());
 		}
+		if(product.getOrder()==null){
+			product.setOrder(999);
+		}
 		productService.save(product);
 		return "redirect:list.jhtml";
 	}
@@ -216,7 +219,10 @@ public class GoodsController extends BaseController {
 			break;
 		default:
 			product.setProductImagesDefault(product.getProductImages1());
-	}
+		}
+		if(product.getOrder()==null){
+			product.setOrder(999);
+		}
 		productService.update(product,"sn","buytimes");
 		return "redirect:list.jhtml";
 	}

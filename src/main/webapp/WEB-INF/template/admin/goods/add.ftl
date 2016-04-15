@@ -31,6 +31,12 @@ $().ready(function() {
 	$filePicker3.uploader({data:{imageType:'product'}});
 	$filePicker4.uploader({data:{imageType:'product'}});
 	
+	$(".openimg").on('click',function(){
+		var $this=$(this);
+		var url = $this.parent().find("input[type=text]").val();
+		window.open(url);
+	});
+	
 	// 表单验证
 	$inputForm.validate({
 		rules: {
@@ -135,6 +141,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages1" class="text" maxlength="200" title="商品图片1" />
 						<a href="javascript:;" id="filePicker1" class="button">商品图片1</a>
+						<input type='button' class="button openimg" value="打开图片">
 						<input type='radio' name='imageNum' value='1' checked=true>设为默认
 					</span>
 				</td>
@@ -147,6 +154,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages2" class="text" maxlength="200" title="商品图片2" />
 						<a href="javascript:;" id="filePicker2" class="button">商品图片2</a>
+						<input type='button' class="button openimg" value="打开图片">
 						<input type='radio' name='imageNum' value='2'>设为默认
 					</span>
 				</td>
@@ -159,6 +167,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages3" class="text" maxlength="200" title="商品图片3" />
 						<a href="javascript:;" id="filePicker3" class="button">商品图片3</a>
+						<input type='button' class="button openimg" value="打开图片">
 						<input type='radio' name='imageNum' value='3'>设为默认
 					</span>
 				</td>
@@ -171,6 +180,7 @@ $().ready(function() {
 					<span class="fieldSet">
 						<input type="text" name="productImages4" class="text" maxlength="200" title="商品图片4" />
 						<a href="javascript:;" id="filePicker4" class="button">商品图片4</a>
+						<input type='button' class="button openimg" value="打开图片">
 						<input type='radio' name='imageNum' value='4'>设为默认
 					</span>
 				</td>

@@ -81,6 +81,9 @@ $().ready(function() {
 					<a href="javascript:;" class="sort" name="isMarketable">${message("Goods.isMarketable")}</a>
 				</th>
 				<th>
+					<a href="javascript:;" name="images">图片链接</a>
+				</th>
+				<th>
 					<a href="javascript:;" class="sort" name="createDate">${message("admin.common.createDate")}</a>
 				</th>
 				<th>
@@ -105,6 +108,9 @@ $().ready(function() {
 					</td>
 					<td>
 						<span [#if goods.isMarketable==1]class="trueIcon"[#else]class="falseIcon"[/#if]>&nbsp;</span>
+					</td>
+					<td>
+						<img src='${goods.productImagesDefault}' class='width125'>
 					</td>
 					<td>
 						<span title="${goods.createDate?string("yyyy-MM-dd HH:mm:ss")}">${goods.createDate}</span>

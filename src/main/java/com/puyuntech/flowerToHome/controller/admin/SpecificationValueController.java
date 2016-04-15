@@ -1,5 +1,8 @@
 package com.puyuntech.flowerToHome.controller.admin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.puyuntech.flowerToHome.Filter;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.SpecificationValue;
@@ -68,5 +72,24 @@ public class SpecificationValueController extends BaseController {
 
 		specificationValueService.delete(ids);
 		return SUCCESS_MESSAGE;
+	}
+	
+	@RequestMapping(value = "/checkValue", method = RequestMethod.GET)
+	public @ResponseBody
+	Boolean checkValue(String value,SpecificationValue.Specification type,Integer id) {
+
+		List<Filter> filters = new ArrayList<Filter>();
+		filters.add(Filter.eq("specificationValue", value));
+		filters.add(Filter.eq("specification", type));
+		Integer size = specificationValueService.findList(null, filters, null).size();
+		List<Integer> ids = new ArrayList<Integer>();
+		for(SpecificationValue specificationValue:specificationValueService.findList(null, filters, null)){
+			ids.add(specificationValue.getId());
+		}
+		
+		if(ids.contains(id)){
+			return size>1?false:true;
+		}
+		return size>0?false:true;
 	}
 }

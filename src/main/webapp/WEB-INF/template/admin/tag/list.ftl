@@ -74,7 +74,7 @@ $().ready(function() {
 					<a href="javascript:;" class="sort" name="productId">商品id</a>
 				</th>
 				<th>
-					<a href="javascript:;" class="sort" name="images">图片链接</a>
+					<a href="javascript:;" class="sort" name="images">图片</a>
 				</th>
 				<th>
 					<a href="javascript:;" class="sort" name="createDate">创建时间</a>

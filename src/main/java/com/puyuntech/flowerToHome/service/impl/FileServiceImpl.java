@@ -12,6 +12,7 @@ import javax.servlet.ServletContext;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -129,7 +130,7 @@ public class FileServiceImpl implements FileService, ServletContextAware {
 			break;
 		}
 		if (ArrayUtils.isNotEmpty(uploadExtensions)) {
-			return FilenameUtils.isExtension(multipartFile.getOriginalFilename(), uploadExtensions);
+			return FilenameUtils.isExtension(StringUtils.lowerCase(multipartFile.getOriginalFilename()), uploadExtensions);
 		}
 		return false;
 	}

@@ -30,6 +30,12 @@ $().ready(function() {
 	$filePicker3.uploader({data:{imageType:'product'}});
 	$filePicker4.uploader({data:{imageType:'product'}});
 	
+	$(".openimg").on('click',function(){
+		var $this=$(this);
+		var url = $this.parent().find("input[type=text]").val();
+		window.open(url);
+	});
+	
 	$(".commentDel").on('click',function(){
 		var $this=$(this);
 		$.ajax({
@@ -101,7 +107,7 @@ $().ready(function() {
 					排序:
 				</th>
 				<td>
-					<input type="text" name="order" class="text" maxlength="200"  value=${goods.order}>
+					<input type="text" name="order" class="text" maxlength="200"  value='${goods.order}'>
 				</td>
 			</tr>
 			<tr>
@@ -109,7 +115,7 @@ $().ready(function() {
 					花语:
 				</th>
 				<td>
-					<input type="text" name="flowerLanguage" class="text" value=${goods.flowerLanguage} maxlength="200" />
+					<input type="text" name="flowerLanguage" class="text" value='${goods.flowerLanguage}' maxlength="200" />
 				</td>
 			</tr>
 			<tr class='none'>
@@ -117,7 +123,7 @@ $().ready(function() {
 					${message("Goods.caption")}:
 				</th>
 				<td>
-					<input type="text" name="caption" class="text" value=${goods.caption} maxlength="200" />
+					<input type="text" name="caption" class="text" value='${goods.caption}' maxlength="200" />
 				</td>
 			</tr>
 			<tr>
@@ -125,7 +131,7 @@ $().ready(function() {
 					<span class="requiredField">*</span>${message("Product.price")}:
 				</th>
 				<td>
-					<input type="text" id="price" name="price" value=${goods.price} class="text" maxlength="16" />
+					<input type="text" id="price" name="price" value='${goods.price}' class="text" maxlength="16" />
 				</td>
 			</tr>
 			<tr>
@@ -165,8 +171,9 @@ $().ready(function() {
 				</th>
 				<td>
 					<span class="fieldSet">
-						<input type="text" name="productImages1" value=${goods.productImages1}  class="text" maxlength="200" title="商品图片1" />
+						<input type="text" name="productImages1" value='${goods.productImages1}'  class="text" maxlength="200" title="商品图片1" />
 						<a href="javascript:;" id="filePicker1" class="button">商品图片1</a>
+						<input type='button' class="button openimg" value="打开图片">
 						<input type='radio' name='imageNum' value='1' [#if goods.productImagesDefault==goods.productImages1]checked=true[/#if]>设为默认
 					</span>
 				</td>
@@ -177,8 +184,9 @@ $().ready(function() {
 				</th>
 				<td>
 					<span class="fieldSet">
-						<input type="text" name="productImages2" value=${goods.productImages2}   class="text" maxlength="200" title="商品图片2" />
+						<input type="text" name="productImages2" value='${goods.productImages2}'   class="text" maxlength="200" title="商品图片2" />
 						<a href="javascript:;" id="filePicker2" class="button">商品图片2</a>
+						<input type='button' class="button openimg" value="打开图片">
 						<input type='radio' name='imageNum' value='2' [#if goods.productImagesDefault==goods.productImages2]checked=true[/#if]>设为默认
 					</span>
 				</td>
@@ -189,8 +197,9 @@ $().ready(function() {
 				</th>
 				<td>
 					<span class="fieldSet">
-						<input type="text" name="productImages3"  value=${goods.productImages3}  class="text" maxlength="200" title="商品图片3" />
+						<input type="text" name="productImages3"  value='${goods.productImages3}'  class="text" maxlength="200" title="商品图片3" />
 						<a href="javascript:;" id="filePicker3" class="button">商品图片3</a>
+						<input type='button' class="button openimg" value="打开图片">
 						<input type='radio' name='imageNum' value='3' [#if goods.productImagesDefault==goods.productImages3]checked=true[/#if]>设为默认
 					</span>
 				</td>
@@ -201,8 +210,9 @@ $().ready(function() {
 				</th>
 				<td>
 					<span class="fieldSet">
-						<input type="text" name="productImages4"  value=${goods.productImages4}  class="text" maxlength="200" title="商品图片4" />
+						<input type="text" name="productImages4"  value='${goods.productImages4}'  class="text" maxlength="200" title="商品图片4" />
 						<a href="javascript:;" id="filePicker4" class="button">商品图片4</a>
+						<input type='button' class="button openimg" id="testi" value="打开图片">
 						<input type='radio' name='imageNum' value='4' [#if goods.productImagesDefault==goods.productImages4]checked=true[/#if]>设为默认
 					</span>
 				</td>

@@ -14,9 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.puyuntech.flowerToHome.dao.ProductDao;
+import com.puyuntech.flowerToHome.dao.ProductShopDao;
 import com.puyuntech.flowerToHome.dao.SnDao;
 import com.puyuntech.flowerToHome.entity.Product;
 import com.puyuntech.flowerToHome.entity.ProductChangeLog;
+import com.puyuntech.flowerToHome.entity.ProductShop;
 import com.puyuntech.flowerToHome.entity.Sn;
 import com.puyuntech.flowerToHome.service.ProductChangeLogService;
 
@@ -34,6 +36,9 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 	
 	@Resource(name = "snDaoImpl")
 	private SnDao snDao;
+	
+	@Resource(name = "productShopDaoImpl")
+	private ProductShopDao productShopDao;
 	
 	@Transactional(propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public void check(ProductChangeLog productChangeLog,Integer actType,String auditMemo,Integer adminId){
@@ -60,6 +65,11 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 						product.setId(null);
 						product.setSn(snDao.generate(Sn.Type.goods));
 						producteDao.persist(product);
+						
+						ProductShop productShop = new ProductShop();
+						productShop.setProductId(product.getId());
+						productShop.setShopId(1);
+						productShopDao.persist(productShop);
 						
 						productChangeLog.setProductId(product.getId());
 					}else{

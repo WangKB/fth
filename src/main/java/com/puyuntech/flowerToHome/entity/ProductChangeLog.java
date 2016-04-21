@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "t_product_change_log")
-public class ProductChangeLog extends BaseEntity<Integer> {
+public class ProductChangeLog extends OrderEntity<Integer> {
 
 	public enum state{
 		

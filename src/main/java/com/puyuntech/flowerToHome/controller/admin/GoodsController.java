@@ -63,7 +63,7 @@ public class GoodsController extends BaseController {
 	 * @return 模板位置
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(Product product,Integer imageNum) {
+	public String save(ProductChangeLog product,Integer imageNum) {
 
 		switch(imageNum){
 			case 2:
@@ -81,7 +81,9 @@ public class GoodsController extends BaseController {
 		if(product.getOrder()==null){
 			product.setOrder(999);
 		}
-		productService.save(product);
+		product.setApplicationState(ProductChangeLog.state.ApplyingOne);
+		product.setType(ProductChangeLog.Type.ADD);
+		productChangeLogService.save(product);
 		return "redirect:list.jhtml";
 	}
 
@@ -205,7 +207,7 @@ public class GoodsController extends BaseController {
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(Product product,Integer imageNum){
+	public String update(ProductChangeLog product,Integer imageNum){
 		
 		switch(imageNum){
 		case 2:
@@ -223,7 +225,9 @@ public class GoodsController extends BaseController {
 		if(product.getOrder()==null){
 			product.setOrder(999);
 		}
-		productService.update(product,"sn","buytimes");
+		product.setType(ProductChangeLog.Type.EDIT);
+		product.setApplicationState(ProductChangeLog.state.ApplyingOne);
+		productChangeLogService.save(product);
 		return "redirect:list.jhtml";
 	}
 

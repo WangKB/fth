@@ -4,13 +4,19 @@ import java.util.Date;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.puyuntech.flowerToHome.dao.OrganizationDao;
 import com.puyuntech.flowerToHome.entity.Organization;
+import com.puyuntech.flowerToHome.entity.Product;
+import com.puyuntech.flowerToHome.entity.ProductChangeLog;
+import com.puyuntech.flowerToHome.entity.ProductShop;
 import com.puyuntech.flowerToHome.entity.ShopAudit;
+import com.puyuntech.flowerToHome.entity.Sn;
 import com.puyuntech.flowerToHome.service.ShopAuditService;
 
 /**
@@ -41,17 +47,27 @@ public class ShopAuditServiceImpl extends BaseServiceImpl<ShopAudit, Integer> im
 				shopAudit.setAuditAdmin2(adminId);
 				shopAudit.setAuditDate2(new Date());
 				update(shopAudit);
-				Organization organization = organizationDao.find(shopAudit.getShopId());
-				organization.setName(shopAudit.getName());
-				organization.setTel(shopAudit.getTel());
-				organization.setEmail(shopAudit.getEmail());
-				organization.setOpeningStart(shopAudit.getOpeningStart());
-				organization.setOpeningEnd(shopAudit.getOpeningEnd());
-				organization.setAddress(shopAudit.getAddress());
-				organization.setIntro(shopAudit.getIntro());
-				organization.setPaymentDate(shopAudit.getPaymentDate());
-				organization.setImage(shopAudit.getImage());
-				organizationDao.merge(organization);
+				try {
+					if(shopAudit.getType().equals(ShopAudit.Type.ADD)){
+						Organization organizaiton = new Organization();
+						BeanUtils.copyProperties(organizaiton, shopAudit);
+						organizaiton.setCreateDate(null);
+						organizaiton.setModifyDate(null);
+						organizaiton.setId(null);
+						organizaiton.setIsOpen(1);
+						organizationDao.persist(organizaiton);
+						
+						shopAudit.setShopId(organizaiton.getId());
+					}else{
+						Organization organizaiton = organizationDao.find(shopAudit.getShopId());
+						BeanUtils.copyProperties(organizaiton, shopAudit);
+						organizaiton.setId(shopAudit.getShopId());
+						organizationDao.merge(organizaiton);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+				}
 			break;
 		}
 	}

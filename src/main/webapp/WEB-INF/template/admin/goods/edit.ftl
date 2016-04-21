@@ -67,7 +67,7 @@ $().ready(function() {
 		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; ${message("admin.goods.edit")}
 	</div>
 	<form id="inputForm" action="update.jhtml" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="id" value="${goods.id}" />
+		<input type="hidden" name="productId" value="${goods.id}" />
 		<ul id="tab" class="tab">
 			<li>
 				<input type="button" value="${message("admin.goods.base")}" />

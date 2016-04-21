@@ -31,6 +31,18 @@ public class ShopAudit extends OrderEntity<Integer> {
 		Rejected
 		
 	}
+	
+	public enum Type{
+		
+		//新增
+		ADD,
+		
+		//修改
+		EDIT,
+		
+	}
+	
+	private ShopAudit.Type type;
 
     /** 名称*/
     private String name;
@@ -122,6 +134,15 @@ public class ShopAudit extends OrderEntity<Integer> {
     
     /** 关联店铺id*/
     private Integer shopId;
+    
+    //qq
+    private String qq;
+    
+    //qqKey
+    private String qqKey;
+    
+    //微信号
+    private String wechat;
 
     @Column(name="intro")
     public String getIntro() {
@@ -373,6 +394,69 @@ public class ShopAudit extends OrderEntity<Integer> {
 
 	public void setShopId(Integer shopId) {
 		this.shopId = shopId;
+	}
+	
+	@Column(name="addr_province")
+	public String getAddrProvince() {
+		return addrProvince;
+	}
+
+	public void setAddrProvince(String addrProvince) {
+		this.addrProvince = addrProvince;
+	}
+
+	@Column(name="addr_city")
+	public String getAddrCity() {
+		return addrCity;
+	}
+
+	public void setAddrCity(String addrCity) {
+		this.addrCity = addrCity;
+	}
+
+	@Column(name="addr_district")
+	public String getAddrDistrict() {
+		return addrDistrict;
+	}
+
+	public void setAddrDistrict(String addrDistrict) {
+		this.addrDistrict = addrDistrict;
+	}
+
+	@Column(name="type")
+	public ShopAudit.Type getType() {
+		return type;
+	}
+
+	public void setType(ShopAudit.Type type) {
+		this.type = type;
+	}
+	
+	@Column(name="QQ")
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	@Column(name="QQ_key")
+	public String getQqKey() {
+		return qqKey;
+	}
+
+	public void setQqKey(String qqKey) {
+		this.qqKey = qqKey;
+	}
+
+	@Column(name="wechat")
+	public String getWechat() {
+		return wechat;
+	}
+
+	public void setWechat(String wechat) {
+		this.wechat = wechat;
 	}
 	
 }

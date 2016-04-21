@@ -74,6 +74,21 @@
                 当前内容
             </td>
         </tr>
+        
+        <tr>
+            <th>
+                申请类型:
+            </th>
+            <td>
+                [#if organization.type=='ADD']
+                新增
+                [#else]
+                修改
+                [/#if]
+            </td>
+            <td>
+            </td>
+        </tr>
     
         <tr>
             <th>
@@ -86,7 +101,7 @@
                 ${organizationBefore.name}
             </td>
         </tr>
-
+        
         <tr>
             <th>
                 <span class="requiredField">*</span>联系电话:
@@ -154,6 +169,39 @@
                 ${organizationBefore.intro}
             </td>
         </tr>
+        <tr>
+            <th>
+                qq:
+            </th>
+            <td>
+                ${organization.qq}
+            </td>
+             <td>
+                ${organizationBefore.qq}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                qqKey:
+            </th>
+            <td>
+                ${organization.qqKey}
+            </td>
+             <td>
+                ${organizationBefore.qqKey}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                微信:
+            </th>
+            <td>
+                ${organization.wechat}
+            </td>
+             <td>
+                ${organizationBefore.wechat}
+            </td>
+        </tr>
 		<tr>
             <th>
                 <span class="requiredField">*</span>每月结算日:
@@ -170,10 +218,10 @@
                 组织图片:
             </th>
             <td>
-            	<img src='${organization.image}'>
+            	<img src='${organization.image}' class="width125">
             </td>
             <td>
-            	<img src='${organizationBefore.image}'>
+            	<img src='${organizationBefore.image}' class="width125">
             </td>
         </tr>
 		[#switch organization.applicationState]

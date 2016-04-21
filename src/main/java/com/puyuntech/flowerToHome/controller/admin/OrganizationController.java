@@ -91,47 +91,49 @@ public class OrganizationController extends BaseController {
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(Organization organization) {
+    public String save(ShopAudit shopAudit) {
 
-    	Area area = areaService.find(organization.getArea());
+    	Area area = areaService.find(shopAudit.getArea());
     	List<Area> areas = area.getParents();
     	areas.add(area);
     	for(Area areaItem :areas){
     		switch(areaItem.getGrade()){
     			case 0:
-    				organization.setAddrProvince(areaItem.getName());
+    				shopAudit.setAddrProvince(areaItem.getName());
     				break;
     			case 1:
-    				organization.setAddrCity(areaItem.getName());
+    				shopAudit.setAddrCity(areaItem.getName());
     				break;
     			case 2:
-    				organization.setAddrDistrict(areaItem.getName());
+    				shopAudit.setAddrDistrict(areaItem.getName());
     				break;
     			default:
     				continue;
     			
     		}
     	}
-    	organizationService.save(organization);
+    	shopAudit.setApplicationState(ShopAudit.state.ApplyingOne);
+    	shopAudit.setType(ShopAudit.Type.ADD);
+    	shopAuditService.save(shopAudit);
         return "redirect:list.jhtml";
     }
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update(Organization organization) {
+    public String update(ShopAudit shopAudit) {
 
-    	Area area = areaService.find(organization.getArea());
+    	Area area = areaService.find(shopAudit.getArea());
     	List<Area> areas = area.getParents();
     	areas.add(area);
     	for(Area areaItem :areas){
     		switch(areaItem.getGrade()){
     			case 0:
-    				organization.setAddrProvince(areaItem.getName());
+    				shopAudit.setAddrProvince(areaItem.getName());
     				break;
     			case 1:
-    				organization.setAddrCity(areaItem.getName());
+    				shopAudit.setAddrCity(areaItem.getName());
     				break;
     			case 2:
-    				organization.setAddrDistrict(areaItem.getName());
+    				shopAudit.setAddrDistrict(areaItem.getName());
     				break;
     			default:
     				continue;
@@ -141,16 +143,18 @@ public class OrganizationController extends BaseController {
     	if(area.getGrade()>2){
     		switch(area.getGrade()){
 				case 0:
-					organization.setAddrCity("");
-					organization.setAddrDistrict("");
+					shopAudit.setAddrCity("");
+					shopAudit.setAddrDistrict("");
 					break;
 				case 1:
-					organization.setAddrDistrict("");
+					shopAudit.setAddrDistrict("");
 					break;
 				
 			}
     	}
-    	organizationService.update(organization,"nextRollDate","lastPaymentDate","designerId");
+    	shopAudit.setApplicationState(ShopAudit.state.ApplyingOne);
+    	shopAudit.setType(ShopAudit.Type.EDIT);
+    	shopAuditService.save(shopAudit);
         return "redirect:list.jhtml";
     }
     
@@ -184,7 +188,7 @@ public class OrganizationController extends BaseController {
 		
 		model.addAttribute("area",areaService.find(shopAuditService.find(id).getArea()));
 		model.addAttribute("organization", shopAuditService.find(id));
-		model.addAttribute("organizationBefore", organizationService.find(id));
+		model.addAttribute("organizationBefore", organizationService.find(shopAuditService.find(id).getShopId()));
 		model.addAttribute("levels",Organization.Level.values());
 		model.addAttribute("auditAdmin1",adminService.find(shopAuditService.find(id).getAuditAdmin1()));
 		model.addAttribute("auditAdmin2",adminService.find(shopAuditService.find(id).getAuditAdmin2()));

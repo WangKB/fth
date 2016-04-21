@@ -49,7 +49,7 @@
     <a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 编辑门店
 </div>
 <form id="inputForm" action="update.jhtml" method="post">
-    <input type="hidden" name="id" value="${organization.id}" />
+    <input type="hidden" name="shopId" value="${organization.id}" />
     <table class="input">
         <tr>
             <th>

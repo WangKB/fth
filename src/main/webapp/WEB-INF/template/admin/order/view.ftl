@@ -320,7 +320,7 @@ $().ready(function() {
 				${order.mobile}
 			</td>
 			<th>
-				${message("Order.memo")}:
+				备注:
 			</th>
 			<td>
 				<input type='text' class='text' id="remark"  value='${order.remark}'>

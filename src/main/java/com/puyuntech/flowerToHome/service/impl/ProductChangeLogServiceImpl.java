@@ -64,11 +64,16 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 						product.setModifyDate(null);
 						product.setId(null);
 						product.setSn(snDao.generate(Sn.Type.goods));
+						product.setIsMarketable(1);
 						producteDao.persist(product);
 						
 						ProductShop productShop = new ProductShop();
 						productShop.setProductId(product.getId());
-						productShop.setShopId(1);
+						if(productChangeLog.getIsStandard()==1){
+							productShop.setShopId(1);
+						}else{
+							productShop.setShopId(productChangeLog.getShopId());
+						}
 						productShopDao.persist(productShop);
 						
 						productChangeLog.setProductId(product.getId());

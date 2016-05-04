@@ -102,6 +102,7 @@ public class GoodsController extends BaseController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(ModelMap model,Pageable pageable) {
 
+		pageable.getFilters().add(Filter.eq("isList", 1));
 		model.addAttribute("page", productService.findPage(pageable));
 		/**
 		 * 返回模板位置

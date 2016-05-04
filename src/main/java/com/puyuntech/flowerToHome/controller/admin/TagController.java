@@ -1,5 +1,8 @@
 package com.puyuntech.flowerToHome.controller.admin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -7,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.puyuntech.flowerToHome.Filter;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.entity.Tag;
 import com.puyuntech.flowerToHome.service.ProductService;
@@ -48,7 +52,9 @@ public class TagController extends BaseController {
         /**
          * 将数据写入数据模型
          */
-    	model.addAttribute("products",productService.findAll());
+    	List<Filter> filters = new ArrayList<Filter>();
+    	filters.add(Filter.eq("isList", 1));
+    	model.addAttribute("products",productService.findList(null, filters, null));
         return "/admin/tag/add";
     }
     
@@ -58,7 +64,9 @@ public class TagController extends BaseController {
         /**
          * 将数据写入数据模型
          */
-    	model.addAttribute("products",productService.findAll());
+    	List<Filter> filters = new ArrayList<Filter>();
+    	filters.add(Filter.eq("isList", 1));
+    	model.addAttribute("products",productService.findList(null, filters, null));
     	model.addAttribute("tag",tagService.find(id));
         return "/admin/tag/edit";
     }

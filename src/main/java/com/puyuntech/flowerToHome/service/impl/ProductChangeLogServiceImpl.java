@@ -65,6 +65,7 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 						product.setId(null);
 						product.setSn(snDao.generate(Sn.Type.goods));
 						product.setIsMarketable(1);
+						product.setIsList(1);
 						producteDao.persist(product);
 						
 						ProductShop productShop = new ProductShop();
@@ -84,6 +85,7 @@ public class ProductChangeLogServiceImpl extends BaseServiceImpl<ProductChangeLo
 						producteDao.merge(product);
 					}
 				} catch (Exception e) {
+					e.printStackTrace();
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				}
 				update(productChangeLog);

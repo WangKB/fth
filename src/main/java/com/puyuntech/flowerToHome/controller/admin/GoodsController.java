@@ -16,7 +16,6 @@ import com.puyuntech.flowerToHome.Filter;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.Comment;
-import com.puyuntech.flowerToHome.entity.Product;
 import com.puyuntech.flowerToHome.entity.ProductChangeLog;
 import com.puyuntech.flowerToHome.service.AdminService;
 import com.puyuntech.flowerToHome.service.CommentService;

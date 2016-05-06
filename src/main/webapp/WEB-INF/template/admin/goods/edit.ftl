@@ -92,6 +92,7 @@ $().ready(function() {
 				</th>
 				<td>
 					${goods.sn}
+					<input type="hidden" name="sn" value="${goods.sn}" />
 				</td>
 			</tr>
 			<tr>

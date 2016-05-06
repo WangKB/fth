@@ -302,13 +302,15 @@ public class CouponController extends BaseController {
 		List<Product> products = productService.search(keyword, excludes, count);
 		String[] empty ={};
 		for (Product product : products) {
-			Map<String, Object> item = new HashMap<String, Object>();
-			item.put("id", product.getId());
-			item.put("sn", product.getSn());
-			item.put("name", product.getName());
-			item.put("specifications", empty);
-			item.put("url", "");
-			data.add(item);
+			if(product.getIsList()==1){
+				Map<String, Object> item = new HashMap<String, Object>();
+				item.put("id", product.getId());
+				item.put("sn", product.getSn());
+				item.put("name", product.getName());
+				item.put("specifications", empty);
+				item.put("url", "");
+				data.add(item);
+			}
 		}
 		return data;
 	}

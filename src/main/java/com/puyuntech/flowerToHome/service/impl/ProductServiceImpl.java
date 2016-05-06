@@ -46,6 +46,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product, Integer> implem
 		
 		Assert.notNull(product);
 		product.setSn(snDao.generate(Sn.Type.goods));
+		product.setIsList(1);
 		super.save(product);
 		ProductShop productShop = new ProductShop();
 		productShop.setProductId(product.getId());
@@ -67,6 +68,7 @@ public class ProductServiceImpl extends BaseServiceImpl<Product, Integer> implem
 		for(ProductShop productShop:productShopDao.findList(null,null, filters, null)){
 			productShopDao.remove(productShop);
 		}
-		super.delete(product);
+		product.setIsList(0);
+		update(product);
 	}
 }

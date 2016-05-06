@@ -41,9 +41,6 @@ public class TagDetailController extends BaseController {
 	@Resource(name = "tagDetailServiceImpl")
 	private TagDetailService tagDetailService;
     
-    @Resource(name = "productServiceImpl")
-    private ProductService productService;
-    
     @Resource(name = "specificationValueServiceImpl")
 	private SpecificationValueService specificationValueService;
 

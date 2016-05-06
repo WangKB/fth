@@ -27,7 +27,7 @@ $().ready(function() {
 	<div class="breadcrumb">
 		<a href="${base}/admin/common/index.jhtml">${message("admin.breadcrumb.home")}</a> &raquo; 审核列表 <span>(${message("admin.page.total", page.total)})</span>
 	</div>
-	<form id="listForm" action="list.jhtml" method="get">
+	<form id="listForm" action="examine.jhtml" method="get">
 		<div class="bar">
 			<div class="buttonGroup">
 				<a href="javascript:;" id="refreshButton" class="iconButton">

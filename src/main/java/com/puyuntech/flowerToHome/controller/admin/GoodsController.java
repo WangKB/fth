@@ -113,7 +113,6 @@ public class GoodsController extends BaseController {
 	@RequestMapping(value = "/examine", method = RequestMethod.GET)
 	public String examine(ModelMap model,Pageable pageable) {
 
-		pageable.getOrders().add(Order.desc("createDate"));
 		model.addAttribute("page", productChangeLogService.findPage(pageable));
 		return "/admin/goods/examine";
 	}

@@ -58,7 +58,7 @@ public class AreaController extends BaseController {
 		filters.add(Filter.eq("name", area.getName()));
 		filters.add(Filter.eq("grade", area.getGrade()));
 		List<Area> areas =areaService.findList(null, filters, null);
-		if(areas.size()!=0){
+		if(areas.size()>1){
 			areaService.delete(area);
 			addFlashMessage(redirectAttributes, Message.error("同一层级不允许同名地区"));
 			return "redirect:list.jhtml";

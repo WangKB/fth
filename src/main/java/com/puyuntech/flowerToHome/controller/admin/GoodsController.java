@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.puyuntech.flowerToHome.Filter;
+import com.puyuntech.flowerToHome.Order;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.Comment;
@@ -112,6 +113,7 @@ public class GoodsController extends BaseController {
 	@RequestMapping(value = "/examine", method = RequestMethod.GET)
 	public String examine(ModelMap model,Pageable pageable) {
 
+		pageable.getOrders().add(Order.desc("createDate"));
 		model.addAttribute("page", productChangeLogService.findPage(pageable));
 		return "/admin/goods/examine";
 	}

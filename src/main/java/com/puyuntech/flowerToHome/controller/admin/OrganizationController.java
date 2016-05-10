@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.puyuntech.flowerToHome.Order;
 import com.puyuntech.flowerToHome.Pageable;
 import com.puyuntech.flowerToHome.enmu.Message;
 import com.puyuntech.flowerToHome.entity.Area;
@@ -76,6 +77,15 @@ public class OrganizationController extends BaseController {
     	model.addAttribute("levels",Organization.Level.values());
         return "/admin/organization/add";
     }
+    
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public @ResponseBody
+	Message delete(Integer[] ids) {
+
+    	organizationService.delete(ids);
+		return SUCCESS_MESSAGE;
+	}
+	
     
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
     public String edit(Integer id,ModelMap model) {
@@ -198,6 +208,7 @@ public class OrganizationController extends BaseController {
 	@RequestMapping(value = "/examine", method = RequestMethod.GET)
 	public String examine(ModelMap model,Pageable pageable) {
 
+		pageable.getOrders().add(Order.desc("createDate"));
 		model.addAttribute("page", shopAuditService.findPage(pageable));
 		return "/admin/organization/examine";
 	}

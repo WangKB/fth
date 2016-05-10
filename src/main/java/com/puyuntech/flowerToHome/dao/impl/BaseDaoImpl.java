@@ -309,6 +309,7 @@ public abstract class BaseDaoImpl<T extends BaseEntity<ID>, ID extends Serializa
 		}
 		if (orderList.isEmpty()) {
 			if (OrderEntity.class.isAssignableFrom(entityClass)) {
+				orderList.add(criteriaBuilder.desc(getPath(root, OrderEntity.CREATE_DATE_PROPERTY_NAME)));
 				orderList.add(criteriaBuilder.asc(getPath(root, OrderEntity.ORDER_PROPERTY_NAME)));
 			} else {
 				orderList.add(criteriaBuilder.desc(getPath(root, OrderEntity.CREATE_DATE_PROPERTY_NAME)));

@@ -252,7 +252,7 @@ $().ready(function() {
 					商品图片1:
 				</th>
 				<td>
-					<img src='${goods.productImages1}'>
+					<img src='${goods.productImages1}' class='width125'>
 				</td>
 			</tr>
 			<tr>
@@ -260,7 +260,7 @@ $().ready(function() {
 					商品图片2:
 				</th>
 				<td>
-					<img src='${goods.productImages2}'>
+					<img src='${goods.productImages2}' class='width125'>
 				</td>
 			</tr>
 			<tr>
@@ -268,7 +268,7 @@ $().ready(function() {
 					商品图片3:
 				</th>
 				<td>
-					<img src='${goods.productImages3}'>
+					<img src='${goods.productImages3}' class='width125'>
 				</td>
 			</tr>
 			<tr>
@@ -276,7 +276,7 @@ $().ready(function() {
 					商品图片4:
 				</th>
 				<td>
-					<img src='${goods.productImages4}'>
+					<img src='${goods.productImages4}' class='width125'>
 				</td>
 			</tr>
 		</table>

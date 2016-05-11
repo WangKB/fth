@@ -318,7 +318,7 @@ var $inputForm = $("#inputForm");
 					商品图片2:
 				</th>
 				<td>
-					<img src='${goods.productImages2}' class='width75'>
+					<img src='${goods.productImages2}' class='width125'>
 				</td>
 				<td>
 					<img src='${goodsBefore.productImages2}' class='width125'>
@@ -329,7 +329,7 @@ var $inputForm = $("#inputForm");
 					商品图片3:
 				</th>
 				<td>
-					<img src='${goods.productImages3}' class='width75'>
+					<img src='${goods.productImages3}' class='width125'>
 				</td>
 				<td>
 					<img src='${goodsBefore.productImages3}' class='width125'>
@@ -340,7 +340,7 @@ var $inputForm = $("#inputForm");
 					商品图片4:
 				</th>
 				<td>
-					<img src='${goods.productImages4}' class='width75'>
+					<img src='${goods.productImages4}' class='width125'>
 				</td>
 				<td>
 					<img src='${goodsBefore.productImages4}' class='width125'>

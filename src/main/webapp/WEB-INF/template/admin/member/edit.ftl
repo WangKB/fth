@@ -127,6 +127,7 @@ $().ready(function() {
 				<td>
 					<input type="radio" name="gender" value="male" [#if member.gender=='male']checked="checked"[/#if]/>男
 					<input type="radio" name="gender" value="female" [#if member.gender=='female']checked="checked"[/#if]/>女
+					<input type="radio" name="gender" value="unknown"[#if member.gender=='unknown']checked="checked"[/#if]/>未知
 				</td>
 			</tr>
 			<tr>

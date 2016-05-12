@@ -168,6 +168,7 @@ $().ready(function() {
 				<td>
 					<input type="radio" name="gender" value="male"/>男
 					<input type="radio" name="gender" value="female"/>女
+					<input type="radio" name="gender" value="unknown"/>未知
 				</td>
 			</tr>
 			<tr>

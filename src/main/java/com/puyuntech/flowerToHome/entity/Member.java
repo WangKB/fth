@@ -35,12 +35,16 @@ public class Member extends BaseEntity<Integer> {
 	 * 性别
 	 */
 	public enum Gender {
+		
+		/** 未知 */
+		unknown,
 
 		/** 男 */
 		male,
 
 		/** 女 */
 		female
+		
 	}
 
 	/** 用户名 */

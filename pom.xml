@@ -4,8 +4,8 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.puyuntech</groupId>
-	<artifactId>flowerToHome</artifactId>
-	<name>flowerToHome</name>
+	<artifactId>platform</artifactId>
+	<name>platform</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<url>http://maven.apache.org</url>
 	<description>花到家</description>
@@ -83,8 +83,8 @@
 	    <indexBase>c:/WEB-INF/index</indexBase>
 	    <log.home>c:/WEB-INF/log</log.home>
 	    <cache.home>c:/WEB-INF/cache</cache.home>
-	    <!-- <project.info>http://114.55.72.225/flowerToHome/</project.info> -->
-	   	<project.info>http://www.wangkaibin.cn:8080/flowerToHome/</project.info>
+	    <project.info>http://wx.yihaohuapu.cn:8080/platform/</project.info>
+	   	<!-- <project.info>http://www.wangkaibin.cn:8080/flowerToHome/</project.info> -->
 	</properties>
 
 	<dependencies>

@@ -1,4 +1,4 @@
-var prefix="/flowerToHome";
+var prefix="/platform";
 //prefix="";
 
 var puyun = {

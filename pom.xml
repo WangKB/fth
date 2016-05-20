@@ -77,14 +77,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<springframework.version>4.0.9.RELEASE</springframework.version>
 		<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
-	    <jdbc.url>jdbc:mysql://rds73781w2l1r7n527d6.mysql.rds.aliyuncs.com:3306/yhhp</jdbc.url>
-	    <jdbc.username>webuser</jdbc.username>
-	    <jdbc.password>DC5G84EuK6</jdbc.password>
+	    <jdbc.url>jdbc:mysql://localhost:3306/yhhp</jdbc.url>
+	    <jdbc.username>root</jdbc.username>
+	    <jdbc.password>root</jdbc.password>
 	    <indexBase>c:/WEB-INF/index</indexBase>
 	    <log.home>c:/WEB-INF/log</log.home>
 	    <cache.home>c:/WEB-INF/cache</cache.home>
-	    <project.info>http://wx.yihaohuapu.cn:8080/platform/</project.info>
-	   	<!-- <project.info>http://www.wangkaibin.cn:8080/flowerToHome/</project.info> -->
+	   	<project.info>http://www.wangkaibin.cn:8080/flowerToHome/</project.info>
 	</properties>
 
 	<dependencies>
